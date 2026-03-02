@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-LOOP - Pitch Deck 2026 - Italiano</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100vh;
+            page-break-after: always;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 80px;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+
+        .slide.dark {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+        }
+
+        .slide.dark h1,
+        .slide.dark h2 {
+            color: white;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-size: 14px;
+            color: #999;
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1e3a8a;
+        }
+
+        h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #1e3a8a;
+        }
+
+        h3 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #3b82f6;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 28px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .slide.dark .subtitle {
+            color: #e0e7ff;
+        }
+
+        .content-wrapper {
+            width: 100%;
+            max-width: 1000px;
+            text-align: left;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .metric {
+            display: inline-block;
+            background: #f0f4ff;
+            padding: 20px 30px;
+            margin: 15px 20px 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .metric-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1e3a8a;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .three-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .column-box {
+            background: #f9fafb;
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 4px solid #3b82f6;
+        }
+
+        .column-box h3 {
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .column-box p {
+            font-size: 16px;
+        }
+
+        .column-box ul {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+
+        .column-box li {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .emoji {
+            font-size: 32px;
+            margin-right: 10px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+            font-size: 15px;
+        }
+
+        .comparison-table th {
+            background: #1e3a8a;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f9fafb;
+        }
+
+        .comparison-table tr:hover {
+            background: #eff6ff;
+        }
+
+        .highlight {
+            background: #fef3c7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .checkmark {
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .timeline {
+            margin-top: 30px;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 25px;
+            gap: 20px;
+        }
+
+        .timeline-marker {
+            min-width: 120px;
+            font-weight: 600;
+            color: #3b82f6;
+            font-size: 16px;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding-left: 20px;
+            border-left: 2px solid #3b82f6;
+        }
+
+        .timeline-content h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+
+        .timeline-content li {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 5px;
+        }
+
+        .chart-container {
+            background: #f9fafb;
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            margin-bottom: 30px;
+        }
+
+        .team-member h4 {
+            color: #1e3a8a;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .team-member .role {
+            color: #3b82f6;
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        .team-member ul {
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        .team-member li {
+            line-height: 1.6;
+            margin-bottom: 5px;
+        }
+
+        .highlight-box {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: #1e3a8a;
+            font-weight: 500;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .slide {
+                page-break-after: always;
+                box-shadow: none;
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: COVER -->
+<div class="slide dark center">
+    <div class="content-wrapper">
+        <h1 style="color: white; font-size: 72px; margin-bottom: 30px;">D-LOOP</h1>
+        <p class="subtitle" style="color: #e0e7ff;">Piattaforma Marketplace Tri-Sided Powered by AI</p>
+        <p style="color: #cffafe; font-size: 24px; margin-bottom: 60px;">Personal Shopper + SaaS + Rete di Consegna</p>
+
+        <div style="margin-top: 80px; color: #cffafe; font-size: 16px;">
+            <p>🎯 Marketplace Ricambi Auto Aftermarket</p>
+            <p>📱 WhatsApp Bot + PWA + Dashboard SaaS</p>
+            <p>🚀 Break-even in 5-7 mesi</p>
+        </div>
+
+        <div style="margin-top: 100px; font-size: 14px; color: #94a3b8;">
+            <p>[RISERVATO]</p>
+            <p>Pitch Deck - Marzo 2026</p>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 2: ECOSISTEMA -->
+<div class="slide">
+    <div class="content-wrapper">
+        <h2>Ecosistema D-LOOP</h2>
+        <p style="font-size: 18px; color: #666; margin-bottom: 40px;">Piattaforma a 3 Strati: Cliente → SaaS → Marketplace</p>
+
+        <div class="three-columns">
+            <div class="column-box">
+                <h3>👥 Strato 1: Cliente</h3>
+                <p><strong>WhatsApp Bot</strong></p>
+                <ul>
+                    <li>AI conversazione (GPT-4)</li>
+                    <li>Risposta in 2 secondi</li>
+                    <li>Pagamenti integrati</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>App PWA</strong></p>
+                <ul>
+                    <li>Tracciamento ordini</li>
+                    <li>Preferenze salvate</li>
+                    <li>Notifiche push</li>
+                </ul>
+            </div>
+
+            <div class="column-box">
+                <h3>📊 Strato 2: SaaS B2B</h3>
+                <p><strong>Dashboard Esercente</strong></p>
+                <ul>
+                    <li>Ordini in tempo reale</li>
+                    <li>Sincronizzazione inventario</li>
+                    <li>Analytics e insights</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>Dashboard Rider</strong></p>
+                <ul>
+                    <li>Consegne disponibili</li>
+                    <li>Tracciamento guadagni</li>
+                    <li>Gamification (XP, badge)</li>
+                </ul>
+            </div>
+
+            <div class="column-box">
+                <h3>⚙️ Strato 3: Infrastruttura</h3>
+                <p><strong>Core Marketplace</strong></p>
+                <ul>
+                    <li>Matching ordini</li>
+                    <li>Elaborazione pagamenti</li>
+                    <li>Ottimizzazione logistica</li>
+                    <li>Analytics in tempo reale</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="slide-number">2</div>
+</div>
+
+<!-- SLIDE 3: IL PROBLEMA -->
+<div class="slide">
+    <div class="content-wrapper">
+        <h2>Il Problema: 3 Sistemi Rotti</h2>
+
+        <div class="three-columns" style="margin-top: 50px;">
+            <div class="column-box">
+                <h3>👥 Per i Clienti</h3>
+                <p><strong>Dolore:</strong> "Ho bisogno di ricambi ADESSO"</p>
+                <ul>
+                    <li>❌ 30min-2h per un preventivo</li>
+                    <li>❌ Chiamare 10+ negozi</li>
+                    <li>❌ Ricarichi costosi</li>
+                    <li>❌ Nessun confronto istantaneo</li>
+                </ul>
+                <p style="margin-top: 15px; color: #ef4444; font-weight: 600;">Risultato: 40% ordini persi</p>
+            </div>
+
+            <div class="column-box">
+                <h3>📦 Per gli Esercenti</h3>
+                <p><strong>Dolore:</strong> "Ordini WhatsApp manuali"</p>
+                <ul>
+                    <li>❌ 3-4 ore/giorno elaborazione</li>
+                    <li>❌ 40% ordini persi per ritardi</li>
+                    <li>❌ Mismatch inventario</li>
+                    <li>❌ Zero dati/insights</li>
+                </ul>
+                <p style="margin-top: 15px; color: #ef4444; font-weight: 600;">Costo: €27K/anno su Glovo</p>
+            </div>
+
+            <div class="column-box">
+                <h3>🚴 Per i Rider</h3>
+                <p><strong>Dolore:</strong> "Paga bassa, rischio alto"</p>
+                <ul>
+                    <li>❌ €3-5 netti per consegna</li>
+                    <li>❌ 20% commissione trattenuta</li>
+                    <li>❌ Niente assicurazione/benefit</li>
+                    <li>❌ Rischio legale (corti EU)</li>
+                </ul>
+                <p style="margin-top: 15px; color: #ef4444; font-weight: 600;">Risultato: Burnout, turnover</p>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 50px;">
+            <p>📍 MERCATO: Italia €15B + Europa €100B ricambi auto<br>
+               ✅ 78% preferisce WhatsApp per ordinare</p>
+        </div>
+    </div>
+    <div class="slide-number">3</div>
+</div>
+
+<!-- SLIDE 4: LA SOLUZIONE -->
+<div class="slide">
+    <div class="content-wrapper">
+        <h2>La Soluzione: Win-Win-Win</h2>
+
+        <div class="three-columns" style="margin-top: 40px;">
+            <div class="column-box" style="background: #ecfdf5; border-top-color: #10b981;">
+                <h3 style="color: #10b981;">👥 Per i Clienti</h3>
+                <ul>
+                    <li>✅ Risposta in <strong>2 secondi</strong></li>
+                    <li>✅ Confronto prezzi istantaneo</li>
+                    <li>✅ Pagamento su WhatsApp</li>
+                    <li>✅ Tracciamento in tempo reale</li>
+                </ul>
+                <p style="margin-top: 15px; font-weight: 600; color: #10b981;">Risultato: Risparmio 20-35%</p>
+            </div>
+
+            <div class="column-box" style="background: #ecfdf5; border-top-color: #10b981;">
+                <h3 style="color: #10b981;">📦 Per gli Esercenti</h3>
+                <ul>
+                    <li>✅ <strong>€79-149/mese</strong> (vs €27K/anno)</li>
+                    <li>✅ Risparmio 96.5% vs Glovo</li>
+                    <li>✅ Ordini auto-elaborati</li>
+                    <li>✅ Analytics aziendali</li>
+                </ul>
+                <p style="margin-top: 15px; font-weight: 600; color: #10b981;">Risultato: €26K risparmiati/anno</p>
+            </div>
+
+            <div class="column-box" style="background: #ecfdf5; border-top-color: #10b981;">
+                <h3 style="color: #10b981;">🚴 Per i Rider</h3>
+                <ul>
+                    <li>✅ Piattaforma <strong>GRATIS</strong> (0% commissione)</li>
+                    <li>✅ 100% del compenso</li>
+                    <li>✅ Assicurazione inclusa (premium)</li>
+                    <li>✅ Gamification e comunità</li>
+                </ul>
+                <p style="margin-top: 15px; font-weight: 600; color: #10b981;">Risultato: Guadagni equi</p>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 40px; background: #eff6ff; border-left-color: #3b82f6;">
+            <p><strong>INSIGHT CHIAVE:</strong> Modello basato su BlaBlaCar (cost-sharing) NON gig economy<br>
+               → Economica sostenibile + sicurezza legale + margini alti</p>
+        </div>
+    </div>
+    <div class="slide-number">4</div>
+</div>
+
+<!-- SLIDE 5: VALIDAZIONE MERCATO -->
+<div class="slide">
+    <div class="content-wrapper">
+        <h2>Validazione di Mercato</h2>
+        <p style="color: #666; margin-bottom: 40px;">Dati reali da programma pilota (8 esercenti, 2 settimane)</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px;">
+            <div class="metric" style="font-size: 18px; padding: 25px;">
+                <span class="metric-value" style="font-size: 48px;">340+</span>
+                <span class="metric-label">Richieste esercenti (2 settimane)</span>
+            </div>
+            <div class="metric" style="font-size: 18px; padding: 25px;">
+                <span class="metric-value" style="font-size: 48px;">95%</span>
+                <span class="metric-label">Tasso accettazione feature</span>
+            </div>
+            <div class="metric" style="font-size: 18px; padding: 25px;">
+                <span class="metric-value" style="font-size: 48px;">72</span>
+                <span class="metric-label">NPS (vs 45 media industria)</span>
+            </div>
+            <div class="metric" style="font-size: 18px; padding: 25px;">
+                <span class="metric-value" style="font-size: 48px;">60%</span>
+                <span class="metric-label">Conversione trial to paid</span>
+            </div>
+        </div>
+
+        <div style="margin-top: 50px; background: #f9fafb; padding: 25px; border-radius: 8px;">
+            <h3 style="font-size: 22px; margin-bottom: 15px;">Feedback Clienti</h3>
+            <p style="margin-bottom: 10px;"><em>"Ridotto tempo elaborazione ordini di 4 ore/giorno"</em> - Carlo M., Milano</p>
+            <p style="margin-bottom: 10px;"><em>"I clienti amano ordinare via WhatsApp"</em> - Giuseppe P., Napoli</p>
+            <p><em>"Zero learning curve, funziona subito"</em> - Anna B., Bologna</p>
+        </div>
+    </div>
+    <div class="slide-number">5</div>
+</div>
+
+<!-- SLIDE 6: MODELLO FINANZIARIO -->
+<div class="slide">
+    <div class="content-wrapper">
+        <h2>Proiezioni Finanziarie (12 Mesi)</h2>
+
+        <div class="two-columns" style="margin-top: 40px;">
+            <div>
+                <h3 style="font-size: 24px; margin-bottom: 20px;">Assunzioni Chiave</h3>
+                <div style="background: #f9fafb; padding: 20px; border-radius: 8px; font-size: 15px;">
+                    <p><strong>Valore ordine medio:</strong> €25</p>
+                    <p><strong>Service fee:</strong> €0.99</p>
+                    <p><strong>Fee consegna:</strong> €0.50</p>
+                    <p><strong>Revenue per ordine:</strong> €1.56</p>
+                    <p style="margin-top: 15px; border-top: 1px solid #e5e7eb; padding-top: 15px;">
+                        <strong>Costo variabile:</strong> €0.55<br>
+                        <strong>Margine lordo:</strong> €1.01 (64.7%)
+                    </p>
+                    <p style="margin-top: 15px; border-top: 1px solid #e5e7eb; padding-top: 15px;">
+                        <strong>Costi fissi:</strong> €5.000/mese<br>
+                        <strong>Break-even:</strong> 4.951 ordini/mese
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="font-size: 24px; margin-bottom: 20px;">Crescita Mensile</h3>
+                <table style="width: 100%; font-size: 14px; border-collapse: collapse;">
+                    <tr style="background: #1e3a8a; color: white;">
+                        <th style="padding: 10px; text-align: left;">Periodo</th>
+                        <th style="padding: 10px; text-align: right;">MRR</th>
+                        <th style="padding: 10px; text-align: right;">Margine</th>
+                    </tr>
+                    <tr style="background: #f9fafb;">
+                        <td style="padding: 10px;">Mese 1-2</td>
+                        <td style="padding: 10px; text-align: right;">€945</td>
+                        <td style="padding: 10px; text-align: right;">-€4.4K</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;">Mese 3-4</td>
+                        <td style="padding: 10px; text-align: right;">€6.1K</td>
+                        <td style="padding: 10px; text-align: right;">€718 ✓</td>
+                    </tr>
+                    <tr style="background: #f9fafb;">
+                        <td style="padding: 10px;"><strong>Mese 5-6 🎯</strong></td>
+                        <td style="padding: 10px; text-align: right;"><strong>€12.5K</strong></td>
+                        <td style="padding: 10px; text-align: right;"><strong>€2.9K</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;">Mese 12</td>
+                        <td style="padding: 10px; text-align: right;">€33.2K</td>
+                        <td style="padding: 10px; text-align: right;">€15.9K (47.8%)</td>
+                    </tr>
+                </table>
+                <p style="margin-top: 20px; font-size: 14px; color: #10b981; font-weight: 600;">
+                    ✅ Break-even entro Mese 5-6<br>
+                    ✅ ARR Anno 1: €189K
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-number">6</div>
+</div>
+
+<!-- SLIDE 7: ROADMAP BREAK-EVEN -->
+<div class="slide">
+    <div class="content-wrapper">
+        <h2>Percorso verso Break-Even e Profittabilità</h2>
+
+        <div class="timeline" style="margin-top: 40px;">
+            <div class="timeline-item">
+                <div class="timeline-marker">📱 Mese 1-2</div>
+                <div class="timeline-content">
+                    <h4>Launch & Trazione</h4>
+                    <p><strong>Target:</strong> 10-15 esercenti | 30-50 rider | 1K ordini</p>
+                    <ul>
+                        <li>MVP launch, partnership locali</li>
+                        <li>Onboarding gratuito, referral rider-to-rider</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">📈 Mese 3-4</div>
+                <div class="timeline-content">
+                    <h4>Accelerazione Crescita</h4>
+                    <p><strong>Target:</strong> 25-40 esercenti | 100-150 rider | 4K ordini</p>
+                    <ul>
+                        <li>Primo upsell tier Business</li>
+                        <li>Launch Rider Premium, PR locale</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">🎯 Mese 5-6</div>
+                <div class="timeline-content">
+                    <h4>BREAK-EVEN ✅</h4>
+                    <p><strong>Target:</strong> 50-70 esercenti | 200-300 rider | 9K ordini</p>
+                    <ul>
+                        <li>Mix Starter/Business attivo</li>
+                        <li>Costi fissi completamente coperti</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">🚀 Mese 7-12</div>
+                <div class="timeline-content">
+                    <h4>Scaling & Multi-città</h4>
+                    <p><strong>Target:</strong> 150+ esercenti | 800+ rider | 25K ordini/mese</p>
+                    <ul>
+                        <li>Espansione 3-5 città in Italia</li>
+                        <li>Enterprise tier, profitto crescente</li>
+                        <li>Serie A ready (€189K ARR)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-number">7</div>
+</div>
+
+<!-- SLIDE 8: VANTAGGIO COMPETITIVO -->
+<div class="slide">
+    <div class="content-wrapper">
+        <h2>Perché D-LOOP Vince</h2>
+        <p style="color: #666; margin-bottom: 30px;">vs Glovo, Deliveroo e piattaforme tradizionali</p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Metrica</th>
+                    <th>D-LOOP</th>
+                    <th>GLOVO</th>
+                    <th>DELIVEROO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Costo Esercente/Mese</strong></td>
+                    <td><span class="checkmark">€79-149</span></td>
+                    <td>€5.000-6.000</td>
+                    <td>€4.000-5.000</td>
+                </tr>
+                <tr>
+                    <td><strong>Risparmio</strong></td>
+                    <td><span class="checkmark">✅ 96.5%</span></td>
+                    <td>baseline</td>
+                    <td>baseline</td>
+                </tr>
+                <tr>
+                    <td><strong>Compenso Rider</strong></td>
+                    <td><span class="checkmark">100%</span></td>
+                    <td>80% (20% trattenuto)</td>
+                    <td>80% (20% trattenuto)</td>
+                </tr>
+                <tr>
+                    <td><strong>Rischio Legale</strong></td>
+                    <td><span class="checkmark">🟢 BASSO</span></td>
+                    <td>🔴 ALTO</td>
+                    <td>🔴 ALTO</td>
+                </tr>
+                <tr>
+                    <td><strong>Margini Lordi</strong></td>
+                    <td><span class="checkmark">64.7%</span></td>
+                    <td>~10%</td>
+                    <td>~8%</td>
+                </tr>
+                <tr>
+                    <td><strong>Break-even</strong></td>
+                    <td><span class="checkmark">5-7 mesi</span></td>
+                    <td>Non profittevole</td>
+                    <td>Non profittevole</td>
+                </tr>
+                <tr>
+                    <td><strong>Profittabilità</strong></td>
+                    <td><span class="checkmark">47.8% entro anno 1</span></td>
+                    <td>Negativa</td>
+                    <td>Negativa</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box" style="margin-top: 30px;">
+            <p><strong>🔑 Differenza chiave:</strong> Modello BlaBlaCar (cost-sharing) vs gig economy<br>
+               → Economica sostenibile, sicurezza legale, rider felici</p>
+        </div>
+    </div>
+    <div class="slide-number">8</div>
+</div>
+
+<!-- SLIDE 9: GO-TO-MARKET -->
+<div class="slide">
+    <div class="content-wrapper">
+        <h2>Strategia Go-to-Market</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker">📱 Q2 2026</div>
+                <div class="timeline-content">
+                    <h4>Programma Pilota (Mesi 1-3)</h4>
+                    <ul>
+                        <li>Focus città singola (Milano/Roma)</li>
+                        <li>10-15 partnership esercenti</li>
+                        <li>30-50 early adopter rider</li>
+                        <li>Onboarding gratuito, raccolta feedback</li>
+                        <li><strong>Obiettivo:</strong> NPS 70+, 10% conversione</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">📈 Q3 2026</div>
+                <div class="timeline-content">
+                    <h4>Acquisizione Pagata (Mesi 4-6)</h4>
+                    <ul>
+                        <li>LinkedIn ads + outreach freddo esercenti</li>
+                        <li>Associazioni esercenti (Confcommercio)</li>
+                        <li>Case study & testimonial</li>
+                        <li>Viralità gamification rider</li>
+                        <li><strong>Obiettivo:</strong> 50-70 esercenti, break-even</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker">🚀 Q4 2026</div>
+                <div class="timeline-content">
+                    <h4>Scaling Multi-Città</h4>
+                    <ul>
+                        <li>Espansione a 3-5 città in Italia</li>
+                        <li>Assunzione sales team (SDRs, Account Manager)</li>
+                        <li>Launch tier Enterprise</li>
+                        <li>Partnership integrazioni</li>
+                        <li><strong>Obiettivo:</strong> 150+ esercenti, €189K ARR, Serie A ready</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 40px;">
+            <p><strong>📊 Unit Economics:</strong> CAC €200-300 | LTV €1.892 (€79×24mesi) | LTV:CAC ratio 6-9:1 ✅</p>
+        </div>
+    </div>
+    <div class="slide-number">9</div>
+</div>
+
+<!-- SLIDE 10: FINANZIAMENTO & USO FONDI -->
+<div class="slide">
+    <div class="content-wrapper">
+        <h2>Opportunità di Investimento</h2>
+
+        <div class="two-columns" style="margin-top: 40px;">
+            <div style="background: #eff6ff; padding: 30px; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                <h3 style="font-size: 28px; color: #1e3a8a; margin-bottom: 20px;">Ricerca</h3>
+                <p style="font-size: 24px; font-weight: 700; color: #3b82f6;">€500.000</p>
+                <p style="font-size: 18px; color: #666; margin: 15px 0;">Seed Round</p>
+
+                <div style="margin-top: 30px; border-top: 1px solid #bfdbfe; padding-top: 20px;">
+                    <p><strong>Valutazione:</strong> €3M (pre-money)</p>
+                    <p><strong>Timeline:</strong> Aprile 2026 chiusura</p>
+                    <p><strong>Uso:</strong> Prodotto, sales, scaling</p>
+                </div>
+            </div>
+
+            <div style="background: #f9fafb; padding: 30px; border-radius: 8px;">
+                <h3 style="font-size: 24px; color: #1e3a8a; margin-bottom: 25px;">Utilizzo Fondi</h3>
+                <div style="margin-bottom: 15px;">
+                    <p style="font-weight: 600; color: #3b82f6; margin-bottom: 5px;">35% Prodotto (€175K)</p>
+                    <p style="font-size: 14px; color: #666;">App mobile, AI, integrazioni, sicurezza</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p style="font-weight: 600; color: #3b82f6; margin-bottom: 5px;">40% Sales & Marketing (€200K)</p>
+                    <p style="font-size: 14px; color: #666;">Team, campagne, contenuti, eventi</p>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <p style="font-weight: 600; color: #3b82f6; margin-bottom: 5px;">15% Operazioni (€75K)</p>
+                    <p style="font-size: 14px; color: #666;">Infrastruttura cloud, compliance, pagamenti</p>
+                </div>
+                <div>
+                    <p style="font-weight: 600; color: #3b82f6; margin-bottom: 5px;">10% Buffer (€50K)</p>
+                    <p style="font-size: 14px; color: #666;">Contingenza e opportunità</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 40px;">
+            <p><strong>Roadmap Finanziaria:</strong><br>
+               Anno 1: €189K ARR, break-even raggiunto<br>
+               Anno 2: €3.5M ARR, Serie A €2-3M @ €20M valutazione<br>
+               Anno 3+: Espansione europea, profittabilità</p>
+        </div>
+    </div>
+    <div class="slide-number">10</div>
+</div>
+
+<!-- SLIDE 11: TEAM -->
+<div class="slide">
+    <div class="content-wrapper">
+        <h2>Team Fondatore</h2>
+
+        <div class="two-columns" style="margin-top: 40px;">
+            <div>
+                <div class="team-member">
+                    <h4>👨‍💼 CEO & Founder</h4>
+                    <p class="role">[Your Name]</p>
+                    <ul>
+                        <li>10+ anni B2B SaaS</li>
+                        <li>Founder/exit precedente (2023)</li>
+                        <li>Expertise ricambi auto aftermarket</li>
+                        <li>Rete relazioni esercenti</li>
+                    </ul>
+                </div>
+
+                <div class="team-member">
+                    <h4>👨‍💻 CTO & Co-Founder</h4>
+                    <p class="role">[Tech Lead]</p>
+                    <ul>
+                        <li>12+ anni full-stack engineer</li>
+                        <li>AI/ML, architettura scalabile</li>
+                        <li>TypeScript, React, Node.js, Python</li>
+                        <li>AWS, infrastruttura cloud</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div class="team-member">
+                    <h4>👩‍💼 VP Sales</h4>
+                    <p class="role">[Sales Lead]</p>
+                    <ul>
+                        <li>7 anni B2B enterprise sales</li>
+                        <li>€3M+ ARR generati</li>
+                        <li>Relazioni associazioni esercenti</li>
+                        <li>Expertise mercato italiano</li>
+                    </ul>
+                </div>
+
+                <div class="team-member">
+                    <h4>🎓 Advisory Board</h4>
+                    <p class="role">Advisor chiave</p>
+                    <ul>
+                        <li>Ex CEO grande catena esercenti</li>
+                        <li>Veterano industria auto</li>
+                        <li>Expert compliance EU</li>
+                        <li>Prof AI/ML università</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 40px;">
+            <p><strong>Piano assunzioni (Anno 1):</strong> +1 senior engineer, +2 SDRs, +1 PM, +1 CSM<br>
+               → 8 persone totali entro fine 2026</p>
+        </div>
+    </div>
+    <div class="slide-number">11</div>
+</div>
+
+<!-- SLIDE 12: PROSSIMI STEP -->
+<div class="slide dark center">
+    <div class="content-wrapper">
+        <h2 style="color: white; font-size: 48px;">Pronti a Scalare?</h2>
+        <p class="subtitle" style="color: #cffafe; font-size: 24px; margin: 30px 0;">Costruiamo il futuro del commercio locale</p>
+
+        <div class="timeline" style="margin-top: 60px;">
+            <div class="timeline-item">
+                <div class="timeline-marker" style="color: #60a5fa;">📋 Settimana 1</div>
+                <div class="timeline-content">
+                    <h4 style="color: white;">Due Diligence</h4>
+                    <p style="color: #e0e7ff;">Modelli finanziari, architettura tech, legal review</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker" style="color: #60a5fa;">🚀 Settimane 2-3</div>
+                <div class="timeline-content">
+                    <h4 style="color: white;">Deep Dive & Demo</h4>
+                    <p style="color: #e0e7ff;">Walkthrough prodotto, riferimenti clienti, piano scaling</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker" style="color: #60a5fa;">✍️ Settimana 4</div>
+                <div class="timeline-content">
+                    <h4 style="color: white;">Term Sheet & Chiusura</h4>
+                    <p style="color: #e0e7ff;">Accordo investimento, setup board, disbursamento fondi</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 80px; background: rgba(255,255,255,0.1); padding: 30px; border-radius: 8px;">
+            <p style="color: #cffafe; font-size: 18px; margin: 10px 0;">📧 Contatti: [email]</p>
+            <p style="color: #cffafe; font-size: 18px; margin: 10px 0;">🌐 Website: [website]</p>
+            <p style="color: #cffafe; font-size: 18px; margin: 10px 0;">📱 Live Demo: [demo link]</p>
+        </div>
+
+        <p style="color: #94a3b8; margin-top: 60px; font-size: 16px;">
+            "Connettendo esercenti e clienti in tempo reale.<br>
+            Powered by AI. Costruito con intento."
+        </p>
+    </div>
+    <div class="slide-number">12</div>
+</div>
+
+</body>
+</html>
