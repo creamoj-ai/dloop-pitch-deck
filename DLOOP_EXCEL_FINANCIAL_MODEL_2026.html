@@ -61,11 +61,13 @@
     <button class="tab-button active" onclick="switchTab('riepilogo')">📊 Riepilogo</button>
     <button class="tab-button" onclick="switchTab('unit-economics')">💰 Unit Economics</button>
     <button class="tab-button" onclick="switchTab('proiezione-12m')">📈 Proiezione 12M</button>
-    <button class="tab-button" onclick="switchTab('competitiva')">⚔️ Analisi Competitiva</button>
+    <button class="tab-button" onclick="switchTab('competitiva')">⚔️ Competitiva</button>
     <button class="tab-button" onclick="switchTab('rider-economics')">🏍️ Rider Economics</button>
-    <button class="tab-button" onclick="switchTab('funding')">💸 Funding Breakdown</button>
-    <button class="tab-button" onclick="switchTab('metriche')">🎯 Metriche Chiave</button>
-    <button class="tab-button" onclick="switchTab('fonti')">📚 Fonti & Assunzioni</button>
+    <button class="tab-button" onclick="switchTab('opex')">📋 OpEx Dettagliato</button>
+    <button class="tab-button" onclick="switchTab('grafici')">📊 Grafici</button>
+    <button class="tab-button" onclick="switchTab('funding')">💸 Funding</button>
+    <button class="tab-button" onclick="switchTab('metriche')">🎯 Metriche</button>
+    <button class="tab-button" onclick="switchTab('fonti')">📚 Fonti</button>
 </div>
 
 <div class="container">
@@ -887,7 +889,319 @@
     <div class="footer">⚠️ DISCLAIMER: Rider tariffe sono completamente indipendenti da DLOOP revenue. 100% della tariffa rider va al rider. DLOOP non prende commissione sulle consegne (0% take-rate su rider). Questo è un vero MARKETPLACE model, non un competitor take-rate model.</div>
 </div>
 
-<!-- SHEET 6: FUNDING BREAKDOWN -->
+<!-- SHEET 6: OpEx DETTAGLIATO -->
+<div id="opex" class="sheet">
+    <h2>📋 OpEx DETTAGLIATO (€13.900/mese breakdown)</h2>
+
+    <h3>💼 Allocazione OpEx Mensile</h3>
+    <table>
+        <tr>
+            <th>Categoria</th>
+            <th class="number">Importo</th>
+            <th class="number">% OpEx</th>
+            <th>Team/Dettagli</th>
+            <th>Descrizione</th>
+        </tr>
+        <tr style="background: #e3f2fd;">
+            <td><strong>Team & Salari (4 FTE)</strong></td>
+            <td class="number currency"><strong>€12.000,00</strong></td>
+            <td class="number"><strong>86%</strong></td>
+            <td colspan="2"><strong>Costo più grande: persone</strong></td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;• CEO/Founder</td>
+            <td class="number currency">€4.000,00</td>
+            <td class="number">29%</td>
+            <td>1 FTE</td>
+            <td>Gestione, fundraising, vision</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;• CTO/Tech Lead</td>
+            <td class="number currency">€4.000,00</td>
+            <td class="number">29%</td>
+            <td>1 FTE</td>
+            <td>Development, architecture, DevOps</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;• Sales & BD</td>
+            <td class="number currency">€2.500,00</td>
+            <td class="number">18%</td>
+            <td>1 FTE</td>
+            <td>Dealer onboarding, partnerships</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;• Operations & CS</td>
+            <td class="number currency">€1.500,00</td>
+            <td class="number">11%</td>
+            <td>1 FTE</td>
+            <td>Customer support, admin, legal</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+            <td><strong>Infrastructure & Cloud</strong></td>
+            <td class="number currency"><strong>€1.200,00</strong></td>
+            <td class="number"><strong>9%</strong></td>
+            <td colspan="2">Hosting, database, APIs, monitoring</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;• Supabase Pro</td>
+            <td class="number currency">€300,00</td>
+            <td class="number">2%</td>
+            <td>Database + Auth</td>
+            <td>€25/mese + usage overage</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;• Vercel / Hosting</td>
+            <td class="number currency">€400,00</td>
+            <td class="number">3%</td>
+            <td>PWA + Landing</td>
+            <td>Frontend hosting, CDN, analytics</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;• Stripe + Payment</td>
+            <td class="number currency">€300,00</td>
+            <td class="number">2%</td>
+            <td>Payment gateway</td>
+            <td>Processing fees + payout infrastructure</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;• WhatsApp API + Twilio</td>
+            <td class="number currency">€200,00</td>
+            <td class="number">1%</td>
+            <td>Bot infrastructure</td>
+            <td>Message volume, failover capability</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+            <td><strong>Operating Costs</strong></td>
+            <td class="number currency"><strong>€400,00</strong></td>
+            <td class="number"><strong>3%</strong></td>
+            <td colspan="2">Utilities, office, software</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;• Office / Workspace</td>
+            <td class="number currency">€200,00</td>
+            <td class="number">1%</td>
+            <td>Coworking / Home office</td>
+            <td>Minimal setup, focus on remote</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;• Software Licenses & Tools</td>
+            <td class="number currency">€200,00</td>
+            <td class="number">1%</td>
+            <td>Slack, GitHub, Notion, etc.</td>
+            <td>Collaboration + dev tools</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+            <td><strong>Marketing & CAC</strong></td>
+            <td class="number currency"><strong>€300,00</strong></td>
+            <td class="number"><strong>2%</strong></td>
+            <td colspan="2">Organic + word-of-mouth first</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;• Digital Marketing</td>
+            <td class="number currency">€200,00</td>
+            <td class="number">1%</td>
+            <td>Google Ads, FB Ads (minimal)</td>
+            <td>Test + optimize as we scale</td>
+        </tr>
+        <tr>
+            <td>&nbsp;&nbsp;• Events & Networking</td>
+            <td class="number currency">€100,00</td>
+            <td class="number">1%</td>
+            <td>Startup events, dealer meetups</td>
+            <td>Community building, partnerships</td>
+        </tr>
+        <tr class="total" style="background: #fce4ec;">
+            <td><strong>TOTAL OpEx MENSILE</strong></td>
+            <td class="number currency highlight"><strong>€13.900,00</strong></td>
+            <td class="number"><strong>100%</strong></td>
+            <td colspan="2"><strong>4 FTE + infra + ops</strong></td>
+        </tr>
+    </table>
+
+    <h3>📊 OpEx Progression (M1 → M12)</h3>
+    <table>
+        <tr>
+            <th>Mese</th>
+            <th class="number">Team Costo</th>
+            <th class="number">Infra Costo</th>
+            <th class="number">Ops Costo</th>
+            <th class="number">TOTAL OpEx</th>
+            <th>Note</th>
+        </tr>
+        <tr>
+            <td>M1-M3</td>
+            <td class="number currency">€12.000</td>
+            <td class="number currency">€1.000</td>
+            <td class="number currency">€900</td>
+            <td class="number currency">€13.900</td>
+            <td>Lean team, minimal infra</td>
+        </tr>
+        <tr>
+            <td>M4-M6</td>
+            <td class="number currency">€12.500</td>
+            <td class="number currency">€1.200</td>
+            <td class="number currency">€1.000</td>
+            <td class="number currency">€14.700</td>
+            <td>+1 junior eng/support</td>
+        </tr>
+        <tr>
+            <td>M7-M9</td>
+            <td class="number currency">€13.500</td>
+            <td class="number currency">€1.500</td>
+            <td class="number currency">€1.200</td>
+            <td class="number currency">€16.200</td>
+            <td>Scale ops + marketing</td>
+        </tr>
+        <tr>
+            <td>M10-M12</td>
+            <td class="number currency">€14.500</td>
+            <td class="number currency">€1.800</td>
+            <td class="number currency">€1.500</td>
+            <td class="number currency">€17.800</td>
+            <td>Pre-Series A team</td>
+        </tr>
+    </table>
+
+    <div class="footer">OpEx è controllato dalla crescita. Scalabile per server/infrastructure, ma team rimane core e stabile fino a M11 break-even.</div>
+</div>
+
+<!-- SHEET 7: GRAFICI & VISUALIZZAZIONI -->
+<div id="grafici" class="sheet">
+    <h2>📊 GRAFICI & VISUALIZZAZIONI</h2>
+
+    <h3>📈 Unit Economics (Margine di Contribuzione)</h3>
+    <div style="display: flex; gap: 40px; align-items: center; margin: 20px 0;">
+        <!-- Pie Chart SVG -->
+        <svg width="200" height="200" viewBox="0 0 200 200" style="flex-shrink: 0;">
+            <!-- Revenue (€2,07) - 73% of circle -->
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#4CAF50" stroke-width="50" stroke-dasharray="368 503" stroke-dashoffset="0" stroke-linecap="round"/>
+            <!-- Costs (€0,55) - 27% of circle -->
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#FF5722" stroke-width="50" stroke-dasharray="135 503" stroke-dashoffset="-368" stroke-linecap="round"/>
+            <text x="100" y="105" text-anchor="middle" font-size="20" font-weight="bold" fill="#333">73%</text>
+            <text x="100" y="125" text-anchor="middle" font-size="12" fill="#666">Margine</text>
+        </svg>
+        <div>
+            <h4 style="margin-top: 0;">Breakdown per Ordine:</h4>
+            <div style="margin: 10px 0; padding: 10px; background: #e8f5e9; border-left: 4px solid #4CAF50;">
+                <strong>€2,07</strong> Revenue<br/>
+                <small>Service fee + Dealer fee + Subscription</small>
+            </div>
+            <div style="margin: 10px 0; padding: 10px; background: #ffebee; border-left: 4px solid #FF5722;">
+                <strong>-€0,55</strong> Costo Variabile<br/>
+                <small>Stripe + WhatsApp + Infra + CS</small>
+            </div>
+            <div style="margin: 10px 0; padding: 10px; background: #c6efce; border-left: 4px solid #2196F3; font-weight: bold;">
+                <strong>=€1,52</strong> Margine (73%)<br/>
+                <small>Eccellente per SaaS</small>
+            </div>
+        </div>
+    </div>
+
+    <h3>📊 Revenue Ramp (M1 → M12)</h3>
+    <table style="width: 100%; margin: 20px 0;">
+        <tr>
+            <td style="width: 8%; text-align: center; font-size: 10px;">M1<br/>€1.2K</td>
+            <td style="width: 8%; background: linear-gradient(to right, #FF6B6B 0%, #FF6B6B 5%, white 5%); height: 40px; border: 1px solid #ccc;"></td>
+            <td style="width: 8%; text-align: center; font-size: 10px;">M3<br/>€3.1K</td>
+            <td style="width: 8%; background: linear-gradient(to right, #FF6B6B 0%, #FF6B6B 15%, white 15%); height: 40px; border: 1px solid #ccc;"></td>
+            <td style="width: 8%; text-align: center; font-size: 10px;">M6<br/>€7.8K</td>
+            <td style="width: 8%; background: linear-gradient(to right, #FF6B6B 0%, #FF6B6B 36%, white 36%); height: 40px; border: 1px solid #ccc;"></td>
+            <td style="width: 8%; text-align: center; font-size: 10px;">M9<br/>€14.9K</td>
+            <td style="width: 8%; background: linear-gradient(to right, #FF6B6B 0%, #FF6B6B 68%, white 68%); height: 40px; border: 1px solid #ccc;"></td>
+            <td style="width: 8%; text-align: center; font-size: 10px;">M12<br/>€21.7K</td>
+            <td style="width: 8%; background: linear-gradient(to right, #FF6B6B 0%, #FF6B6B 100%, white 100%); height: 40px; border: 1px solid #ccc;"></td>
+        </tr>
+    </table>
+
+    <h3>🎯 Dealer Growth (4 → 70)</h3>
+    <table style="width: 100%;">
+        <tr>
+            <th style="text-align: left; font-size: 12px;">Milestone</th>
+            <th class="number">Dealer</th>
+            <th style="text-align: left;">Grafico</th>
+        </tr>
+        <tr>
+            <td><strong>M1 (Start)</strong></td>
+            <td class="number"><strong>4</strong></td>
+            <td><div style="background: #2196F3; height: 20px; width: 60px; border-radius: 3px;"></div></td>
+        </tr>
+        <tr>
+            <td><strong>M3 (Traction)</strong></td>
+            <td class="number"><strong>10</strong></td>
+            <td><div style="background: #2196F3; height: 20px; width: 150px; border-radius: 3px;"></div></td>
+        </tr>
+        <tr>
+            <td><strong>M6 (Scaling)</strong></td>
+            <td class="number"><strong>25</strong></td>
+            <td><div style="background: #2196F3; height: 20px; width: 375px; border-radius: 3px;"></div></td>
+        </tr>
+        <tr class="highlight">
+            <td><strong>M11 (Break-even)</strong></td>
+            <td class="number"><strong>61</strong></td>
+            <td><div style="background: #4CAF50; height: 20px; width: 915px; border-radius: 3px;"></div></td>
+        </tr>
+        <tr>
+            <td><strong>M12 (Profitable)</strong></td>
+            <td class="number"><strong>70</strong></td>
+            <td><div style="background: #4CAF50; height: 20px; width: 1050px; border-radius: 3px;"></div></td>
+        </tr>
+    </table>
+
+    <h3>💰 Rider vs Competitor (€/h)</h3>
+    <table style="width: 100%; margin: 20px 0;">
+        <tr>
+            <th>Piattaforma</th>
+            <th class="number">€/h</th>
+            <th style="width: 60%;">Visualizzazione</th>
+        </tr>
+        <tr>
+            <td><strong>Glovo</strong></td>
+            <td class="number">€7,50</td>
+            <td><div style="background: #FF6B6B; height: 25px; width: 150px; border-radius: 3px; display: flex; align-items: center; color: white; font-weight: bold; padding-left: 10px;">€7,50</div></td>
+        </tr>
+        <tr style="background: #c6efce;">
+            <td><strong>DLOOP (Realistic)</strong></td>
+            <td class="number"><strong>€15,00</strong></td>
+            <td><div style="background: #4CAF50; height: 25px; width: 300px; border-radius: 3px; display: flex; align-items: center; color: white; font-weight: bold; padding-left: 10px;">€15,00 (+100%)</div></td>
+        </tr>
+    </table>
+
+    <h3>🎯 Scenario Analisi (Year 1 Burn vs Funding)</h3>
+    <table>
+        <tr>
+            <th>Scenario</th>
+            <th class="number">Funding</th>
+            <th class="number">Burn/Year</th>
+            <th class="number">Runway</th>
+            <th>Outcome</th>
+        </tr>
+        <tr>
+            <td><strong>Guerrilla (Tight)</strong></td>
+            <td class="number currency">€32.2K</td>
+            <td class="number currency negative">€331K</td>
+            <td class="number">3.6 mesi</td>
+            <td>⚠️ Tight - Need pre-sales revenue</td>
+        </tr>
+        <tr style="background: #fffacd;">
+            <td><strong>Balanced (Lean)</strong></td>
+            <td class="number currency">€47.5K</td>
+            <td class="number currency negative">€331K</td>
+            <td class="number">5.4 mesi</td>
+            <td>📈 Good buffer + pre-sales</td>
+        </tr>
+        <tr class="highlight">
+            <td><strong>RECOMMENDED (Full)</strong></td>
+            <td class="number currency">€75K</td>
+            <td class="number currency negative">€331K</td>
+            <td class="number">9+ mesi</td>
+            <td>✅ Safe + scale faster</td>
+        </tr>
+    </table>
+
+    <div class="footer">Grafici semplici ma efficaci per investitori. Focus su traction, unit economics, e competitive advantage.</div>
+</div>
+
+<!-- SHEET 8: FUNDING BREAKDOWN -->
 <div id="funding" class="sheet">
     <h2>💸 FUNDING BREAKDOWN (€75.000)</h2>
 
