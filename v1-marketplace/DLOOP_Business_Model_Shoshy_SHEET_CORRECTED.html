@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DLOOP Shoshy Model - Sheet Spreadsheet Corrected</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arial', sans-serif; background: #fff; padding: 20px; }
+        .container { max-width: 1600px; margin: 0 auto; }
+        h1 { color: #1e3a8a; margin-bottom: 5px; font-size: 20px; }
+        .subtitle { color: #ef4444; margin-bottom: 25px; font-weight: 600; font-size: 14px; }
+
+        .sheet {
+            border-collapse: collapse;
+            border: 2px solid #000;
+            margin-bottom: 40px;
+            font-size: 13px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .sheet td {
+            border: 1px solid #ddd;
+            padding: 12px 10px;
+            text-align: left;
+            height: 30px;
+        }
+
+        .header {
+            background: #1e3a8a;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .row-header {
+            background: #f0f0f0;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .number {
+            text-align: right;
+            font-family: 'Courier New', monospace;
+            font-weight: 500;
+        }
+
+        .currency::before { content: "€"; }
+        .percent::after { content: "%"; }
+
+        .positive { color: #10b981; font-weight: 600; }
+        .negative { color: #ef4444; font-weight: 600; }
+        .highlight { background: #fef3c7; }
+
+        .section-title {
+            background: #3b82f6;
+            color: white;
+            font-weight: 600;
+            padding: 10px;
+            margin-top: 30px;
+            margin-bottom: 0;
+        }
+
+        .note {
+            background: #ecfdf5;
+            border-left: 4px solid #10b981;
+            padding: 12px;
+            margin: 20px 0;
+            font-size: 13px;
+            border-radius: 4px;
+        }
+
+        .critical {
+            background: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 12px;
+            margin: 20px 0;
+            font-size: 13px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📊 DLOOP Business Model - Shoshy Sheet Corrected</h1>
+    <p class="subtitle">✅ CORRECTED: 0% Commission (NOT 5%) + €0.50 Fee Fissa + Updated costs (150 ord/mese, €13.9K opex)</p>
+
+    <!-- SEZIONE 1: PRICING STRUCTURE -->
+    <div class="section-title">1. DLOOP PRICING STRUCTURE (0% Commission Model)</div>
+
+    <table class="sheet">
+        <tr>
+            <td class="header" style="width: 25%;">VOCE</td>
+            <td class="header" style="width: 18%;">STARTER</td>
+            <td class="header" style="width: 18%;">BUSINESS €79</td>
+            <td class="header" style="width: 18%;">ENTERPRISE €149</td>
+            <td class="header" style="width: 21%;">NOTE</td>
+        </tr>
+        <tr>
+            <td class="row-header">Costo attivazione</td>
+            <td class="number">€0</td>
+            <td class="number">€0</td>
+            <td class="number">€0</td>
+            <td>Free onboarding</td>
+        </tr>
+        <tr>
+            <td class="row-header">Abbonamento mensile</td>
+            <td class="number">€0</td>
+            <td class="number">€79</td>
+            <td class="number">€149</td>
+            <td>SaaS tier</td>
+        </tr>
+        <tr style="background: #fee2e2;">
+            <td class="row-header"><strong>Commissione % su ordine</strong></td>
+            <td class="number highlight negative"><strong>0%</strong></td>
+            <td class="number highlight negative"><strong>0%</strong></td>
+            <td class="number highlight negative"><strong>0%</strong></td>
+            <td><strong>🔴 NOT percentage based! 🔴</strong></td>
+        </tr>
+        <tr>
+            <td class="row-header">Fee fissa per consegna</td>
+            <td class="number currency">0.50</td>
+            <td class="number">€0 (incluso)</td>
+            <td class="number">€0 (incluso)</td>
+            <td>Starter only, Starter: €0.50/delivery</td>
+        </tr>
+        <tr>
+            <td class="row-header">Service fee cliente (Dloop share)</td>
+            <td class="number currency">0.99</td>
+            <td class="number currency">0.99</td>
+            <td class="number currency">0.99</td>
+            <td>Customer-facing only</td>
+        </tr>
+        <tr>
+            <td class="row-header">Delivery fee split (Dloop %)</td>
+            <td class="number currency">0.35</td>
+            <td class="number currency">0.35</td>
+            <td class="number currency">0.35</td>
+            <td>From €0.70 total (50/50 rider)</td>
+        </tr>
+    </table>
+
+    <div class="critical">
+        🔴 CRITICAL CORRECTION: DLOOP charges 0% commission on dealer sales (unlike Glovo 30-35%)
+        Instead: €0.50 flat fee per delivery (Starter) or included in subscription (Business/Enterprise)
+        This is the KEY differentiator vs competitors!
+    </div>
+
+    <!-- SEZIONE 2: COST PER ORDER -->
+    <div class="section-title">2. COSTO EFFETTIVO PER ORDINE (su ordine medio €25)</div>
+
+    <table class="sheet">
+        <tr>
+            <td class="header">ORDINI/MESE</td>
+            <td class="header">STARTER</td>
+            <td class="header">BUSINESS €79</td>
+            <td class="header">ENTERPRISE €149</td>
+        </tr>
+        <tr>
+            <td class="row-header">50 ordini/mese</td>
+            <td class="number currency">1.00</td>
+            <td class="number currency">2.58</td>
+            <td class="number currency">3.98</td>
+        </tr>
+        <tr>
+            <td class="row-header">80 ordini/mese</td>
+            <td class="number currency">0.63</td>
+            <td class="number currency">1.62</td>
+            <td class="number currency">2.41</td>
+        </tr>
+        <tr>
+            <td class="row-header">100 ordini/mese</td>
+            <td class="number currency">0.50</td>
+            <td class="number currency">1.29</td>
+            <td class="number currency">1.99</td>
+        </tr>
+        <tr style="background: #f9fafb;">
+            <td class="row-header"><strong>150 ordini/mese (BASELINE)</strong></td>
+            <td class="number currency highlight"><strong>0.50</strong></td>
+            <td class="number currency highlight"><strong>0.79</strong></td>
+            <td class="number currency highlight"><strong>1.49</strong></td>
+        </tr>
+        <tr>
+            <td class="row-header">200 ordini/mese</td>
+            <td class="number currency">0.50</td>
+            <td class="number currency">0.65</td>
+            <td class="number currency">1.24</td>
+        </tr>
+        <tr>
+            <td class="row-header">250 ordini/mese</td>
+            <td class="number currency">0.50</td>
+            <td class="number currency">0.66</td>
+            <td class="number currency">1.10</td>
+        </tr>
+    </table>
+
+    <div class="note">
+        ✅ KEY INSIGHT: Starter tier plateaus at €0.50/order (fee fissa)
+        Business/Enterprise: Subscription amortized over order volume
+        At 150 ord/mese: DLOOP costs €0.50-0.79/order vs GLOVO €7.50/order
+    </div>
+
+    <!-- SEZIONE 3: DEALER COMPARISON (150 ordini baseline) -->
+    <div class="section-title">3. DEALER COMPARISON (150 ordini/mese, €30 AOV = €4,500 GMV)</div>
+
+    <table class="sheet">
+        <tr>
+            <td class="header">METRICA</td>
+            <td class="header">GLOVO</td>
+            <td class="header">ALFONSINO</td>
+            <td class="header">DLOOP STARTER</td>
+            <td class="header">DLOOP BUSINESS</td>
+        </tr>
+        <tr>
+            <td class="row-header">Commissione %</td>
+            <td class="number">30%</td>
+            <td class="number">3%</td>
+            <td class="number positive">0%</td>
+            <td class="number positive">0%</td>
+        </tr>
+        <tr>
+            <td class="row-header">Fee fissa/delivery</td>
+            <td class="number">Incluso</td>
+            <td class="number">Incluso</td>
+            <td class="number currency">0.50</td>
+            <td class="number">€0</td>
+        </tr>
+        <tr>
+            <td class="row-header">Subscription/mese</td>
+            <td class="number">€0</td>
+            <td class="number">€0</td>
+            <td class="number">€0</td>
+            <td class="number">€79</td>
+        </tr>
+        <tr style="background: #fee2e2;">
+            <td class="row-header"><strong>Costo totale/mese</strong></td>
+            <td class="number negative">-€1,800</td>
+            <td class="number negative">-€135</td>
+            <td class="number negative highlight">-€75</td>
+            <td class="number negative highlight">-€154</td>
+        </tr>
+        <tr style="background: #ecfdf5;">
+            <td class="row-header"><strong>Dealer Incassa</strong></td>
+            <td class="number negative">€2,700</td>
+            <td class="number positive">€4,365</td>
+            <td class="number positive highlight">€4,425</td>
+            <td class="number positive highlight">€4,346</td>
+        </tr>
+        <tr style="background: #ecfdf5;">
+            <td class="row-header"><strong>Vantaggio vs GLOVO/anno</strong></td>
+            <td class="number">—</td>
+            <td class="number positive">€19,980</td>
+            <td class="number positive highlight">€20,700</td>
+            <td class="number positive highlight">€19,752</td>
+        </tr>
+    </table>
+
+    <div class="note">
+        ✅ DLOOP STARTER (€0.50 fee): €4,425/mese = €53,100/anno (best for small shops)
+        ✅ DLOOP BUSINESS (€79 sub): €4,346/mese = €52,152/anno (better for 150+ ord/mese)
+        Both cost dealer ~€75-154/mese vs Alfonsino €135 vs Glovo €1,800!
+    </div>
+
+    <!-- SEZIONE 4: REVENUE MODEL -->
+    <div class="section-title">4. DLOOP REVENUE PER ORDER (€30 AOV baseline)</div>
+
+    <table class="sheet">
+        <tr>
+            <td class="header" style="width: 40%;">REVENUE STREAM</td>
+            <td class="header" style="width: 20%;">PER ORDER</td>
+            <td class="header" style="width: 20%;">PER DEALER/MESE (150 ord)</td>
+            <td class="header" style="width: 20%;">PER DEALER/ANNO</td>
+        </tr>
+        <tr>
+            <td class="row-header">Service Fee Customer (€0.99)</td>
+            <td class="number currency">0.99</td>
+            <td class="number currency">148.50</td>
+            <td class="number currency">1,782</td>
+        </tr>
+        <tr>
+            <td class="row-header">Fee Fissa Starter (€0.50)</td>
+            <td class="number currency">0.50</td>
+            <td class="number currency">75.00</td>
+            <td class="number currency">900</td>
+        </tr>
+        <tr>
+            <td class="row-header">Delivery Fee Share (€0.35)</td>
+            <td class="number currency">0.35</td>
+            <td class="number currency">52.50</td>
+            <td class="number currency">630</td>
+        </tr>
+        <tr>
+            <td class="row-header">Rider Premium Revenue (allocated)</td>
+            <td class="number currency">0.15</td>
+            <td class="number currency">79.00</td>
+            <td class="number currency">948</td>
+        </tr>
+        <tr>
+            <td class="row-header">Business Subscription (€79/mese)</td>
+            <td class="number"></td>
+            <td class="number currency">79.00</td>
+            <td class="number currency">948</td>
+        </tr>
+        <tr style="background: #ecfdf5;">
+            <td class="row-header"><strong>TOTAL REVENUE (Starter baseline)</strong></td>
+            <td class="number currency highlight">1.99</td>
+            <td class="number currency highlight">355.50</td>
+            <td class="number currency highlight">4,260</td>
+        </tr>
+        <tr style="background: #ecfdf5;">
+            <td class="row-header"><strong>TOTAL REVENUE (Business)</strong></td>
+            <td class="number currency highlight">1.99</td>
+            <td class="number currency highlight">434.50</td>
+            <td class="number currency highlight">5,208</td>
+        </tr>
+    </table>
+
+    <!-- SEZIONE 5: BREAK-EVEN ANALYSIS -->
+    <div class="section-title">5. BREAK-EVEN ANALYSIS (UPDATED COSTS)</div>
+
+    <table class="sheet">
+        <tr>
+            <td class="header">METRICA</td>
+            <td class="header">VALORE</td>
+            <td class="header">NOTE</td>
+        </tr>
+        <tr>
+            <td class="row-header">Revenue per ordine (blended)</td>
+            <td class="number currency">1.99</td>
+            <td>Service €0.99 + fee €0.50 + delivery €0.35 + premium €0.15</td>
+        </tr>
+        <tr>
+            <td class="row-header">Costo variabile per ordine</td>
+            <td class="number currency">0.55</td>
+            <td>Payment processing + infra + support</td>
+        </tr>
+        <tr style="background: #ecfdf5;">
+            <td class="row-header"><strong>Margine contribuzione</strong></td>
+            <td class="number currency highlight">1.44</td>
+            <td><strong>72% - Exceptional margin!</strong></td>
+        </tr>
+        <tr>
+            <td class="row-header">Costi fissi/mese</td>
+            <td class="number currency">13,900</td>
+            <td>Team €12.2K + Cloud €300 + API €200 + Ops €1.2K</td>
+        </tr>
+        <tr style="background: #f9fafb;">
+            <td class="row-header"><strong>Ordini per breakeven</strong></td>
+            <td class="number">9,722</td>
+            <td>€13,900 ÷ €1.44</td>
+        </tr>
+        <tr style="background: #f9fafb;">
+            <td class="row-header"><strong>Dealers per breakeven (150 ord baseline)</strong></td>
+            <td class="number highlight">65</td>
+            <td>9,722 ÷ 150 = 65 dealers</td>
+        </tr>
+        <tr style="background: #ecfdf5;">
+            <td class="row-header"><strong>Timeline to breakeven</strong></td>
+            <td class="number highlight">5-7 mesi</td>
+            <td>From 4 dealers M1 → 65 dealers M6-7</td>
+        </tr>
+    </table>
+
+    <!-- SEZIONE 6: 12-MONTH PROJECTIONS -->
+    <div class="section-title">6. 12-MONTH REVENUE PROJECTIONS (Updated Model)</div>
+
+    <table class="sheet">
+        <tr>
+            <td class="header">MESE</td>
+            <td class="header">DEALER</td>
+            <td class="header">ORDINI</td>
+            <td class="header">REVENUE</td>
+            <td class="header">OPEX</td>
+            <td class="header">EBITDA</td>
+        </tr>
+        <tr>
+            <td class="row-header">M1</td>
+            <td class="number">4</td>
+            <td class="number">600</td>
+            <td class="number currency">1,194</td>
+            <td class="number currency">13,900</td>
+            <td class="number negative">-12,706</td>
+        </tr>
+        <tr>
+            <td class="row-header">M2</td>
+            <td class="number">6</td>
+            <td class="number">900</td>
+            <td class="number currency">1,791</td>
+            <td class="number currency">13,900</td>
+            <td class="number negative">-12,109</td>
+        </tr>
+        <tr>
+            <td class="row-header">M3</td>
+            <td class="number">8</td>
+            <td class="number">1,200</td>
+            <td class="number currency">2,388</td>
+            <td class="number currency">13,900</td>
+            <td class="number negative">-11,512</td>
+        </tr>
+        <tr>
+            <td class="row-header">M4</td>
+            <td class="number">12</td>
+            <td class="number">1,800</td>
+            <td class="number currency">3,582</td>
+            <td class="number currency">13,900</td>
+            <td class="number negative">-10,318</td>
+        </tr>
+        <tr>
+            <td class="row-header">M5</td>
+            <td class="number">16</td>
+            <td class="number">2,400</td>
+            <td class="number currency">4,776</td>
+            <td class="number currency">13,900</td>
+            <td class="number negative">-9,124</td>
+        </tr>
+        <tr>
+            <td class="row-header">M6</td>
+            <td class="number">20</td>
+            <td class="number">3,000</td>
+            <td class="number currency">5,970</td>
+            <td class="number currency">13,900</td>
+            <td class="number negative">-7,930</td>
+        </tr>
+        <tr style="background: #f9fafb;">
+            <td colspan="6"><strong>🔄 MID-YEAR: 20 dealers, 3K ordini/mese</strong></td>
+        </tr>
+        <tr>
+            <td class="row-header">M7</td>
+            <td class="number">25</td>
+            <td class="number">3,750</td>
+            <td class="number currency">7,463</td>
+            <td class="number currency">13,900</td>
+            <td class="number negative">-6,437</td>
+        </tr>
+        <tr>
+            <td class="row-header">M8</td>
+            <td class="number">30</td>
+            <td class="number">4,500</td>
+            <td class="number currency">8,955</td>
+            <td class="number currency">13,900</td>
+            <td class="number negative">-4,945</td>
+        </tr>
+        <tr>
+            <td class="row-header">M9</td>
+            <td class="number">35</td>
+            <td class="number">5,250</td>
+            <td class="number currency">10,448</td>
+            <td class="number currency">13,900</td>
+            <td class="number negative">-3,452</td>
+        </tr>
+        <tr>
+            <td class="row-header">M10</td>
+            <td class="number">40</td>
+            <td class="number">6,000</td>
+            <td class="number currency">11,940</td>
+            <td class="number currency">13,900</td>
+            <td class="number negative">-1,960</td>
+        </tr>
+        <tr>
+            <td class="row-header">M11</td>
+            <td class="number">45</td>
+            <td class="number">6,750</td>
+            <td class="number currency">13,433</td>
+            <td class="number currency">14,000</td>
+            <td class="number negative">-567</td>
+        </tr>
+        <tr style="background: #ecfdf5;">
+            <td class="row-header"><strong>M12 (BREAKEVEN)</strong></td>
+            <td class="number">50</td>
+            <td class="number">7,500</td>
+            <td class="number currency">14,925</td>
+            <td class="number currency">14,000</td>
+            <td class="number positive highlight">+925</td>
+        </tr>
+    </table>
+
+    <div class="critical">
+        ✅ CORRECTED: Break-even at M12 with €0.50 flat fee model (NOT 5% commission)
+        Revenue/ordine is LOWER (€1.99 vs assumed €2-3) but fixed costs absorbed by Starter tier flat fee model
+    </div>
+
+    <div class="footer" style="margin-top: 40px; padding: 20px; background: #f0f0f0; border-radius: 4px;">
+        <p><strong>Version:</strong> 2026-03-02 CORRECTED (0% Commission Model)</p>
+        <p style="margin-top: 10px;"><strong>Key Correction:</strong></p>
+        <p style="margin: 10px 0; color: #ef4444; font-weight: 600;">❌ WRONG: 5% commission on dealer sales</p>
+        <p style="margin: 10px 0; color: #10b981; font-weight: 600;">✅ CORRECT: 0% commission + €0.50 fee fissa (Starter) or included subscription (Business/Enterprise)</p>
+        <p style="margin-top: 10px;">This is the fundamental difference from Glovo/Deliveroo (who charge 25-35% commission).</p>
+    </div>
+
+</div>
+
+</body>
+</html>
