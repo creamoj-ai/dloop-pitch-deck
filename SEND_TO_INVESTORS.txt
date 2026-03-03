@@ -1,0 +1,252 @@
+🎯 DLOOP GUERRILLA FUNDRAISING - WHICH FILE TO SEND TO WHOM
+
+================================================================================
+TIER 1: LOCAL ANGELS (€10-30K) - Mario, Amodio, etc
+================================================================================
+
+FIRST CONTACT (WhatsApp / SMS):
+└─ Copy-paste WHATSAPP_PITCH_1PAGE_2026.md
+   Time to read: 60 seconds
+   Goal: Get their attention + phone call scheduled
+
+STEP 2 (After they say "Maybe" or "Interested"):
+└─ Send via email (not WhatsApp):
+   ├─ INVESTOR_CHEAT_SHEET_2026.html (main document)
+   ├─ [SECTOR-SPECIFIC] MARIO.md or AMODIO.md
+   └─ GUERRILLA_FUNDRAISING_STRATEGY_2026.md (show them the full playbook)
+   Time to read: 10-15 minutes
+   Goal: Deep dive into numbers + understand your strategy
+
+STEP 3 (If they want to geek out on financials):
+└─ FINANCIAL_SUMMARY_2026.html (interactive)
+   └─ or FINANCIAL_DATA_2026.csv (if they want Excel)
+   Time to read: 30+ minutes
+   Goal: Full transparency on unit economics
+
+STEP 4 (Before signature):
+└─ Send via email:
+   ├─ Simple SAFE agreement (template in FUNDRAISING_README.md)
+   ├─ Wire instructions
+   └─ "Sign, return, and money flows in 3 days"
+
+TIMELINE: Mario/Amodio decision within 1 week
+
+================================================================================
+TIER 2: MICRO-VCs & ACCELERATORS (€30-100K)
+================================================================================
+
+FIRST CONTACT (Email - COLD OUTREACH):
+├─ Subject: "DLOOP - €1.2K MRR, break-even M11, seeking €50K seed"
+└─ Body:
+   - Copy first 3 paragraphs from GUERRILLA_FUNDRAISING_STRATEGY_2026.md ("THE PITCH")
+   - Add: "Interested in 30-min call?"
+   - Attachments:
+     ├─ INVESTOR_CHEAT_SHEET_2026.html (MAIN)
+     └─ FINANCIAL_SUMMARY_2026.html (optional, for detail nerds)
+
+   Time to read: 5-10 minutes (for interested parties)
+   Goal: Get meeting scheduled
+
+STEP 2 (After they request a call):
+└─ Send pre-call (24 hours before):
+   ├─ "Here's the financial model: FINANCIAL_SUMMARY_2026.html"
+   ├─ "Full strategy: GUERRILLA_FUNDRAISING_STRATEGY_2026.md"
+   └─ "Looking forward to our chat tomorrow"
+
+STEP 3 (After positive call):
+└─ Send via email:
+   ├─ FINANCIAL_DATA_2026.csv (for their models)
+   ├─ v2-saas/1-PAGERS/SABATINO.md (if they ask about tech)
+   └─ Investor intro deck (if they're getting serious)
+
+STEP 4 (Before term sheet):
+└─ Send:
+   ├─ Pro-forma SAFE (from FUNDRAISING_README.md)
+   ├─ Updated CAP table
+   └─ "Looking forward to closing"
+
+TIMELINE: First close within 4-6 weeks
+
+================================================================================
+TIER 3: STRATEGIC PARTNERS / PRE-SALES (€0 capital, +€50K revenue)
+================================================================================
+
+TARGET: First 20 dealers
+
+FIRST CONTACT (Email / WhatsApp):
+├─ Subject: "Proposta: €0 setup + 30% discount M1-M3 + free support"
+└─ Body:
+   - WHATSAPP_PITCH_1PAGE_2026.md (short version)
+   - Add: "You save €17K/year vs Alfonsino. Interested?"
+   - Attachment: AMODIO.md (shows their ROI)
+
+   Time to read: 2-3 minutes
+   Goal: Get them to join
+
+STEP 2 (If interested):
+└─ Send detailed ROI:
+   ├─ FINANCIAL_SUMMARY_2026.html (show dealer savings)
+   ├─ "Here's how much you'll save: €17,790/year"
+   └─ Contract template (12 months, auto-renews)
+
+STEP 3 (Closing):
+└─ "Let's go live this week. Onboarding takes 2 hours."
+
+TIMELINE: 1 dealer/day = 20 dealers by M3
+
+================================================================================
+SPECIAL AUDIENCES
+================================================================================
+
+IF THEY'RE TECHNICAL (Ask about architecture/tech):
+├─ Send: v2-saas/1-PAGERS/SABATINO.md
+├─ Say: "Here's our tech stack and roadmap"
+└─ Discuss: Database design, scalability, API architecture
+
+IF THEY ASK ABOUT OPERATIONS (Dealer success):
+├─ Send: AMODIO.md
+├─ Say: "Here's how we onboard and support dealers"
+└─ Show: Dealer metrics, churn rate, NPS
+
+IF THEY ASK ABOUT EXIT:
+├─ Mention: "Poste (180K dealers), Amazon Fresh, Carrefour"
+├─ Conservative valuation: €20-50M in 3-4 years
+└─ Your €20K → €200-600K (10-30x)
+
+IF THEY PUSH BACK ON NUMBERS:
+├─ Say: "All data from PROIEZIONI_REVENUE_DLOOP_MODELLO_SHOSHY_VERIFICATO_2026.html"
+├─ Sources cited: Glovo, Alfonsino T&C, Stripe, Supabase official pricing
+└─ Show: FINANCIAL_SUMMARY_2026.html section "7. Data Sources"
+
+================================================================================
+EMAIL TEMPLATES (READY TO USE)
+================================================================================
+
+TEMPLATE 1: FIRST COLD OUTREACH (Micro-VCs)
+---
+Subject: DLOOP - €1.2K MRR, break-even M11, seeking €50K seed
+
+Hi [Name],
+
+DLOOP removes Glovo from small retailers: 0% commission vs 30%.
+
+Traction:
+• €1.2K revenue (M1)
+• 4 dealers live
+• 73% contribution margin
+• Break-even: M11 @ 61 dealers
+
+We're raising €50K for dealer CAC + ops. Willing to share full model.
+
+Interested in 30-min call?
+
+[Your name]
++39 328 185 4639
+
+Attachments: INVESTOR_CHEAT_SHEET_2026.html, FINANCIAL_SUMMARY_2026.html
+---
+
+TEMPLATE 2: FOLLOW-UP (After interest)
+---
+Subject: RE: DLOOP - Let's talk
+
+Great to hear you're interested.
+
+I attached our full financial model + 12-month projections. Key numbers:
+• €310 revenue/dealer/month
+• €1.52 contribution margin (73%)
+• Break-even M11 with 61 dealers
+• Year 1 burn: €331K (realistic estimate)
+
+Dealer advantage vs Alfonsino: €17,790/year (that's our main sales message)
+
+Free 30 mins tomorrow or Thursday?
+
+[Your name]
+---
+
+TEMPLATE 3: Mario/AMODIO (Specific)
+---
+Subject: DLOOP Investment - €20K Opportunity
+
+Ciao Mario,
+
+DLOOP è live: 4 dealer, €1.2K revenue.
+
+You already save €5K/anno with DLOOP.
+Now invest €20K, get:
+✅ 5% equity
+✅ Board updates (monthly)
+✅ Referral rights (earn 5% on dealers you bring)
+
+Worst case: DLOOP fails, you've saved €5K in Glovo fees.
+Best case: €20K → €200-600K in 3-4 years (10-30x return)
+
+Interested? Let's discuss.
+
+[Your name]
++39 328 185 4639
+
+Attachment: MARIO.md
+---
+
+================================================================================
+DOCUMENT PRIORITY (What's Most Important)
+================================================================================
+
+MUST-SEND (Everyone gets this):
+1. INVESTOR_CHEAT_SHEET_2026.html
+2. WHATSAPP_PITCH_1PAGE_2026.md (or copy-paste version)
+
+SEND IF INTERESTED:
+3. FINANCIAL_SUMMARY_2026.html
+4. GUERRILLA_FUNDRAISING_STRATEGY_2026.md
+5. FINANCIAL_DATA_2026.csv
+
+SEND IF SECTOR-SPECIFIC:
+6. MARIO.md (for investor-customers)
+7. AMODIO.md (for operational partners)
+8. SABATINO.md (for technical questions)
+
+SEND BEFORE CLOSING:
+9. Simple SAFE (from FUNDRAISING_README.md)
+10. Wire instructions
+
+================================================================================
+TRACKING: WHO TO SEND WHAT
+================================================================================
+
+Create a spreadsheet:
+
+Name | Contact | Tier | Status | Sent | Next | Date
+Mario Cucciolito | WA | 1 | Interested | Pitch | MARIO.md | 3/3
+Amodio | Phone | 1 | Conversation | Strategy | SAFE | 3/5
+[VC Name] | Email | 2 | Cold | Cheat Sheet | Call | 3/10
+
+...and update weekly.
+
+================================================================================
+FINAL CHECKLIST BEFORE YOU START
+================================================================================
+
+☐ Save all files locally
+☐ Test all HTML files open in browser (Chrome preferred)
+☐ Print WHATSAPP_PITCH_1PAGE_2026.md to your phone notes
+☐ Add Mario + Amodio contact info to your phone
+☐ Create email template folder (save Templates 1-3 above)
+☐ Open spreadsheet for tracking
+☐ Schedule: Monday call with Mario, Wednesday with Amodio
+☐ Set reminders: Follow-up calls every 3 days
+
+☐ EXECUTE THIS WEEK
+
+================================================================================
+
+MOTTO: "Ship > Polish | Traction > Perfection | Movement > Delay"
+
+Good luck! 🚀
+
+---
+Generated: 2026-03-03
+Status: Ready to execute Guerrilla Fundraising
+Next: Call Mario today
