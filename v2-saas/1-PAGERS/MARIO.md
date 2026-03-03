@@ -163,7 +163,7 @@ La tua toelettatura (servizi con ritiro/consegna) è il **perfect use case** che
 - Case study documentation begins
 
 ### Month 2
-- Amodio signs (cooperativa with 20 riders)
+- Amodio signs (team di personale shopper e esperti di delivery with 20 riders)
 - Rider viral loop activates
 - €5K revenue milestone (Tranche 2 triggered)
 - Your €20K more arrives

@@ -10,7 +10,7 @@ Saba, il rischio "rider" sparisce completamente.
 
 Invece di costruire un marketplace (Glovo-style con 100+ rider in staff), diventiamo il **"cervello" di cooperative che JÀ hanno rider**.
 
-**La tua visione tecnica**: Architettura cloud pulita, API-first, real-time, scalabile a infinite cooperativas.
+**La tua visione tecnica**: Architettura cloud pulita, API-first, real-time, scalabile a infinite team di personale shopper e esperti di delivery.
 
 **Il nostro guadagno**: €35K/mese @ 100 dealer, 75% margin. Breakeven M6, non M11.
 
@@ -84,7 +84,7 @@ rider_earnings: id, rider_id, period, orders_count, total_earned, merchants_refe
 - [ ] **API Integrations** (for cooperatives)
   - Existing inventory systems (connect their DB)
   - Accounting software (export orders)
-  - Custom workflows (per cooperativa)
+  - Custom workflows (per Personale shopper e esperti di delivery)
 
 - [ ] **Real-time Optimization**
   - Rider geolocation (live tracking)
@@ -92,7 +92,7 @@ rider_earnings: id, rider_id, period, orders_count, total_earned, merchants_refe
   - Dynamic routing (minimize time)
 
 ### Phase 3 (M6-M12): Enterprise Features
-- [ ] White-label dashboard (per cooperativa branding)
+- [ ] White-label dashboard (per Personale shopper e esperti di delivery branding)
 - [ ] Advanced analytics (earnings reports, KPIs)
 - [ ] Multi-language support (scale to EU)
 - [ ] Mobile app for merchants (iOS/Android native)
@@ -124,10 +124,10 @@ merchants: id, name, category, tier, status, created_at
 orders: id, merchant_id, rider_id, items, total, status, created_at
 
 -- Riders
-riders: id, name, cooperativa_id, rating, availability, location
+riders: id, name, team_id, rating, availability, location
 
--- Cooperativas
-cooperativas: id, name, merchants_served, riders_available, revenue_mese
+-- Teams (Personale shopper e esperti di delivery)
+teams: id, name, merchants_served, riders_available, revenue_mese
 
 -- Transactions
 transactions: id, order_id, merchant_id, dloop_fee, stripe_fee, net
@@ -157,10 +157,10 @@ transactions: id, order_id, merchant_id, dloop_fee, stripe_fee, net
 - **Deliverable**: Riders start selling DLOOP
 
 ### Month 3 (M3): Cooperative Scaling
-- [ ] Replicate Amodio integration for 2-3 more cooperativas
-- [ ] Build white-label API (generic cooperativa SDK)
+- [ ] Replicate Amodio integration for 2-3 more Personale shopper e esperti di deliverys
+- [ ] Build white-label API (generic Personale shopper e esperti di delivery SDK)
 - [ ] Optimize real-time assignment algorithm
-- **Deliverable**: 100+ dealers, multi-cooperativa support
+- **Deliverable**: 100+ dealers, multi-Personale shopper e esperti di delivery support
 
 ### Month 4-6 (M4-M6): Enterprise Features
 - [ ] Advanced analytics module
@@ -176,7 +176,7 @@ transactions: id, order_id, merchant_id, dloop_fee, stripe_fee, net
 |------|--------|-----------|
 | **Real-time scalability** | Supabase slow with 1000s orders/min | Test at load → migrate to managed PostgreSQL if needed |
 | **WhatsApp API rate limits** | Messages throttled | Use Twilio as backup (already integrated) |
-| **Cooperativa API chaos** | Each has different systems | Build generic SDK (wrapper layer) |
+| **Personale shopper e esperti di delivery API chaos** | Each has different systems | Build generic SDK (wrapper layer) |
 | **Rider app crashes** | Service quality issues | Robust error handling + fallback to SMS |
 | **Data security** | GDPR/PCI compliance | Supabase RLS + Stripe PCI certified |
 
