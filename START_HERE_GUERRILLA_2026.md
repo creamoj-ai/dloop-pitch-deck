@@ -390,3 +390,16 @@ Re-read:
 ---
 
 *Everything you need is in the files above. Pick up your phone and call Mario. NOW.*
+
+---
+
+## 📋 Document Info
+**Version**: v2.1.0 | **Last Updated**: 2026-03-03
+**Type**: Executive overview + 90-day execution guide
+**Status**: ✅ Production ready
+
+**Quick Links**:
+- 🎬 Next → [WHATSAPP_PITCH_1PAGE_2026.md](WHATSAPP_PITCH_1PAGE_2026.md)
+- 📖 Full Guide → [README.md](README.md)
+- 📊 Financial Model → [DLOOP_EXCEL_FINANCIAL_MODEL_2026.html](DLOOP_EXCEL_FINANCIAL_MODEL_2026.html)
+- 📋 Version History → [CHANGELOG.md](CHANGELOG.md)

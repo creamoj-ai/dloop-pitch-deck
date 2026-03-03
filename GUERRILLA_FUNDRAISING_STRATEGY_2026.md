@@ -348,6 +348,22 @@ Standard SAFEs + simple Term Sheet:
 
 ---
 
+---
+
+## 📋 Document Info
+**Version**: v2.1.0 | **Last Updated**: 2026-03-03
+**Type**: Complete 90-day execution playbook
+**Status**: ✅ Production ready
+
+**See also**:
+- 🎬 [START_HERE_GUERRILLA_2026.md](START_HERE_GUERRILLA_2026.md) - Quick start (5 min)
+- 📊 [DLOOP_EXCEL_FINANCIAL_MODEL_2026.html](DLOOP_EXCEL_FINANCIAL_MODEL_2026.html) - Financial deep dive
+- 💼 [INVESTOR_CHEAT_SHEET_2026.html](INVESTOR_CHEAT_SHEET_2026.html) - 2-page investor reference
+- 📖 [README.md](README.md) - File organization & quick access
+- 📋 [CHANGELOG.md](CHANGELOG.md) - Full version history & updates
+
+---
+
 *Document created: 2026-03-03*
 *Strategy: Guerrilla Fundraising (Low Budget, Traction-First)*
 *Target: Close Mario + Amodio by EOMonth, Micro-VCs by M2*

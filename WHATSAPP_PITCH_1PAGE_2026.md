@@ -52,3 +52,15 @@ Call Crescenzo: +39 328 185 4639
 
 *Non è fundraising formale, è partnership building.*
 *Se credi in noi, investisci. Se no, referral altri.*
+
+---
+
+## 📋 Document Info
+**Version**: v2.1.0 | **Last Updated**: 2026-03-03
+**Type**: 60-second pitch (copy/paste)
+**Status**: ✅ Ready for WhatsApp/Email
+
+**See also**:
+- 📖 [README.md](README.md) for quick file access
+- 📊 [DLOOP_EXCEL_FINANCIAL_MODEL_2026.html](DLOOP_EXCEL_FINANCIAL_MODEL_2026.html) for deep dive
+- 📋 [CHANGELOG.md](CHANGELOG.md) for version history
