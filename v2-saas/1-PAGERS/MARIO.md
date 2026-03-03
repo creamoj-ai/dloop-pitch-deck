@@ -240,6 +240,40 @@ Because you're the first customer + believer:
 
 ---
 
+## 🏪 L'IDEA DELL'HUB LOGISTICO (Per Te, Mario)
+
+Mario, con DLOOP i tuoi ragazzi che fanno le consegne per la toelettatura possono diventare un **hub logistico del quartiere di Portici**.
+
+### Come Funziona:
+1. **Oggi**: I tuoi 3-4 ragazzi fanno solo ritiri/consegne toelettatura (mattina/pomeriggio)
+2. **Con DLOOP**: Quando hanno lo scooter vuoto, vedono ordini degli altri negozianti di Portici (farmacia, salumeria, fioraio) affiliati da rider DLOOP
+3. **Risultato**: **Ammortizzi il costo dei tuoi dipendenti**, loro guadagnano extra, negozianti felici
+
+### Esempio Pratico (Settimana):
+```
+MATTINA (9-12): 3 ritiri toelettatura
+POMERIGGIO (14-18): Slot vuoto per rider → ???
+
+Con DLOOP:
+→ Pomeriggio: 5-8 consegne da farmacia (€2), salumeria (€1.50), fioraio (€2)
+→ Ogni rider guadagna €7-10/giorno extra = €35-50/settimana
+→ Tu ammortizzi il costo del tuo dipendente (da €500 → €250/mese)
+→ Farmacia/salumeria sono felici (delivery senza Glovo 30%)
+```
+
+### Il Valore (Per Te):
+- **Toelettatura**: Costo rider ammortizzato (€500/mese → €250/mese = **€250/mese risparmiati**)
+- **Rider**: Guadagna €500-800/mese extra (molto più felice)
+- **DLOOP**: Guadagna €150/mese × 3-5 negozianti locali = €450-750/mese (solo da Portici)
+- **Negozianti**: Pagano €149/mese (software) + delivery fee rider, invece di €7.50/ordine (Glovo) → risparmiano 60%
+
+**Tu diventi il "hub logistico locale"** senza assumere nessuno. I tuoi ragazzi fanno già il lavoro, DLOOP li organizza meglio e li fa guadagnare di più.
+
+### Scalabilità:
+Se questo funziona a Portici, replichi a Barra, Vomero, Fuorigrotta. 5 hub × 5 rider × €50/settimana = €1.250/settimana in rider earnings. Tu ammortizzi tutto.
+
+---
+
 ## 🚀 CLOSING STATEMENT
 
 Mario, you've been running your toelettatura successfully for years. You know business.

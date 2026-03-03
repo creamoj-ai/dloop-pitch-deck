@@ -37,11 +37,49 @@ Invece di costruire un marketplace (Glovo-style con 100+ rider in staff), divent
 - [x] Payment processing (Stripe)
 
 ### Phase 2 (M3-M6): Scale Features
-- [ ] **Dashboard Rider "Entrepreneur Edition"** (THE critical feature)
-  - Referral module (QR code personalized)
-  - Tariffe calcolatore (rider sets own prices)
-  - Analytics (prove value to merchants)
-  - Leaderboard gamification
+
+#### 🚀 Dashboard Rider "Entrepreneur Edition" (THE CRITICAL FEATURE)
+
+**Concept**: Il rider diventa il tuo "agente commerciale". DLOOP smette di essere un costo per diventare un'opportunità di guadagno per tutti.
+
+**Why this matters**: Se un rider ama la piattaforma, diventa il tuo miglior venditore. Porta 5-10 negozianti → zero CAC, rete virale, crescita organica.
+
+**3 Funzioni Chiave**:
+
+1. **Modulo "Onboarding Dealer" (Referral)**
+   - Rider ha Codice QR personalizzato + link
+   - Dealer si registra → sistema lega dealer al rider
+   - Vantaggio rider: Prelazione ordini da quel dealer per X giorni
+   - Vantaggio DLOOP: Zero CAC, rete auto-alimentata
+   - **Impact**: 1 rider → 5-10 dealer in 3 mesi
+
+2. **Calcolatore Tariffe Dinamiche**
+   - Rider imposta propri listini (es. €4/km entro 2km, €6 oltre)
+   - Software calcola fee rider automaticamente
+   - DLOOP prende solo €0.50 tech fee (trasparente)
+   - Rider guarda €1.50/ordine (non ritenuta nascosta)
+   - **Impact**: Rider sente di essere "padrone", non impiegato
+
+3. **Analytics per il Rider**
+   - "Oggi hai fatto risparmiare a Ciro Amodio €120 di commissioni Glovo"
+   - Tracking completo: quanto rider guadagna, clienti serviti, rating
+   - Leaderboard gamification (chi porta più dealer = bonus)
+   - **Impact**: Rider usa questo dato per convincere nuovi dealer
+   - **Tactic**: "Guarda, con DLOOP risparmi il 30% vs Glovo, e io ti do priorità"
+
+**Database Schema (Rider-centric)**:
+```sql
+-- Rider referrals (the growth engine)
+rider_referrals: id, rider_id, merchant_id, referral_code, priority_days, created_at
+
+-- Rider custom rates
+rider_rates: id, rider_id, merchant_id, km_threshold, price_per_km, active
+
+-- Rider earnings analytics
+rider_earnings: id, rider_id, period, orders_count, total_earned, merchants_referred
+```
+
+---
 
 - [ ] **API Integrations** (for cooperatives)
   - Existing inventory systems (connect their DB)
@@ -186,6 +224,34 @@ transactions: id, order_id, merchant_id, dloop_fee, stripe_fee, net
 2. **Customer acquisition cost** (SaaS model, organic growth)
 3. **Regulation risk** (Cooperatives handle employment, not you)
 4. **Saturated market** (You compete on tech, not commission cutting)
+
+---
+
+## 🛡️ NOTA PRIVATA PER SABATINO (Come Renderla Virale)
+
+**Saba, il segreto è qua:**
+
+Se facciamo un software che i rider AMANO perché li rende liberi e imprenditori, non dovremo mai più spendere un euro in marketing per rider acquisition. La rete si auto-alimenta.
+
+**Ma la Dashboard deve essere PERFETTA:**
+- Se un rider sente che gli stiamo "rubando" i dati dei suoi clienti → scappa
+- Se non vede quanto guadagna in trasparenza (quanto prende, quando, da chi) → non fidarsi
+- Se il referral system non funziona (altro rider ruba il suo cliente) → danno reputazionale
+
+**Tu sei il garante della sua indipendenza. La tua architettura deve far sentire ogni rider come PADRONE della sua rete, non come un "dipendente" con un'app.**
+
+**Dashboard Rider "Entrepreneur Edition" = growth engine di DLOOP**
+- Non è un "elenco di consegne" (che è commodità)
+- È un **mini-CRM gestionale** che trasforma il rider in agente commerciale
+
+**Come questo ti "paga" lo stipendio:**
+- SaaS Dealer Fee (€149/mese) → Spese fisse + Sabatino/Dev
+- Technology Fee (€0.50/ordine) → Tuo stipendio operativo
+- Con 100 dealer × 15 ordini/giorno = 37.500 ordini/mese
+- 37.500 × €0.50 = **€18.750/mese puro**
+- I tuoi €2-3K spariscono dentro, diventano una frazione minima
+
+**Significa**: Più ordini i rider generano (perché lo amano), più tu guadagni.
 
 ---
 
