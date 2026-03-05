@@ -37,142 +37,213 @@
         <thead>
             <tr>
                 <th>Cosa paga il cliente?</th>
-                <th>Quanto?</th>
+                <th>Prezzo</th>
                 <th>Chi lo riceve?</th>
-                <th>Tipo</th>
+                <th>Dettagli</th>
             </tr>
         </thead>
         <tbody>
             <tr style="background: #f0f9ff;">
                 <td><span class="emoji">🍨</span><strong>Gelato (Prodotto)</strong></td>
                 <td><strong>€5,00</strong></td>
-                <td>👨‍💼 Gelateria/Dealer</td>
-                <td>Fisso</td>
+                <td>👨‍💼 Dealer</td>
+                <td>Prezzo prodotto fisso</td>
             </tr>
             <tr style="background: #fef3c7;">
-                <td><span class="emoji">🚴</span><strong>Consegna (Rider Service)</strong></td>
-                <td><strong>€X,XX</strong></td>
+                <td><span class="emoji">🚴</span><strong>Consegna a Domicilio</strong></td>
+                <td><strong>€5,00</strong></td>
                 <td>🏍️ Rider</td>
-                <td><strong>Variabile per zona/listino</strong></td>
+                <td>Servizio consegna (media Italia)</td>
             </tr>
             <tr style="background: #fef3c7;">
-                <td><span class="emoji">🤝</span><strong>Personal Shopper (opzionale)</strong></td>
-                <td><strong>€Y,YY</strong></td>
+                <td><span class="emoji">🤝</span><strong>Personal Shopper (Opzionale)</strong></td>
+                <td><strong>€2,00</strong></td>
                 <td>🏍️ Rider</td>
-                <td><strong>Opzionale, variabile</strong></td>
+                <td>Consulenza prodotti + consigli</td>
             </tr>
             <tr style="background: #dbeafe;">
                 <td><span class="emoji">📱</span><strong>DLOOP Platform Fee</strong></td>
                 <td><strong>€0,99</strong></td>
                 <td>🔷 DLOOP</td>
-                <td>Bot WhatsApp, pagamenti, infra</td>
+                <td>Bot WhatsApp, payments, infra</td>
             </tr>
             <tr style="background: #1e3a8a; color: white;">
-                <td><strong>🧾 TOTALE CLIENTE PAGA</strong></td>
-                <td><strong>€5 + X + Y + €0,99</strong></td>
-                <td>—</td>
-                <td>—</td>
+                <td colspan="2"><strong>🧾 TOTALE CLIENTE (Base)</strong></td>
+                <td colspan="2"><strong style="font-size: 18px;">€10,99</strong></td>
+            </tr>
+            <tr style="background: #fee2e2; color: white;">
+                <td colspan="2"><strong>🧾 TOTALE (Con Personal Shopper)</strong></td>
+                <td colspan="2"><strong style="font-size: 18px;">€12,99</strong></td>
             </tr>
         </tbody>
     </table>
 
     <div class="green">
-        <strong>✅ La magia di DLOOP:</strong><br>
-        Il dealer paga solo <strong>€0,99 a ordine</strong> (piattaforma)<br>
-        Consegna e personal shopper sono servizi del rider (variabili per zona/listino)<br>
-        vs Glovo che costa <strong>€7,50 a ordine (30%)</strong><br>
-        → <strong>Risparmio dealer: €6,51 per ordine (DLOOP vs Glovo)</strong>
+        <strong>✅ RIDER GUADAGNA DAVVERO:</strong><br>
+        <strong>Su GLOVO:</strong> €2,50 per consegna (decreto Milano 2024)<br>
+        <strong>Su DLOOP:</strong> €5,00 (consegna) + €2,00 (personal shopper opz) = <strong>€7,00 per ordine</strong><br>
+        <br>
+        <strong>🎯 VANTAGGIO RIDER: +280% (2.8x più guadagni!)</strong><br>
+        <strong>🏪 VANTAGGIO DEALER:</strong> €0,99 vs €7,50 (Glovo) = €6,51 risparmiati per ordine
     </div>
 
-    <!-- CONFRONTO GLOVO -->
-    <h2>⚖️ Confronto: DLOOP vs Glovo (Dealer View)</h2>
+    <!-- CONFRONTO GLOVO vs DLOOP -->
+    <h2>⚖️ Confronto: DLOOP vs Glovo (Chi paga cosa?)</h2>
 
+    <h3>📊 Dealer View</h3>
     <table>
         <thead>
             <tr>
                 <th>Elemento</th>
-                <th>Glovo</th>
+                <th>Glovo (30%)</th>
                 <th>DLOOP</th>
                 <th>Vantaggio DLOOP</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td><strong>Fee Piattaforma</strong></td>
-                <td style="background: #fee2e2;"><strong>30%</strong> su ogni ordine</td>
+                <td><strong>Platform Fee per ordine</strong></td>
+                <td style="background: #fee2e2;"><strong>€7,50</strong> (30% su €25)</td>
                 <td style="background: #d1fae5;"><strong>€0,99 FISSO</strong></td>
-                <td style="background: #d1fae5;"><strong>€6,51 risparmiati</strong> su ordine €25</td>
-            </tr>
-            <tr>
-                <td><strong>Consegna & Servizi</strong></td>
-                <td>Inclusa in commissione (30%)</td>
-                <td style="background: #d1fae5;">Separati - Rider pubblica propri listini</td>
-                <td style="background: #d1fae5;">Trasparenza, cliente sceglie rider</td>
+                <td style="background: #d1fae5;"><strong>€6,51 risparmio</strong></td>
             </tr>
             <tr>
                 <td><strong>Cliente Data</strong></td>
-                <td style="background: #fee2e2;">Proprietà Glovo</td>
-                <td style="background: #d1fae5;">👉 <strong>TUA proprietà</strong></td>
-                <td style="background: #d1fae5;">Puoi ricontattare, CRM, repeat</td>
+                <td style="background: #fee2e2;">❌ Proprietà Glovo</td>
+                <td style="background: #d1fae5;">✅ <strong>TUA proprietà</strong></td>
+                <td style="background: #d1fae5;">CRM, repeat, loyalty</td>
             </tr>
             <tr>
                 <td><strong>Controllo Prezzo</strong></td>
-                <td style="background: #fee2e2;">Limitato (Glovo decide)</td>
-                <td style="background: #d1fae5;">👉 <strong>Pieno controllo</strong></td>
-                <td style="background: #d1fae5;">Puoi scegliere margini e prezzi</td>
+                <td style="background: #fee2e2;">❌ Limitato (Glovo decide)</td>
+                <td style="background: #d1fae5;">✅ <strong>Pieno controllo</strong></td>
+                <td style="background: #d1fae5;">Scegli margini, prezzi</td>
             </tr>
             <tr style="background: #d1fae5;">
                 <td><strong>Annuale (100 ordini/mese)</strong></td>
                 <td style="background: #fee2e2;"><strong>€9.000 commissioni</strong></td>
-                <td style="background: #d1fae5;"><strong>€1.188 DLOOP fee</strong><br>(+ rider fees separate)</td>
-                <td style="background: #d1fae5;"><strong>Risparmi: €7.812/anno</strong></td>
+                <td style="background: #d1fae5;"><strong>€1.188 DLOOP fee</strong></td>
+                <td style="background: #d1fae5;"><strong>€7.812 risparmi</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>🚴 Rider View</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Elemento</th>
+                <th>Glovo (2024)</th>
+                <th>DLOOP</th>
+                <th>Vantaggio DLOOP</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Guadagno per consegna</strong></td>
+                <td style="background: #fee2e2;">€2,50</td>
+                <td style="background: #d1fae5;"><strong>€5,00</strong></td>
+                <td style="background: #d1fae5;"><strong>+100% (+€2,50)</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Personal Shopper (extra)</strong></td>
+                <td style="background: #fee2e2;">❌ Non esiste</td>
+                <td style="background: #d1fae5;">✅ <strong>€2,00/ordine</strong></td>
+                <td style="background: #d1fae5;">+40% di guadagno/ordine</td>
+            </tr>
+            <tr>
+                <td><strong>Guadagno MAX per ordine</strong></td>
+                <td style="background: #fee2e2;">€2,50</td>
+                <td style="background: #d1fae5;"><strong>€7,00</strong> (€5 + €2)</td>
+                <td style="background: #d1fae5;"><strong style="font-size: 16px;">+280% (2.8x!)</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Autonomia</strong></td>
+                <td style="background: #fee2e2;">❌ Algoritmo Glovo (black box)</td>
+                <td style="background: #d1fae5;">✅ <strong>Tu scegli i prezzi</strong></td>
+                <td style="background: #d1fae5;">Trasparenza totale</td>
+            </tr>
+            <tr style="background: #d1fae5;">
+                <td><strong>Annuale (300 consegne/mese)</strong></td>
+                <td style="background: #fee2e2;"><strong>€9.000 guadagni</strong></td>
+                <td style="background: #d1fae5;"><strong>€25.200 guadagni</strong></td>
+                <td style="background: #d1fae5;"><strong>€16.200 extra/anno!</strong></td>
             </tr>
         </tbody>
     </table>
 
     <!-- RIDER EARNINGS -->
-    <h2>🏍️ Quanto Guadagna il Rider?</h2>
+    <h2>🏍️ Quanto Guadagna il Rider (DETTAGLI)?</h2>
 
     <table>
         <thead>
             <tr>
-                <th>Piano Rider</th>
-                <th>Costo Mensile</th>
-                <th>Per Consegna Guadagna</th>
-                <th>Break-even</th>
+                <th>Scenario</th>
+                <th>Consegne/mese</th>
+                <th>Ricavo/consegna</th>
+                <th>Ricavo Mensile</th>
+                <th>Ricavo Annuale</th>
             </tr>
         </thead>
         <tbody>
             <tr style="background: #d1fae5;">
-                <td><strong>🔷 BRONZE (Base)</strong></td>
-                <td>Gratis</td>
-                <td>€0,20</td>
-                <td>N/A (sempre profittevole)</td>
+                <td><strong>GLOVO (Baseline 2024)</strong></td>
+                <td>300</td>
+                <td>€2,50</td>
+                <td>€750</td>
+                <td><strong>€9.000</strong></td>
             </tr>
             <tr style="background: #fef3c7;">
-                <td><strong>⭐ SILVER (Migliore)</strong></td>
-                <td>€4,99</td>
-                <td>€0,30 (+€0,10 vs Bronze)</td>
-                <td>17 consegne</td>
+                <td><strong>DLOOP (Consegna solo)</strong></td>
+                <td>300</td>
+                <td>€5,00</td>
+                <td>€1.500</td>
+                <td><strong>€18.000</strong></td>
             </tr>
             <tr style="background: #fee2e2;">
-                <td><strong>💎 GOLD (Premium)</strong></td>
-                <td>€9,99</td>
-                <td>€0,40 (+€0,20 vs Bronze)</td>
-                <td>25 consegne + assicurazione</td>
+                <td><strong>DLOOP (Con Personal Shopper 50% adoption)</strong></td>
+                <td>300 (150 con PS)</td>
+                <td>€5,00 + €2,00 (50%) = €6,00 media</td>
+                <td>€1.800</td>
+                <td><strong>€21.600</strong></td>
+            </tr>
+            <tr style="background: #1e3a8a; color: white;">
+                <td colspan="2"><strong>🎯 VANTAGGIO DLOOP vs GLOVO</strong></td>
+                <td colspan="2"><strong>+€1,50-€3,50 per consegna</strong></td>
+                <td><strong>+€12.600/anno (140%+)</strong></td>
             </tr>
         </tbody>
     </table>
 
     <div class="section">
-        <h3>📊 Esempio Rider: Quanto Guadagna da DLOOP?</h3>
-        <p><strong>Rider medio con 300 consegne/mese + personal shopper incassi:</strong></p>
+        <h3>📊 Calcolo Dettagliato: Rider con 300 consegne/mese</h3>
+        <p><strong>Scenario A - GLOVO (2024):</strong></p>
         <ul style="margin-left: 20px; margin-top: 10px;">
-            <li>🔷 <strong>BRONZE:</strong> 300 consegne × €2,00 (suo listino) = <strong>€600/mese</strong> → €7.200/anno<br/><em>(Rider pubblica propri listini per consegna e personal shopper)</em></li>
-            <li>⭐ <strong>SILVER:</strong> 300 consegne × €2,50 (listino premiato) = <strong>€750/mese</strong> → €9.000/anno<br/><em>(Con bonus DLOOP e incentivi)</em></li>
-            <li>💎 <strong>GOLD:</strong> 300 consegne × €3,00 (listino premium) = <strong>€900/mese</strong> → €10.800/anno<br/><em>(Con assicurazione, priority matching, white-glove)</em></li>
+            <li>300 consegne × €2,50 = <strong>€750/mese</strong> = <strong>€9.000/anno</strong></li>
+            <li>⚠️ Algoritmo Glovo (black box), guadagni in calo (ultimi 4 anni: -22,7%)</li>
+            <li>73% rider guadagna <€1.245/mese</li>
         </ul>
-        <p style="margin-top: 15px; color: #666;"><em>⚠️ Nota: Questi sono SOLO ricavi da servizi consegna + personal shopper. Rider pubblica propri listini per zona. NON inclusi incentivi DLOOP, referral (5-7%), o altre piattaforme</em></p>
+
+        <p style="margin-top: 20px;"><strong>Scenario B - DLOOP (Consegna sola):</strong></p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>300 consegne × €5,00 = <strong>€1.500/mese</strong> = <strong>€18.000/anno</strong></li>
+            <li>✅ Transpareance totale, tu pubblichi i prezzi</li>
+            <li>+€9.000 vs Glovo (+100%!)</li>
+        </ul>
+
+        <p style="margin-top: 20px;"><strong>Scenario C - DLOOP (Consegna + Personal Shopper):</strong></p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>200 consegne × €5,00 = €1.000</li>
+            <li>100 consegne × €7,00 (€5 consegna + €2 personal shopper) = €700</li>
+            <li><strong>Total: €1.700/mese = €20.400/anno</strong></li>
+            <li>✅ Possibilità reale di guadagnare €20K+/anno (gig worker eccellente!)</li>
+            <li>+€11.400 vs Glovo (+127%!)</li>
+        </ul>
+
+        <p style="margin-top: 20px; color: #10b981; font-weight: bold; font-size: 16px;">
+            🎯 <strong>Conclusione:</strong> Su DLOOP un rider guadagna €18-20K/anno vs €9K su Glovo<br>
+            Questo è <strong>vero earning power per gig economy</strong> (non la schiavitù di Glovo)
+        </p>
     </div>
 
     <!-- TRASPARENZA -->
@@ -372,11 +443,21 @@
     </table>
 
     <div class="green" style="text-align: center; font-size: 18px; padding: 30px;">
-        <strong style="color: #10b981; font-size: 24px;">🎯 EVERYONE WINS</strong><br><br>
-        🏪 Dealer saves €7K+ vs Glovo (€0,99 platform fee)<br>
-        🚴 Rider earns €7-10K+ (propri listini consegna + personal shopper)<br>
-        🔷 DLOOP scales (€0,99 × infinite orders)<br>
-        👥 Customers get transparency (chi guadagna cosa, listini pubblici rider)
+        <strong style="color: #10b981; font-size: 28px;">🎯 EVERYONE WINS (REAL NUMBERS)</strong><br><br>
+        <div style="text-align: left; margin-top: 20px;">
+            <p><strong>🏪 DEALER:</strong> Saves €7.812/anno vs Glovo (€0,99 fee vs 30%)<br/>
+            Keeps customer data + full price control</p>
+
+            <p><strong>🚴 RIDER:</strong> Earns €18-20K/anno vs €9K on Glovo (+100-120%)<br/>
+            Consegna €5 + Personal Shopper €2 = €7/ordine max<br/>
+            300 consegne/mese = €1.800/mese sustainable income</p>
+
+            <p><strong>🔷 DLOOP:</strong> Scales infinitely (€0,99 × ∞ orders)<br/>
+            Zero employment cost, pure software leverage</p>
+
+            <p><strong>👥 CUSTOMER:</strong> Transparent pricing, knows exactly who gets what<br/>
+            Supports local rider network instead of Glovo algorithm</p>
+        </div>
     </div>
 
 </div>
