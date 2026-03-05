@@ -23,11 +23,31 @@
         .box { background: white; border: 2px solid #3b82f6; padding: 20px; border-radius: 8px; }
         .box h3 { color: #1e3a8a; margin-bottom: 10px; }
         .emoji { font-size: 24px; margin-right: 10px; }
+
+        /* PRINT STYLES */
+        .print-controls { display: flex; gap: 10px; margin-bottom: 20px; justify-content: center; }
+        .print-btn { padding: 12px 25px; background: #1e3a8a; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; transition: background 0.3s; }
+        .print-btn:hover { background: #3b82f6; }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .container { max-width: 100%; padding: 20px; box-shadow: none; border-radius: 0; }
+            .print-controls { display: none; }
+            h1 { page-break-after: avoid; margin-bottom: 20px; }
+            h2 { page-break-before: auto; page-break-after: avoid; margin-top: 30px; margin-bottom: 15px; }
+            table { page-break-inside: avoid; font-size: 14px; margin: 15px 0; }
+            tr { page-break-inside: avoid; }
+            .green, .red, .highlight, .section { page-break-inside: avoid; }
+            div[style*="grid-template-columns"] { page-break-inside: avoid; }
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <div class="print-controls">
+        <button class="print-btn" onclick="window.print()">🖨️ Stampa / Salva come PDF</button>
+    </div>
     <h1>💰 DLOOP - Costi Cliente Finale (Semplice & Trasparente)</h1>
 
     <!-- SCENARIO BASE -->
