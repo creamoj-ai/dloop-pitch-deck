@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DLOOP - Costi Cliente Finale (Presentazione)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Google Sans', 'Segoe UI', Arial, sans-serif; background: #202124; overflow: hidden; }
+
+        .presentation-container { width: 100vw; height: 100vh; display: flex; flex-direction: column; }
+        .slide-viewport { flex: 1; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #f8f9fa; }
+        .slide { width: 90%; max-width: 1200px; height: 85vh; background: white; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); display: none; flex-direction: column; padding: 60px; position: relative; }
+        .slide.active { display: flex; animation: slideIn 0.5s ease-out; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* SLIDE TYPES */
+        .slide.title-slide { background: linear-gradient(135deg, #1e3a8a 0%, #ef4444 100%); color: white; justify-content: center; text-align: center; }
+        .slide.title-slide h1 { font-size: 64px; margin-bottom: 20px; font-weight: 700; }
+        .slide.title-slide p { font-size: 28px; margin-bottom: 15px; font-weight: 300; }
+        .slide.title-slide .subtitle { font-size: 18px; opacity: 0.9; margin-top: 40px; }
+
+        .slide.content-slide h1 { color: #1e3a8a; font-size: 44px; margin-bottom: 40px; font-weight: 700; }
+        .slide.content-slide h2 { color: #3b82f6; font-size: 32px; margin: 30px 0 20px 0; font-weight: 600; }
+        .slide.content-slide p { color: #333; font-size: 20px; margin: 15px 0; line-height: 1.6; }
+        .slide.content-slide ul { margin: 20px 0 20px 40px; }
+        .slide.content-slide li { font-size: 18px; margin: 12px 0; color: #333; }
+
+        /* GRID LAYOUT */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 20px 0; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 25px; margin: 20px 0; }
+
+        /* CARDS */
+        .card { background: #f8f9fa; border-left: 4px solid #3b82f6; padding: 25px; border-radius: 8px; }
+        .card h3 { color: #1e3a8a; font-size: 20px; margin-bottom: 15px; font-weight: 600; }
+        .card p { font-size: 16px; color: #555; line-height: 1.6; }
+        .card.highlight { border-left-color: #10b981; background: #ecfdf5; }
+        .card.warning { border-left-color: #ef4444; background: #fef2f2; }
+
+        /* SCENARIO CARDS */
+        .scenario { background: white; border: 2px solid #3b82f6; padding: 20px; border-radius: 8px; text-align: center; }
+        .scenario h3 { font-size: 20px; margin: 10px 0; color: #1e3a8a; }
+        .scenario .amount { font-size: 32px; font-weight: 700; color: #ef4444; margin: 15px 0; }
+        .scenario.featured { border: 3px solid #ef4444; background: #fef2f2; }
+        .scenario .badge { display: inline-block; background: #dc2626; color: white; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 10px; }
+
+        /* TABLE */
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th { background: #1e3a8a; color: white; padding: 15px; text-align: left; font-weight: 600; font-size: 15px; }
+        td { padding: 15px; border-bottom: 1px solid #e5e7eb; font-size: 16px; }
+        tr:nth-child(even) { background: #f8f9fa; }
+
+        /* FOOTER & NAV */
+        .controls { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; background: #202124; }
+        .slide-number { color: white; font-size: 14px; font-weight: 500; }
+        .nav-buttons { display: flex; gap: 15px; }
+        button { padding: 10px 24px; border: none; background: #3b82f6; color: white; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600; transition: background 0.3s; }
+        button:hover { background: #1e3a8a; }
+        button:disabled { background: #ccc; cursor: not-allowed; }
+
+        /* PROGRESS BAR */
+        .progress-bar { height: 4px; background: #3b82f6; width: 0%; transition: width 0.3s; }
+
+        /* SPECIAL CONTENT */
+        .highlight-box { background: linear-gradient(135deg, #dbeafe 0%, #ecfdf5 100%); border-left: 4px solid #3b82f6; padding: 25px; border-radius: 8px; margin: 20px 0; }
+        .metric { text-align: center; padding: 20px; }
+        .metric-value { font-size: 48px; font-weight: 700; color: #ef4444; }
+        .metric-label { font-size: 16px; color: #666; margin-top: 10px; }
+
+        .savings { color: #10b981; font-weight: 700; font-size: 18px; }
+        .emoji { font-size: 32px; margin-right: 10px; }
+
+        /* KEYBOARD NAV */
+        @media (max-width: 1024px) {
+            .slide { padding: 40px; }
+            .slide.title-slide h1 { font-size: 48px; }
+            .slide.content-slide h1 { font-size: 36px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="presentation-container">
+    <div class="progress-bar" id="progressBar"></div>
+
+    <div class="slide-viewport">
+        <!-- SLIDE 1: TITLE -->
+        <div class="slide title-slide active">
+            <h1>💰 DLOOP</h1>
+            <p>Costi Cliente Finale</p>
+            <p style="font-size: 20px; margin-top: 30px;">Trasparenza Totale: Dealer + Rider + Cliente</p>
+            <div class="subtitle">Marzo 2026</div>
+        </div>
+
+        <!-- SLIDE 2: IL PROBLEMA -->
+        <div class="slide content-slide">
+            <h1>🔴 Il Problema</h1>
+            <div class="grid-2">
+                <div class="card warning">
+                    <h3>🏪 Dealer</h3>
+                    <p><strong>Glovo:</strong> 30% commissione = €7,50 per ordine da €25</p>
+                    <p style="margin-top: 15px;"><strong>Risultato:</strong> Margini inesistenti</p>
+                </div>
+                <div class="card warning">
+                    <h3>🚴 Rider</h3>
+                    <p><strong>Decreto Milano 2024:</strong> Max €9K/anno (fisso)</p>
+                    <p style="margin-top: 15px;"><strong>Problema:</strong> No incentivi per crescita</p>
+                </div>
+            </div>
+            <div style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 20px; margin-top: 30px; border-radius: 8px;">
+                <p style="font-size: 18px;"><strong>⚠️ Mercato Frammentato</strong> - Dealers scompaiono, Riders demotivati</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: LA SOLUZIONE -->
+        <div class="slide content-slide">
+            <h1>💡 La Soluzione DLOOP</h1>
+            <ul style="margin-top: 30px; list-style: none; padding: 0;">
+                <li style="margin: 20px 0; font-size: 20px;"><strong>✅ €0,99 FISSO</strong> per ordine (non 30%)</li>
+                <li style="margin: 20px 0; font-size: 20px;"><strong>✅ Dati tuoi</strong> - Proprietà del dealer, non di Glovo</li>
+                <li style="margin: 20px 0; font-size: 20px;"><strong>✅ Riders partner</strong> - Guadagnano €18-25K/anno (vs €9K)</li>
+                <li style="margin: 20px 0; font-size: 20px;"><strong>✅ AI Personal Shopper</strong> - WhatsApp bot GPT-4</li>
+            </ul>
+            <div style="background: #ecfdf5; border-left: 4px solid #10b981; padding: 20px; margin-top: 40px; border-radius: 8px;">
+                <p style="font-size: 18px;"><strong>🎯 Come BlaBlacar rivoluzionò i taxi, DLOOP rivoluziona le consegne</strong></p>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: SCENARIO 1 - SNACK -->
+        <div class="slide content-slide">
+            <h1>🍨 Scenario 1: Snack Occasionale</h1>
+            <p style="color: #666; margin-bottom: 30px; font-size: 16px;">Ordine da €5 (caffè, dolce, snack)</p>
+
+            <div class="grid-2">
+                <div>
+                    <table>
+                        <tr style="border: none;"><td><strong>Prodotto</strong></td><td style="text-align: right;"><strong>€5,00</strong></td></tr>
+                        <tr><td>🚴 Consegna*</td><td style="text-align: right;">€5,00</td></tr>
+                        <tr><td>📱 DLOOP Fee</td><td style="text-align: right;">€0,99</td></tr>
+                        <tr style="background: #1e3a8a; color: white;"><td><strong>💰 Totale</strong></td><td style="text-align: right;"><strong>€10,99</strong></td></tr>
+                    </table>
+                </div>
+                <div>
+                    <div class="card highlight">
+                        <h3>🚴 Rider Guadagna</h3>
+                        <div class="amount">€5-7</div>
+                        <p>vs Glovo €2,50</p>
+                        <p style="margin-top: 10px;"><span class="savings">+100% earnings</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: SCENARIO 2 - PRANZO (FEATURED) -->
+        <div class="slide content-slide">
+            <h1>🍝 Scenario 2: Pranzo/Cena Quotidiano</h1>
+            <p style="color: #666; margin-bottom: 30px; font-size: 16px;">⭐ <strong>PIÙ COMUNE</strong> - Ordine da €28 (pasta + contorno + bevanda)</p>
+
+            <div class="grid-2">
+                <div>
+                    <table>
+                        <tr style="border: none;"><td><strong>Prodotto</strong></td><td style="text-align: right;"><strong>€28,00</strong></td></tr>
+                        <tr><td>🚴 Consegna*</td><td style="text-align: right;">€5,00</td></tr>
+                        <tr><td>📱 DLOOP Fee</td><td style="text-align: right;">€0,99</td></tr>
+                        <tr style="background: #dc2626; color: white;"><td><strong>💰 Totale</strong></td><td style="text-align: right;"><strong>€33,99</strong></td></tr>
+                    </table>
+                </div>
+                <div class="scenario featured">
+                    <h3>✅ DEALER GUADAGNA</h3>
+                    <div class="amount">€7,41</div>
+                    <p>vs Glovo €8,40</p>
+                    <p style="margin-top: 10px;"><span class="savings">87% Risparmio!</span></p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <p style="font-size: 18px; font-weight: 600; color: #1e3a8a;">1.000 dealer × €7,41 × 500 ordini/anno = <span style="color: #ef4444;">€3.7M risparmiati!</span></p>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: SCENARIO 3 - SPESA -->
+        <div class="slide content-slide">
+            <h1>🛒 Scenario 3: Spesa Settimanale</h1>
+            <p style="color: #666; margin-bottom: 30px; font-size: 16px;">💰 <strong>CASO OTTIMALE</strong> - Ordine da €50 (grocery + pet + benessere)</p>
+
+            <div class="grid-2">
+                <div>
+                    <table>
+                        <tr style="border: none;"><td><strong>Prodotto</strong></td><td style="text-align: right;"><strong>€50,00</strong></td></tr>
+                        <tr><td>🚴 Consegna*</td><td style="text-align: right;">€5,00</td></tr>
+                        <tr><td>📱 DLOOP Fee</td><td style="text-align: right;">€0,99</td></tr>
+                        <tr style="background: #059669; color: white;"><td><strong>💰 Totale</strong></td><td style="text-align: right;"><strong>€55,99</strong></td></tr>
+                    </table>
+                </div>
+                <div class="scenario featured" style="border-color: #059669; background: #ecfdf5;">
+                    <h3>✅ DEALER GUADAGNA</h3>
+                    <div class="amount" style="color: #059669;">€14,01</div>
+                    <p>vs Glovo €15,00</p>
+                    <p style="margin-top: 10px;"><span class="savings" style="color: #059669;">93% Risparmio!</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: CONFRONTO DEALER -->
+        <div class="slide content-slide">
+            <h1>⚖️ DLOOP vs Glovo: Dealer View</h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Elemento</th>
+                        <th style="background: #fee2e2;">Glovo (30%)</th>
+                        <th style="background: #ecfdf5;">DLOOP</th>
+                        <th style="background: #dbeafe;">Vantaggio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Fee per ordine</strong></td>
+                        <td>€7,50</td>
+                        <td style="background: #ecfdf5;">€0,99</td>
+                        <td style="background: #dbeafe; color: #10b981; font-weight: 700;">€6,51 ✅</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dati clienti</strong></td>
+                        <td>❌ Glovo</td>
+                        <td style="background: #ecfdf5;">✅ TUI</td>
+                        <td style="background: #dbeafe;">CRM + Loyalty</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Annuale (100 ordini/mese)</strong></td>
+                        <td><strong>€9.000</strong></td>
+                        <td style="background: #ecfdf5;"><strong>€1.188</strong></td>
+                        <td style="background: #dbeafe; color: #10b981; font-weight: 700;">€7.812 ✅</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SLIDE 8: CONFRONTO RIDER -->
+        <div class="slide content-slide">
+            <h1>🚴 DLOOP vs Glovo: Rider View</h1>
+
+            <div class="grid-2">
+                <div class="card warning">
+                    <h3>Glovo (Decreto Milano 2024)</h3>
+                    <div class="metric">
+                        <div class="metric-value">€9.000</div>
+                        <div class="metric-label">/anno</div>
+                    </div>
+                    <p style="margin-top: 20px;">300 consegne × €2,50</p>
+                    <p style="font-size: 14px; margin-top: 10px;">❌ Fixed, no upside</p>
+                </div>
+
+                <div class="card highlight">
+                    <h3>DLOOP (Base)</h3>
+                    <div class="metric">
+                        <div class="metric-value" style="color: #059669;">€18.000</div>
+                        <div class="metric-label">/anno</div>
+                    </div>
+                    <p style="margin-top: 20px;">300 consegne × €5,00</p>
+                    <p style="font-size: 14px; margin-top: 10px; color: #059669;">✅ +100% earnings</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px; background: #ecfdf5; padding: 20px; border-radius: 8px;">
+                <p style="font-size: 20px; color: #059669;"><strong>Con Personal Shopper: €21-24K/anno 🚀</strong></p>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: MODEL SCALABILE -->
+        <div class="slide content-slide">
+            <h1>📈 Modello Scalabile</h1>
+            <p style="font-size: 18px; margin-bottom: 30px;">Funziona da €5 snack a €50 spesa settimanale</p>
+
+            <div class="grid-3">
+                <div class="metric">
+                    <div style="font-size: 48px;">💰</div>
+                    <div class="metric-label" style="font-size: 18px;"><strong>€0,99 FISSO</strong></div>
+                    <p style="font-size: 14px; color: #666; margin-top: 10px;">DLOOP Fee per infra + pagamenti</p>
+                </div>
+                <div class="metric">
+                    <div style="font-size: 48px;">🚴</div>
+                    <div class="metric-label" style="font-size: 18px;"><strong>€5 MEDIA*</strong></div>
+                    <p style="font-size: 14px; color: #666; margin-top: 10px;">Rider pubblica i propri costi (€3-7)</p>
+                </div>
+                <div class="metric">
+                    <div style="font-size: 48px;">✅</div>
+                    <div class="metric-label" style="font-size: 18px;"><strong>Win-Win-Win</strong></div>
+                    <p style="font-size: 14px; color: #666; margin-top: 10px;">Dealer + Rider + Cliente</p>
+                </div>
+            </div>
+
+            <div style="background: #dbeafe; border-left: 4px solid #3b82f6; padding: 20px; margin-top: 30px; border-radius: 8px;">
+                <p style="font-size: 16px;"><strong>🎯 TRASPARENZA TOTALE:</strong> Ogni rider pubblica i propri costi nella DLOOP Rider App per la sua zona</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: TRASPARENZA -->
+        <div class="slide content-slide">
+            <h1>🔍 Trasparenza = Fiducia</h1>
+
+            <div class="grid-2">
+                <div class="card warning">
+                    <h3>❌ Glovo/Alfonsino</h3>
+                    <ul style="margin: 15px 0 0 20px;">
+                        <li>Quanto guadagna il rider?</li>
+                        <li>Dove va la commissione?</li>
+                        <li>Perché è così caro?</li>
+                    </ul>
+                    <p style="margin-top: 20px; font-size: 14px;"><strong>➜ Scarsa fiducia, alto abbandono</strong></p>
+                </div>
+
+                <div class="card highlight">
+                    <h3>✅ DLOOP</h3>
+                    <ul style="margin: 15px 0 0 20px;">
+                        <li>€5 → Rider consegna</li>
+                        <li>€0,99 → Piattaforma</li>
+                        <li>Tutto visibile al cliente</li>
+                    </ul>
+                    <p style="margin-top: 20px; font-size: 14px; color: #059669;"><strong>➜ Trasparenza, fedeltà, repeat</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: DEALER CHECKLIST -->
+        <div class="slide content-slide">
+            <h1>✅ Perché Scegliere DLOOP</h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Vantaggio</th>
+                        <th>€ Economie/Anno</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>💰 €0,99 FISSO</strong></td>
+                        <td>Non crescente, predicibile</td>
+                        <td style="color: #10b981; font-weight: 700;">€7.812</td>
+                    </tr>
+                    <tr>
+                        <td><strong>👥 Dati Clienti</strong></td>
+                        <td>Tuoi, CRM, repeat orders</td>
+                        <td style="color: #10b981; font-weight: 700;">€4.000+</td>
+                    </tr>
+                    <tr>
+                        <td><strong>📊 Analytics</strong></td>
+                        <td>Dashboard completo</td>
+                        <td style="color: #10b981; font-weight: 700;">€2.000+</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🤖 Bot WhatsApp</strong></td>
+                        <td>Zero friction ordering</td>
+                        <td style="color: #10b981; font-weight: 700;">€3.750+</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SLIDE 12: EXAMPLE MARIO -->
+        <div class="slide content-slide">
+            <h1>📈 Esempio Reale: Mario Cucciolito</h1>
+
+            <div class="grid-2">
+                <div class="card warning">
+                    <h3>❌ Prima (Glovo)</h3>
+                    <p style="font-size: 18px;"><strong>150 ordini/mese</strong></p>
+                    <p style="margin-top: 10px;">€7,50 × 150 = <strong>€1.125/mese</strong></p>
+                    <p style="margin-top: 10px; color: #ef4444;"><strong>€13.500/anno di commissioni</strong></p>
+                </div>
+
+                <div class="card highlight">
+                    <h3>✅ Dopo (DLOOP)</h3>
+                    <p style="font-size: 18px;"><strong>150 ordini/mese</strong></p>
+                    <p style="margin-top: 10px;">€0,99 × 150 = <strong>€148,50/mese</strong></p>
+                    <p style="margin-top: 10px; color: #059669;"><strong>€1.782/anno di fee</strong></p>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #dbeafe 0%, #ecfdf5 100%); border-left: 4px solid #10b981; padding: 25px; margin-top: 30px; border-radius: 8px;">
+                <p style="font-size: 22px; font-weight: 700; color: #059669;">💰 RISPARMIO: €11.718/anno (87% less!)</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: VIRAL LOOP -->
+        <div class="slide content-slide">
+            <h1>🔄 The Viral Loop</h1>
+            <p style="color: #666; margin-bottom: 30px; font-size: 18px;">Come scalare senza marketing cost</p>
+
+            <ol style="margin: 0; padding: 0;">
+                <li style="font-size: 18px; margin: 20px 0; margin-left: 40px;">🚴 Rider guadagna €0,20-€0,40 per consegna</li>
+                <li style="font-size: 18px; margin: 20px 0; margin-left: 40px;">👥 Rider referral a 5-10 dealer (amici, famiglia)</li>
+                <li style="font-size: 18px; margin: 20px 0; margin-left: 40px;">📈 Dealer iscrive 100+ ordini/mese</li>
+                <li style="font-size: 18px; margin: 20px 0; margin-left: 40px;">🔄 Dealer invita altri dealer (è vantaggioso!)</li>
+                <li style="font-size: 18px; margin: 20px 0; margin-left: 40px;">💎 Network cresce organicamente</li>
+            </ol>
+
+            <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 20px; margin-top: 40px; border-radius: 8px;">
+                <p style="font-size: 18px; font-weight: 600;">📊 Stima: 20 riders → 100+ dealer in 6 mesi via referral!</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 14: PRICING -->
+        <div class="slide content-slide">
+            <h1>💵 Pricing Semplice (Per Dealer)</h1>
+
+            <table style="margin-top: 40px;">
+                <thead>
+                    <tr>
+                        <th>Piano</th>
+                        <th>Costo</th>
+                        <th>Per Chi?</th>
+                        <th>Ideale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>STARTER</strong></td>
+                        <td style="background: #ecfdf5;"><strong>€0/mese + €0,75/ordine</strong></td>
+                        <td>Piccoli dealer, test</td>
+                        <td>Pay-as-you-go</td>
+                    </tr>
+                    <tr>
+                        <td><strong>BUSINESS</strong></td>
+                        <td style="background: #dbeafe;"><strong>€79/mese (scale-up)</strong></td>
+                        <td>Consolidati, analytics</td>
+                        <td>100+ ordini/mese</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 40px; padding: 20px; background: #f0f9ff; border-radius: 8px;">
+                <p style="font-size: 16px;">💡 Per 100 ordini/mese: <strong>STARTER €75/mese</strong> vs BUSINESS €79 (quasi uguale!)</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 15: RECAP FINALE -->
+        <div class="slide content-slide">
+            <h1>🎯 EVERYONE WINS</h1>
+
+            <div class="grid-3">
+                <div class="card">
+                    <h3>🏪 DEALER</h3>
+                    <p style="margin-top: 15px;"><strong>€7.812/anno risparmiati</strong></p>
+                    <p style="margin-top: 10px; font-size: 14px;">vs 30% Glovo</p>
+                    <p style="margin-top: 15px;"><strong>Dati clienti tuoi</strong></p>
+                    <p style="font-size: 14px; margin-top: 5px;">CRM + repeat loyalty</p>
+                </div>
+
+                <div class="card">
+                    <h3>🚴 RIDER</h3>
+                    <p style="margin-top: 15px;"><strong>€18-20K/anno</strong></p>
+                    <p style="margin-top: 10px; font-size: 14px;">vs €9K Glovo (+100%)</p>
+                    <p style="margin-top: 15px;"><strong>Autonomia</strong></p>
+                    <p style="font-size: 14px; margin-top: 5px;">Tu pubblichi i prezzi</p>
+                </div>
+
+                <div class="card">
+                    <h3>👥 CUSTOMER</h3>
+                    <p style="margin-top: 15px;"><strong>Trasparenza totale</strong></p>
+                    <p style="margin-top: 10px; font-size: 14px;">Sa chi guadagna cosa</p>
+                    <p style="margin-top: 15px;"><strong>Supporta locale</strong></p>
+                    <p style="font-size: 14px; margin-top: 5px;">vs algoritmo Glovo</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px; background: linear-gradient(135deg, #dbeafe 0%, #ecfdf5 100%); padding: 30px; border-radius: 8px;">
+                <p style="font-size: 28px; font-weight: 700; color: #1e3a8a;">Win-Win-Win Model</p>
+                <p style="font-size: 16px; margin-top: 10px; color: #555;">Dealer, Rider, Customer, DLOOP - Tutti vincono</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 16: THANKS -->
+        <div class="slide title-slide" style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);">
+            <h1>Grazie! 🙏</h1>
+            <p style="font-size: 24px; margin-top: 40px;">Domande?</p>
+            <div style="margin-top: 60px;">
+                <p style="font-size: 18px;">📧 info@dloop.it</p>
+                <p style="font-size: 18px; margin-top: 10px;">🌐 www.dloop.it</p>
+                <p style="font-size: 18px; margin-top: 10px;">📱 +39 328 185 4639</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTROLS -->
+    <div class="controls">
+        <button id="prevBtn" onclick="previousSlide()">← Precedente</button>
+        <span class="slide-number"><span id="currentSlide">1</span> / <span id="totalSlides">16</span></span>
+        <button id="nextBtn" onclick="nextSlide()">Prossimo →</button>
+    </div>
+</div>
+
+<script>
+    let currentSlide = 1;
+    const totalSlides = document.querySelectorAll('.slide').length;
+    document.getElementById('totalSlides').textContent = totalSlides;
+
+    function showSlide(n) {
+        const slides = document.querySelectorAll('.slide');
+        if (n > totalSlides) currentSlide = totalSlides;
+        if (n < 1) currentSlide = 1;
+
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[currentSlide - 1].classList.add('active');
+
+        document.getElementById('currentSlide').textContent = currentSlide;
+        document.getElementById('prevBtn').disabled = currentSlide === 1;
+        document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        document.getElementById('progressBar').style.width = ((currentSlide / totalSlides) * 100) + '%';
+    }
+
+    function nextSlide() {
+        currentSlide++;
+        showSlide(currentSlide);
+    }
+
+    function previousSlide() {
+        currentSlide--;
+        showSlide(currentSlide);
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') nextSlide();
+        if (e.key === 'ArrowLeft') previousSlide();
+        if (e.key === ' ') { nextSlide(); e.preventDefault(); }
+    });
+
+    // Initialize
+    showSlide(currentSlide);
+</script>
+
+</body>
+</html>
