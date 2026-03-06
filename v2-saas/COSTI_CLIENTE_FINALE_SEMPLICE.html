@@ -29,46 +29,53 @@
             .print-btn:hover { background: #3b82f6; }
         }
 
-        h1 { color: #fff; background: linear-gradient(135deg, #1e3a8a 0%, #ef4444 100%); padding: 30px; margin: 0 0 20px 0; font-size: 32px; }
-        h2 { color: #1e3a8a; margin-top: 0; margin-bottom: 15px; padding-left: 15px; border-left: 5px solid #3b82f6; page-break-before: auto; page-break-after: avoid; font-size: 20px; }
-        h3 { color: #1e3a8a; margin: 15px 0 10px 0; font-size: 16px; }
+        h1 { color: #fff; background: linear-gradient(135deg, #1e3a8a 0%, #ef4444 100%); padding: 25px 20px; margin: 0; font-size: 28px; }
+        h2 { color: #1e3a8a; margin: 20px 0 15px 0; padding: 20px 20px 0 20px; border-left: 5px solid #3b82f6; page-break-before: auto; page-break-after: avoid; font-size: 18px; font-weight: 700; }
+        h3 { color: #1e3a8a; margin: 12px 0 8px 0; font-size: 15px; font-weight: 600; }
 
-        p { margin: 10px 0; font-size: 15px; }
+        p { margin: 8px 0; font-size: 14px; padding: 0 20px; }
+        ul { margin-left: 40px; padding: 0 20px; }
+        ul li { margin: 6px 0; font-size: 14px; }
 
-        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px; page-break-inside: avoid; }
-        th { background: #1e3a8a; color: white; padding: 12px; text-align: left; font-weight: 600; }
-        td { padding: 12px; border-bottom: 1px solid #e5e7eb; }
+        table { width: calc(100% - 40px); border-collapse: collapse; margin: 12px 20px; font-size: 13px; page-break-inside: avoid; }
+        th { background: #1e3a8a; color: white; padding: 10px; text-align: left; font-weight: 600; font-size: 12px; }
+        td { padding: 10px; border-bottom: 1px solid #e5e7eb; }
 
-        .highlight { background: #dbeafe; border-left: 4px solid #3b82f6; padding: 15px; margin: 15px 0; border-radius: 4px; page-break-inside: avoid; }
-        .green { background: #d1fae5; border-left: 4px solid #10b981; padding: 15px; margin: 15px 0; border-radius: 4px; page-break-inside: avoid; }
-        .red { background: #fee2e2; border-left: 4px solid #ef4444; padding: 15px; margin: 15px 0; border-radius: 4px; page-break-inside: avoid; }
-        .section { margin: 15px 0; padding: 15px; background: #f0f9ff; border-radius: 8px; page-break-inside: avoid; }
-        .box { background: white; border: 2px solid #3b82f6; padding: 15px; border-radius: 8px; page-break-inside: avoid; }
-        .box h3 { margin-top: 0; }
-        .emoji { font-size: 20px; margin-right: 8px; }
+        .highlight { background: #dbeafe; border-left: 4px solid #3b82f6; padding: 15px; margin: 12px 20px; border-radius: 4px; page-break-inside: avoid; font-size: 14px; }
+        .green { background: #d1fae5; border-left: 4px solid #10b981; padding: 15px; margin: 12px 20px; border-radius: 4px; page-break-inside: avoid; font-size: 14px; }
+        .red { background: #fee2e2; border-left: 4px solid #ef4444; padding: 15px; margin: 12px 20px; border-radius: 4px; page-break-inside: avoid; font-size: 14px; }
+        .section { margin: 12px 20px; padding: 15px; background: #f0f9ff; border-radius: 8px; page-break-inside: avoid; font-size: 14px; }
+        .box { background: white; border: 2px solid #3b82f6; padding: 15px; margin: 10px 0; border-radius: 8px; page-break-inside: avoid; }
+        .box h3 { margin-top: 0; margin-bottom: 8px; }
+        .emoji { font-size: 18px; margin-right: 6px; }
 
         /* LAYOUT PAGINA */
-        .page { page-break-after: always; padding: 20px; }
+        .page { page-break-after: always; padding: 0; }
         .page:last-child { page-break-after: avoid; }
 
         /* GRID */
-        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin: 15px 0; page-break-inside: avoid; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; page-break-inside: avoid; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 12px 20px; page-break-inside: avoid; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 20px; page-break-inside: avoid; }
 
         /* PRINT SPECIFIC */
         @media print {
             body { padding: 0; margin: 0; background: white; }
             .container { max-width: 100%; margin: 0; border-radius: 0; box-shadow: none; padding: 0; }
             .print-controls { display: none !important; }
-            h1 { page-break-after: avoid; margin: 0 0 15px 0; border-radius: 0; padding: 20px; }
-            h2 { page-break-before: always; page-break-after: avoid; margin-top: 0; margin-bottom: 12px; padding-top: 20px; }
+            h1 { page-break-after: avoid; margin: 0; border-radius: 0; padding: 20px 20px 15px 20px; }
+            h2 { page-break-before: always; page-break-after: avoid; margin-top: 0; margin-bottom: 10px; padding: 15px 20px 0 20px; }
+            h3 { page-break-after: avoid; margin: 10px 0 6px 0; }
+            p { padding: 0 20px; margin: 6px 0; }
+            ul { margin-left: 40px; padding: 0 20px; }
             .page { page-break-before: always; padding: 0; }
             .page:first-of-type { page-break-before: avoid; }
-            table { page-break-inside: avoid; font-size: 12px; margin: 10px 0; }
+            table { page-break-inside: avoid; font-size: 12px; margin: 10px 20px; width: calc(100% - 40px); }
             tr { page-break-inside: avoid; }
-            .green, .red, .highlight, .section, .box, .grid-2, .grid-3 { page-break-inside: avoid; }
-            .grid-3 { grid-template-columns: 1fr; }
-            .grid-2 { grid-template-columns: 1fr; }
+            th { font-size: 11px; padding: 9px; }
+            td { padding: 9px; font-size: 12px; }
+            .green, .red, .highlight, .section, .box, .grid-2, .grid-3 { page-break-inside: avoid; margin: 10px 20px; }
+            .grid-3 { grid-template-columns: 1fr; gap: 10px; }
+            .grid-2 { grid-template-columns: 1fr; gap: 10px; }
             tr:hover { background: white; }
         }
     </style>
@@ -83,16 +90,16 @@
 
     <!-- SCENARIO BASE -->
     <h2>📦 Scenari Reali: Costi Cliente per Diverse Spese (2025 Data Verificati)</h2>
-    <p style="color: #666; margin-bottom: 20px;"><em>
+    <p style="color: #666; margin: 0; font-size: 13px;"><em>
         <strong>Data Sources (Netcomm Osservatorio):</strong> Food Delivery AOV €32-33 | Grocery Delivery €25 | Weekly basket estimate €50<br>
         <strong>DLOOP Multi-Channel:</strong> Food delivery + Grocery + Pet + Wellness (€5* media rider per zona, €0,99 DLOOP fee FISSO per tutti)
     </em></p>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin: 20px 0;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 12px 20px; page-break-inside: avoid;">
         <!-- SCENARIO 1: DESSERT -->
-        <div style="border: 2px solid #3b82f6; border-radius: 8px; padding: 20px; background: #f0f9ff;">
-            <h3 style="color: #1e3a8a; margin-bottom: 15px; font-size: 16px;">🍨 Scenario 1: Snack</h3>
-            <p style="font-size: 12px; color: #666; margin-bottom: 10px;"><em>Ordine occasionale</em></p>
+        <div style="border: 2px solid #3b82f6; border-radius: 8px; padding: 15px; background: #f0f9ff;">
+            <h3 style="color: #1e3a8a; margin: 0 0 8px 0; font-size: 15px; font-weight: 600;">🍨 Scenario 1: Snack</h3>
+            <p style="font-size: 13px; color: #666; margin: 0 0 6px 0;"><em>Ordine occasionale</em></p>
             <table style="width: 100%; font-size: 14px; border: none;">
                 <tr style="border-bottom: 1px solid #e5e7eb;">
                     <td><strong>Prodotto</strong></td>
@@ -119,13 +126,13 @@
                     <td style="text-align: right;">€12,99</td>
                 </tr>
             </table>
-            <p style="margin-top: 15px; color: #666; font-size: 12px;"><strong>Rider:</strong> €5-7<br/><strong>vs Glovo:</strong> €2,50<br/>+180% earnings</p>
+            <p style="margin: 8px 0 0 0; color: #666; font-size: 13px;"><strong>Rider:</strong> €5-7<br/><strong>vs Glovo:</strong> €2,50<br/>+180% earnings</p>
         </div>
 
         <!-- SCENARIO 2: MAIN COURSE - MOST COMMON -->
-        <div style="border: 3px solid #dc2626; border-radius: 8px; padding: 20px; background: #fef3c7; box-shadow: 0 4px 8px rgba(220,38,38,0.2);">
-            <div style="background: #dc2626; color: white; padding: 8px 12px; border-radius: 4px; margin: -20px -20px 15px -20px; text-align: center; font-weight: bold; font-size: 12px;">⭐ PIÙ COMUNE - PRANZO/CENA QUOTIDIANO</div>
-            <h3 style="color: #b91c1c; margin-bottom: 15px; font-size: 16px;">🍝 Scenario 2: Piatto Completo</h3>
+        <div style="border: 3px solid #dc2626; border-radius: 8px; padding: 15px; background: #fef3c7; box-shadow: 0 4px 8px rgba(220,38,38,0.2);">
+            <div style="background: #dc2626; color: white; padding: 8px 12px; border-radius: 4px; margin: -15px -15px 10px -15px; text-align: center; font-weight: bold; font-size: 12px;">⭐ PIÙ COMUNE - PRANZO/CENA QUOTIDIANO</div>
+            <h3 style="color: #b91c1c; margin: 0 0 8px 0; font-size: 15px; font-weight: 600;">🍝 Scenario 2: Piatto Completo</h3>
             <table style="width: 100%; font-size: 14px; border: none;">
                 <tr style="border-bottom: 1px solid #e5e7eb;">
                     <td><strong>Pasta + Contorno + Bevanda</strong></td>
@@ -159,9 +166,9 @@
         </div>
 
         <!-- SCENARIO 3: WEEKLY BASKET - BEST CASE -->
-        <div style="border: 3px solid #059669; border-radius: 8px; padding: 20px; background: #d1fae5; box-shadow: 0 4px 8px rgba(5,150,105,0.2);">
-            <div style="background: #059669; color: white; padding: 8px 12px; border-radius: 4px; margin: -20px -20px 15px -20px; text-align: center; font-weight: bold; font-size: 12px;">💰 CASO OTTIMALE - SPESA SETTIMANALE MULTI-CANALE</div>
-            <h3 style="color: #047857; margin-bottom: 15px; font-size: 16px;">🛒 Scenario 3: Spesa Settimanale</h3>
+        <div style="border: 3px solid #059669; border-radius: 8px; padding: 15px; background: #d1fae5; box-shadow: 0 4px 8px rgba(5,150,105,0.2);">
+            <div style="background: #059669; color: white; padding: 8px 12px; border-radius: 4px; margin: -15px -15px 10px -15px; text-align: center; font-weight: bold; font-size: 12px;">💰 CASO OTTIMALE - SPESA SETTIMANALE MULTI-CANALE</div>
+            <h3 style="color: #047857; margin: 0 0 8px 0; font-size: 15px; font-weight: 600;">🛒 Scenario 3: Spesa Settimanale</h3>
             <table style="width: 100%; font-size: 13px; border: none;">
                 <tr style="border-bottom: 1px solid #a7f3d0;">
                     <td><strong>Grocery + Pet + Wellness</strong></td>
