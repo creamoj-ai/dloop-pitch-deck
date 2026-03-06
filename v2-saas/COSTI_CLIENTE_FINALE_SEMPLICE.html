@@ -6,39 +6,70 @@
     <title>DLOOP - Costi Cliente Finale (Semplificato)</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; padding: 20px; line-height: 1.6; }
-        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 8px; padding: 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        h1 { color: #fff; background: linear-gradient(135deg, #1e3a8a 0%, #ef4444 100%); padding: 30px; border-radius: 8px; margin-bottom: 30px; font-size: 32px; }
-        h2 { color: #1e3a8a; margin-top: 40px; margin-bottom: 20px; padding-left: 15px; border-left: 5px solid #3b82f6; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 16px; }
-        th { background: #1e3a8a; color: white; padding: 15px; text-align: left; font-weight: 600; }
-        td { padding: 15px; border-bottom: 1px solid #e5e7eb; }
-        tr:hover { background: #f9fafb; }
-        .highlight { background: #dbeafe; border-left: 4px solid #3b82f6; padding: 20px; margin: 20px 0; border-radius: 4px; }
-        .green { background: #d1fae5; border-left: 4px solid #10b981; padding: 20px; margin: 20px 0; border-radius: 4px; }
-        .red { background: #fee2e2; border-left: 4px solid #ef4444; padding: 20px; margin: 20px 0; border-radius: 4px; }
-        .section { margin: 30px 0; padding: 20px; background: #f0f9ff; border-radius: 8px; }
-        .big-number { font-size: 36px; font-weight: bold; color: #ef4444; margin: 10px 0; }
-        .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
-        .box { background: white; border: 2px solid #3b82f6; padding: 20px; border-radius: 8px; }
-        .box h3 { color: #1e3a8a; margin-bottom: 10px; }
-        .emoji { font-size: 24px; margin-right: 10px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; padding: 0; line-height: 1.6; }
+        .container { max-width: 100%; background: white; padding: 0; }
 
-        /* PRINT STYLES */
-        .print-controls { display: flex; gap: 10px; margin-bottom: 20px; justify-content: center; }
-        .print-btn { padding: 12px 25px; background: #1e3a8a; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; transition: background 0.3s; }
-        .print-btn:hover { background: #3b82f6; }
+        /* PRINT SETUP */
+        @page {
+            size: A4;
+            margin: 1.5cm;
+            @bottom-center {
+                content: "Pagina " counter(page) " di " counter(pages);
+                font-size: 10px;
+                color: #999;
+            }
+        }
 
+        /* SCREEN STYLES */
+        @media screen {
+            body { padding: 20px; background: #f5f5f5; }
+            .container { max-width: 900px; margin: 0 auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+            .print-controls { display: flex; gap: 10px; margin-bottom: 20px; justify-content: center; }
+            .print-btn { padding: 12px 25px; background: #1e3a8a; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; transition: background 0.3s; }
+            .print-btn:hover { background: #3b82f6; }
+        }
+
+        h1 { color: #fff; background: linear-gradient(135deg, #1e3a8a 0%, #ef4444 100%); padding: 30px; margin: 0 0 20px 0; font-size: 32px; }
+        h2 { color: #1e3a8a; margin-top: 0; margin-bottom: 15px; padding-left: 15px; border-left: 5px solid #3b82f6; page-break-before: auto; page-break-after: avoid; font-size: 20px; }
+        h3 { color: #1e3a8a; margin: 15px 0 10px 0; font-size: 16px; }
+
+        p { margin: 10px 0; font-size: 15px; }
+
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 14px; page-break-inside: avoid; }
+        th { background: #1e3a8a; color: white; padding: 12px; text-align: left; font-weight: 600; }
+        td { padding: 12px; border-bottom: 1px solid #e5e7eb; }
+
+        .highlight { background: #dbeafe; border-left: 4px solid #3b82f6; padding: 15px; margin: 15px 0; border-radius: 4px; page-break-inside: avoid; }
+        .green { background: #d1fae5; border-left: 4px solid #10b981; padding: 15px; margin: 15px 0; border-radius: 4px; page-break-inside: avoid; }
+        .red { background: #fee2e2; border-left: 4px solid #ef4444; padding: 15px; margin: 15px 0; border-radius: 4px; page-break-inside: avoid; }
+        .section { margin: 15px 0; padding: 15px; background: #f0f9ff; border-radius: 8px; page-break-inside: avoid; }
+        .box { background: white; border: 2px solid #3b82f6; padding: 15px; border-radius: 8px; page-break-inside: avoid; }
+        .box h3 { margin-top: 0; }
+        .emoji { font-size: 20px; margin-right: 8px; }
+
+        /* LAYOUT PAGINA */
+        .page { page-break-after: always; padding: 20px; }
+        .page:last-child { page-break-after: avoid; }
+
+        /* GRID */
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin: 15px 0; page-break-inside: avoid; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; page-break-inside: avoid; }
+
+        /* PRINT SPECIFIC */
         @media print {
-            body { background: white; padding: 0; }
-            .container { max-width: 100%; padding: 20px; box-shadow: none; border-radius: 0; }
-            .print-controls { display: none; }
-            h1 { page-break-after: avoid; margin-bottom: 20px; }
-            h2 { page-break-before: auto; page-break-after: avoid; margin-top: 30px; margin-bottom: 15px; }
-            table { page-break-inside: avoid; font-size: 14px; margin: 15px 0; }
+            body { padding: 0; margin: 0; background: white; }
+            .container { max-width: 100%; margin: 0; border-radius: 0; box-shadow: none; padding: 0; }
+            .print-controls { display: none !important; }
+            h1 { page-break-after: avoid; margin: 0 0 15px 0; border-radius: 0; padding: 20px; }
+            h2 { page-break-before: always; page-break-after: avoid; margin-top: 0; margin-bottom: 12px; padding-top: 20px; }
+            .page { page-break-before: always; padding: 0; }
+            .page:first-of-type { page-break-before: avoid; }
+            table { page-break-inside: avoid; font-size: 12px; margin: 10px 0; }
             tr { page-break-inside: avoid; }
-            .green, .red, .highlight, .section { page-break-inside: avoid; }
-            div[style*="grid-template-columns"] { page-break-inside: avoid; }
+            .green, .red, .highlight, .section, .box, .grid-2, .grid-3 { page-break-inside: avoid; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .grid-2 { grid-template-columns: 1fr; }
+            tr:hover { background: white; }
         }
     </style>
 </head>
@@ -190,7 +221,7 @@
     </div>
 
     <!-- CONFRONTO GLOVO vs DLOOP -->
-    <h2>⚖️ Confronto: DLOOP vs Glovo (Chi paga cosa?)</h2>
+    <h2 style="page-break-before: always;">⚖️ Confronto: DLOOP vs Glovo (Chi paga cosa?)</h2>
 
     <h3>📊 Dealer View</h3>
     <table>
@@ -275,7 +306,7 @@
     </table>
 
     <!-- RIDER EARNINGS -->
-    <h2>🏍️ Quanto Guadagna il Rider (DETTAGLI)?</h2>
+    <h2 style="page-break-before: always;">🏍️ Quanto Guadagna il Rider (DETTAGLI)?</h2>
 
     <p style="color: #666; margin-bottom: 15px;"><em>Ricerca 2024-2025: Spesa media food delivery Italia €32-33. Rider medio: 300 consegne/mese</em></p>
 
@@ -358,7 +389,7 @@
     </div>
 
     <!-- TRASPARENZA -->
-    <h2>🔍 Trasparenza = Fiducia</h2>
+    <h2 style="page-break-before: always;">🔍 Trasparenza = Fiducia</h2>
 
     <div class="comparison">
         <div class="box">
@@ -425,7 +456,7 @@
     </table>
 
     <!-- ESEMPIO REALE -->
-    <h2>📈 Esempio Reale: Mario Cucciolito (Toelettatura)</h2>
+    <h2 style="page-break-before: always;">📈 Esempio Reale: Mario Cucciolito (Toelettatura)</h2>
 
     <div class="green">
         <h3 style="margin-top: 0;">🎯 Situazione Before DLOOP (Glovo)</h3>
@@ -442,7 +473,7 @@
     </div>
 
     <!-- RIDER ADOPTION LOOP -->
-    <h2>🔄 The Viral Loop: Rider → Dealer Growth</h2>
+    <h2 style="page-break-before: always;">🔄 The Viral Loop: Rider → Dealer Growth</h2>
 
     <div class="section" style="background: #fef3c7;">
         <p><strong>Come scalare senza marketing cost:</strong></p>
@@ -491,7 +522,7 @@
     </div>
 
     <!-- RECAP FINALE -->
-    <h2>🎯 Recap: Perché DLOOP Wins</h2>
+    <h2 style="page-break-before: always;">🎯 Recap: Perché DLOOP Wins</h2>
 
     <table style="font-size: 18px; margin: 20px 0;">
         <tbody>
