@@ -1,0 +1,55 @@
+NEW STRUCTURE - DLOOP PITCH DECK REORGANIZATION
+================================================
+
+dloop-pitch-deck/
+│
+├── 📄 README.md (Master index - Start here!)
+├── 📄 CHANGELOG.md (Version history)
+│
+├── 📁 01-EXECUTIVE-SUMMARY/ (First contact - 1-10 min)
+│   ├── WHATSAPP_PITCH_1PAGE_2026.md (60 sec pitch)
+│   ├── START_HERE_GUERRILLA_2026.md (90 day roadmap)
+│   └── INVESTOR_CHEAT_SHEET_2026.html (2-page reference)
+│
+├── 📁 02-INVESTOR-PRESENTATIONS/ (Deep dive - 30-60 min)
+│   ├── DLOOP_INVESTOR_PITCH_2026.md (Full pitch deck)
+│   ├── DLOOP_INVESTOR_PITCH_2026.html (Web version)
+│   └── 1-PAGERS/
+│       ├── MARIO.md (Toelettatura Pet owner pitch)
+│       ├── AMODIO.md (Cooperativa leader pitch)
+│       └── SABATINO.md (CTO technical pitch)
+│
+├── 📁 03-FINANCIAL-MODELS/ (Investor "deep dive" - 30+ min)
+│   ├── DLOOP_BUDGET_CIVILISTICO_6MESI_2026.md (6-month budget)
+│   ├── DLOOP_BUDGET_INTERACTIVE_6MESI_2026.html (Web version)
+│   ├── DLOOP_EXCEL_FINANCIAL_MODEL_2026.html (12-month model)
+│   └── FINANCIAL_DATA_2026.csv (Raw data for import)
+│
+├── 📁 04-STRATEGY-GUIDES/ (Operational guides)
+│   ├── GUERRILLA_FUNDRAISING_STRATEGY_2026.md (90-day playbook)
+│   ├── GO_TO_MARKET_EXECUTION_PHASE_BY_PHASE.md (Execution guide)
+│   └── SEND_TO_INVESTORS.txt (Email templates + scripts)
+│
+├── 📁 05-REFERENCE-MATERIALS/ (Supporting docs)
+│   ├── BUSINESS_MODEL_OVERVIEW_2026.md
+│   ├── COMPETITIVE_ANALYSIS_2026.md
+│   ├── MARKET_SIZE_VALIDATION_2026.md
+│   └── RISK_MITIGATION_STRATEGIES_2026.md
+│
+└── 📁 archived/ (Old versions - for historical reference)
+    ├── v1-marketplace/ (V1 marketplace model - SUPERSEDED)
+    ├── v2-saas/ (V2 SaaS model - SUPERSEDED)
+    └── README_ARCHIVED.md (Explanation of old versions)
+
+READING PATH FOR INVESTORS:
+============================
+1️⃣  WHATSAPP_PITCH_1PAGE_2026.md (1 min) → Initial hook
+2️⃣  INVESTOR_CHEAT_SHEET_2026.html (10 min) → Overview
+3️⃣  DLOOP_INVESTOR_PITCH_2026.md (30 min) → Full story
+4️⃣  DLOOP_BUDGET_CIVILISTICO_6MESI_2026.html (30 min) → Financial deep dive
+5️⃣  DLOOP_EXCEL_FINANCIAL_MODEL_2026.html (30+ min) → Complete model
+6️⃣  1-PAGERS/[MARIO|AMODIO|SABATINO].md (10 min each) → Team validation
+
+STATUS: 🟢 PRODUCTION READY
+LAST UPDATED: 2026-03-12
+VERSION: 2.1.0 (Reorganized)
