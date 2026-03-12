@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DLOOP - PDF Index</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; padding: 40px 20px; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 8px; padding: 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #fff; background: linear-gradient(135deg, #1e3a8a 0%, #ef4444 100%); padding: 30px; border-radius: 8px; margin-bottom: 30px; font-size: 36px; text-align: center; }
+        h2 { color: #1e3a8a; margin-top: 40px; margin-bottom: 20px; padding-left: 15px; border-left: 5px solid #3b82f6; }
+        .card { background: #f0f9ff; border: 2px solid #3b82f6; padding: 25px; border-radius: 8px; margin: 20px 0; }
+        .card h3 { color: #1e3a8a; margin-bottom: 10px; font-size: 20px; }
+        .card p { color: #666; margin-bottom: 10px; line-height: 1.8; }
+        .btn { display: inline-block; margin-top: 15px; padding: 12px 25px; background: #3b82f6; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background 0.3s; }
+        .btn:hover { background: #1e3a8a; }
+        .btn-download { background: #10b981; }
+        .btn-download:hover { background: #059669; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+        .badge { display: inline-block; padding: 5px 12px; background: #dc2626; color: white; border-radius: 20px; font-size: 12px; font-weight: 600; margin-right: 10px; }
+        .highlight { background: #d1fae5; border-left: 4px solid #10b981; padding: 20px; margin: 20px 0; border-radius: 4px; }
+        .red { background: #fee2e2; border-left: 4px solid #ef4444; padding: 20px; margin: 20px 0; border-radius: 4px; }
+        .footer { margin-top: 50px; padding-top: 20px; border-top: 2px solid #e5e7eb; color: #999; font-size: 12px; text-align: center; }
+        .status { display: inline-block; padding: 5px 10px; background: #d1fae5; color: #065f46; border-radius: 4px; font-weight: 600; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>💾 DLOOP - PDF Repository</h1>
+
+    <p style="text-align: center; color: #666; margin-bottom: 30px;">
+        <em>Collezione di file PDF pronti per condividere | Generati da HTML print-optimized</em>
+    </p>
+
+    <h2>📁 File Disponibili</h2>
+
+    <!-- CARD 1: COSTI CLIENTE -->
+    <div class="card">
+        <h3>💰 COSTI_CLIENTE_FINALE_SEMPLICE.pdf</h3>
+        <p><strong>Descrizione:</strong> Costi trasparenti con 3 scenari reali (€5, €28, €50)</p>
+        <p><strong>Pagine:</strong> ~6 pagine (A4)</p>
+        <p><strong>Dimensione:</strong> <span class="status">~2MB</span></p>
+        <p><strong>Usa per:</strong> Condivisione rapida su WhatsApp, customer education, dealer onboarding</p>
+        <p><strong>Contenuto:</strong></p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>✅ 3 Scenari reali con costi dettagliati</li>
+            <li>✅ Confronto DLOOP vs Glovo</li>
+            <li>✅ Guadagni rider (€18-20K/anno vs €9K Glovo)</li>
+            <li>✅ Trasparenza modello</li>
+            <li>✅ Dealer checklist</li>
+        </ul>
+        <p style="margin-top: 15px; font-size: 14px; color: #666;">
+            <strong>⏱️ Tempo lettura:</strong> 5-10 min | <strong>📱 WhatsApp:</strong> ✅ Ideale
+        </p>
+        <a href="../v2-saas/COSTI_CLIENTE_FINALE_SEMPLICE.html" class="btn btn-download">🖨️ Genera PDF</a>
+    </div>
+
+    <!-- CARD 2: INVESTOR PITCH -->
+    <div class="card">
+        <h3>🎯 DLOOP_INVESTOR_PITCH_2026_V1.pdf</h3>
+        <p><strong>Descrizione:</strong> 15-slide investor pitch deck (interattivo)</p>
+        <p><strong>Pagine:</strong> ~15 pagine (A4)</p>
+        <p><strong>Dimensione:</strong> <span class="status">~3MB</span></p>
+        <p><strong>Usa per:</strong> Presentazioni a investor, VC meetings, pitch competitions</p>
+        <p><strong>Contenuto:</strong></p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>✅ Slide 1-3: Cover + Problem + Solution</li>
+            <li>✅ Slide 4-6: Value Prop (3 scenari)</li>
+            <li>✅ Slide 7-11: Market + Model + Unit Economics + Traction</li>
+            <li>✅ Slide 12-15: Competitive + Team + Ask + Thank You</li>
+        </ul>
+        <p style="margin-top: 15px; font-size: 14px; color: #666;">
+            <strong>⏱️ Presentazione:</strong> 15 min | <strong>🎤 Formato:</strong> Slide-based
+        </p>
+        <a href="../v1-investor-deck/DLOOP_INVESTOR_PITCH_2026_V1.html" class="btn btn-download">🖨️ Genera PDF</a>
+    </div>
+
+    <!-- CARD 3: TECHNICAL BP -->
+    <div class="card">
+        <h3>📊 DLOOP_BUSINESS_PLAN_2026_V2.pdf</h3>
+        <p><strong>Descrizione:</strong> Technical Business Plan con conto economico (40+ pagine)</p>
+        <p><strong>Pagine:</strong> ~40-45 pagine (A4)</p>
+        <p><strong>Dimensione:</strong> <span class="status">~5MB</span></p>
+        <p><strong>Usa per:</strong> Due diligence, investor review, banche, acceleratori</p>
+        <p><strong>Contenuto:</strong></p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>✅ Cap. 1: Executive Summary</li>
+            <li>✅ Cap. 2: Market Analysis (TAM/SAM/SOM)</li>
+            <li>✅ Cap. 3: Business Model Deep Dive (3 scenari)</li>
+            <li>✅ Cap. 4: Financial Model (36 mesi + Conto Economico Italian GAAP)</li>
+            <li>✅ Cap. 5: Operations & Execution</li>
+            <li>✅ Cap. 6: Risks & Mitigation</li>
+        </ul>
+        <p style="margin-top: 15px; font-size: 14px; color: #666;">
+            <strong>⏱️ Lettura:</strong> 45-60 min | <strong>📈 Dettaglio:</strong> Massimo
+        </p>
+        <a href="../v2-technical-bp/DLOOP_BUSINESS_PLAN_2026_V2.html" class="btn btn-download">🖨️ Genera PDF</a>
+    </div>
+
+    <h2>📖 Come Generare i PDF</h2>
+
+    <div class="highlight">
+        <h3 style="margin-top: 0;">✅ Metodo Rapido (1 minuto)</h3>
+        <ol style="margin-left: 20px; margin-top: 10px;">
+            <li>Clicca uno dei bottoni <strong>"🖨️ Genera PDF"</strong> sopra</li>
+            <li>Si aprirà il file HTML nel browser</li>
+            <li>Premi <strong>Ctrl+P</strong> (Windows) o <strong>Cmd+P</strong> (Mac)</li>
+            <li>Scegli <strong>"Salva come PDF"</strong></li>
+            <li>Attiva <strong>"Grafica di sfondo"</strong> per i colori</li>
+            <li>Clicca <strong>"Salva"</strong> in questa cartella</li>
+        </ol>
+    </div>
+
+    <div class="red">
+        <h3 style="margin-top: 0;">⚠️ Impostazioni Importanti</h3>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>✅ Grafica di sfondo: <strong>ATTIVATA</strong> (per colori vividi)</li>
+            <li>✅ Formato carta: <strong>A4</strong></li>
+            <li>✅ Orientamento: <strong>Verticale</strong></li>
+            <li>✅ Margini: <strong>Normale</strong></li>
+        </ul>
+    </div>
+
+    <h2>📱 Condividere su WhatsApp</h2>
+
+    <div class="grid">
+        <div class="card">
+            <h3>📲 Desktop</h3>
+            <p>1. Apri WhatsApp Desktop</p>
+            <p>2. Seleziona chat</p>
+            <p>3. Clicca <strong>"+"</strong> (Allega file)</p>
+            <p>4. Scegli il PDF</p>
+            <p>5. Invia! 🚀</p>
+        </div>
+        <div class="card">
+            <h3>🌐 WhatsApp Web</h3>
+            <p>1. Apri <strong>web.whatsapp.com</strong></p>
+            <p>2. Seleziona chat</p>
+            <p>3. Clicca bottone Allega</p>
+            <p>4. Carica il PDF</p>
+            <p>5. Invia! 🚀</p>
+        </div>
+    </div>
+
+    <h2>📊 Confronto File</h2>
+
+    <table style="width: 100%; margin-top: 20px; border-collapse: collapse; font-size: 14px;">
+        <thead>
+            <tr style="background: #1e3a8a; color: white;">
+                <th style="padding: 12px; text-align: left;">File</th>
+                <th style="padding: 12px; text-align: left;">Pagine</th>
+                <th style="padding: 12px; text-align: left;">Usa Per</th>
+                <th style="padding: 12px; text-align: left;">Tempo Lettura</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid #e5e7eb;">
+                <td style="padding: 12px;"><strong>Costi Cliente</strong></td>
+                <td style="padding: 12px;">~6</td>
+                <td style="padding: 12px;">WhatsApp, customer edu</td>
+                <td style="padding: 12px;">5-10 min</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e5e7eb; background: #f9fafb;">
+                <td style="padding: 12px;"><strong>Investor Pitch</strong></td>
+                <td style="padding: 12px;">~15</td>
+                <td style="padding: 12px;">VC meetings, pitches</td>
+                <td style="padding: 12px;">15 min</td>
+            </tr>
+            <tr style="background: #f9fafb;">
+                <td style="padding: 12px;"><strong>Business Plan</strong></td>
+                <td style="padding: 12px;">~40</td>
+                <td style="padding: 12px;">Due diligence</td>
+                <td style="padding: 12px;">45-60 min</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>📝 Note Importanti</h2>
+
+    <ul style="margin-left: 20px; margin-top: 20px; font-size: 15px;">
+        <li><strong>Ogni PDF è generato on-demand</strong> dal file HTML corrispondente</li>
+        <li><strong>Non ci sono file PDF pre-salvati</strong> in questa cartella (per mantenerla leggera su git)</li>
+        <li><strong>I file HTML sono print-optimized</strong> per la migliore qualità PDF</li>
+        <li><strong>Tutti i dati sono aggiornati al 2026-03-03</strong></li>
+        <li><strong>Le fonti dei dati</strong> sono citate nei documenti (Netcomm, Decreto Milano, ecc.)</li>
+    </ul>
+
+    <div class="highlight" style="margin-top: 40px;">
+        <h3 style="margin-top: 0;">🎯 Workflow Consigliato</h3>
+        <p><strong>1. Per share rapido su WhatsApp:</strong> Genera COSTI_CLIENTE (5 min) → Condividi</p>
+        <p><strong>2. Per presentazione investor:</strong> Genera INVESTOR_PITCH (10 min) → Presentazione + Q&A</p>
+        <p><strong>3. Per due diligence:</strong> Genera BUSINESS_PLAN (15 min) → Condividi con investor legal team</p>
+    </div>
+
+    <div class="footer">
+        <p style="margin-bottom: 10px;">📁 Cartella: <code>dloop-pitch-deck/pdf/</code></p>
+        <p style="margin-bottom: 10px;">📄 File HTML sorgente: <code>v1-investor-deck/</code> e <code>v2-technical-bp/</code></p>
+        <p>Ultimo aggiornamento: 2026-03-03 | Versione: V1</p>
+    </div>
+</div>
+
+</body>
+</html>

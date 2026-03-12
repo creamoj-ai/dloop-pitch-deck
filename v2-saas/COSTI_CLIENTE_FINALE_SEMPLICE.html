@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DLOOP - Costi Cliente Finale (Semplificato)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; padding: 0; line-height: 1.6; }
+        .container { max-width: 100%; background: white; padding: 0; }
+
+        /* PRINT SETUP */
+        @page {
+            size: A4;
+            margin: 1.5cm;
+            @bottom-center {
+                content: "Pagina " counter(page) " di " counter(pages);
+                font-size: 10px;
+                color: #999;
+            }
+        }
+
+        /* SCREEN STYLES */
+        @media screen {
+            body { padding: 20px; background: #f5f5f5; }
+            .container { max-width: 900px; margin: 0 auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+            .print-controls { display: flex; gap: 10px; margin-bottom: 20px; justify-content: center; }
+            .print-btn { padding: 12px 25px; background: #1e3a8a; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; transition: background 0.3s; }
+            .print-btn:hover { background: #3b82f6; }
+        }
+
+        h1 { color: #fff; background: linear-gradient(135deg, #1e3a8a 0%, #ef4444 100%); padding: 25px 20px; margin: 0; font-size: 28px; }
+        h2 { color: #1e3a8a; margin: 20px 0 15px 0; padding: 20px 20px 0 20px; border-left: 5px solid #3b82f6; page-break-before: auto; page-break-after: avoid; font-size: 18px; font-weight: 700; }
+        h3 { color: #1e3a8a; margin: 12px 0 8px 0; font-size: 15px; font-weight: 600; }
+
+        p { margin: 8px 0; font-size: 14px; padding: 0 20px; }
+        ul { margin-left: 40px; padding: 0 20px; }
+        ul li { margin: 6px 0; font-size: 14px; }
+
+        table { width: calc(100% - 40px); border-collapse: collapse; margin: 12px 20px; font-size: 13px; page-break-inside: avoid; }
+        th { background: #1e3a8a; color: white; padding: 10px; text-align: left; font-weight: 600; font-size: 12px; }
+        td { padding: 10px; border-bottom: 1px solid #e5e7eb; }
+
+        .highlight { background: #dbeafe; border-left: 4px solid #3b82f6; padding: 15px; margin: 12px 20px; border-radius: 4px; page-break-inside: avoid; font-size: 14px; }
+        .green { background: #d1fae5; border-left: 4px solid #10b981; padding: 15px; margin: 12px 20px; border-radius: 4px; page-break-inside: avoid; font-size: 14px; }
+        .red { background: #fee2e2; border-left: 4px solid #ef4444; padding: 15px; margin: 12px 20px; border-radius: 4px; page-break-inside: avoid; font-size: 14px; }
+        .section { margin: 12px 20px; padding: 15px; background: #f0f9ff; border-radius: 8px; page-break-inside: avoid; font-size: 14px; }
+        .box { background: white; border: 2px solid #3b82f6; padding: 15px; margin: 10px 0; border-radius: 8px; page-break-inside: avoid; }
+        .box h3 { margin-top: 0; margin-bottom: 8px; }
+        .emoji { font-size: 18px; margin-right: 6px; }
+
+        /* LAYOUT PAGINA */
+        .page { page-break-after: always; padding: 0; }
+        .page:last-child { page-break-after: avoid; }
+
+        /* GRID */
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 12px 20px; page-break-inside: avoid; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 20px; page-break-inside: avoid; }
+
+        /* PRINT SPECIFIC */
+        @media print {
+            body { padding: 0; margin: 0; background: white; }
+            .container { max-width: 100%; margin: 0; border-radius: 0; box-shadow: none; padding: 0; }
+            .print-controls { display: none !important; }
+            h1 { page-break-after: avoid; margin: 0; border-radius: 0; padding: 20px 20px 15px 20px; }
+            h2 { page-break-before: always; page-break-after: avoid; margin-top: 0; margin-bottom: 10px; padding: 15px 20px 0 20px; }
+            h3 { page-break-after: avoid; margin: 10px 0 6px 0; }
+            p { padding: 0 20px; margin: 6px 0; }
+            ul { margin-left: 40px; padding: 0 20px; }
+            .page { page-break-before: always; padding: 0; }
+            .page:first-of-type { page-break-before: avoid; }
+            table { page-break-inside: avoid; font-size: 12px; margin: 10px 20px; width: calc(100% - 40px); }
+            tr { page-break-inside: avoid; }
+            th { font-size: 11px; padding: 9px; }
+            td { padding: 9px; font-size: 12px; }
+            .green, .red, .highlight, .section, .box, .grid-2, .grid-3 { page-break-inside: avoid; margin: 10px 20px; }
+            .grid-3 { grid-template-columns: 1fr; gap: 10px; }
+            .grid-2 { grid-template-columns: 1fr; gap: 10px; }
+            tr:hover { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="print-controls">
+        <button class="print-btn" onclick="window.print()">🖨️ Stampa / Salva come PDF</button>
+    </div>
+    <h1>💰 DLOOP - Costi Cliente Finale (Semplice & Trasparente)</h1>
+
+    <!-- SCENARIO BASE -->
+    <h2>📦 Scenari Reali: Costi Cliente per Diverse Spese (2025 Data Verificati)</h2>
+    <p style="color: #666; margin: 0; font-size: 13px;"><em>
+        <strong>Data Sources (Netcomm Osservatorio):</strong> Food Delivery AOV €32-33 | Grocery Delivery €25 | Weekly basket estimate €50<br>
+        <strong>DLOOP Multi-Channel:</strong> Food delivery + Grocery + Pet + Wellness (€5* media rider per zona, €0,99 DLOOP fee FISSO per tutti)
+    </em></p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 12px 20px; page-break-inside: avoid;">
+        <!-- SCENARIO 1: DESSERT -->
+        <div style="border: 2px solid #3b82f6; border-radius: 8px; padding: 15px; background: #f0f9ff;">
+            <h3 style="color: #1e3a8a; margin: 0 0 8px 0; font-size: 15px; font-weight: 600;">🍨 Scenario 1: Snack</h3>
+            <p style="font-size: 13px; color: #666; margin: 0 0 6px 0;"><em>Ordine occasionale</em></p>
+            <table style="width: 100%; font-size: 14px; border: none;">
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td><strong>Prodotto</strong></td>
+                    <td style="text-align: right;"><strong>€5,00</strong></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td>🚴 Consegna*</td>
+                    <td style="text-align: right;">€5,00</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td>🤝 Personal Shopper (opz)*</td>
+                    <td style="text-align: right;">€2,00</td>
+                </tr>
+                <tr>
+                    <td>📱 DLOOP Fee</td>
+                    <td style="text-align: right;">€0,99</td>
+                </tr>
+                <tr style="background: #1e3a8a; color: white; font-weight: bold;">
+                    <td>💰 Totale (base)</td>
+                    <td style="text-align: right;">€10,99</td>
+                </tr>
+                <tr style="background: #fee2e2; color: white; font-weight: bold;">
+                    <td>💰 Con Personal Shopper</td>
+                    <td style="text-align: right;">€12,99</td>
+                </tr>
+            </table>
+            <p style="margin: 8px 0 0 0; color: #666; font-size: 13px;"><strong>Rider:</strong> €5-7<br/><strong>vs Glovo:</strong> €2,50<br/>+180% earnings</p>
+        </div>
+
+        <!-- SCENARIO 2: MAIN COURSE - MOST COMMON -->
+        <div style="border: 3px solid #dc2626; border-radius: 8px; padding: 15px; background: #fef3c7; box-shadow: 0 4px 8px rgba(220,38,38,0.2);">
+            <div style="background: #dc2626; color: white; padding: 8px 12px; border-radius: 4px; margin: -15px -15px 10px -15px; text-align: center; font-weight: bold; font-size: 12px;">⭐ PIÙ COMUNE - PRANZO/CENA QUOTIDIANO</div>
+            <h3 style="color: #b91c1c; margin: 0 0 8px 0; font-size: 15px; font-weight: 600;">🍝 Scenario 2: Piatto Completo</h3>
+            <table style="width: 100%; font-size: 14px; border: none;">
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td><strong>Pasta + Contorno + Bevanda</strong></td>
+                    <td style="text-align: right;"><strong>€28,00</strong></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td>🚴 Consegna* (media Italia 2025)</td>
+                    <td style="text-align: right;">€5,00</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e5e7eb;">
+                    <td>🤝 Personal Shopper (opz.)*</td>
+                    <td style="text-align: right;">€2,00</td>
+                </tr>
+                <tr>
+                    <td>📱 DLOOP Fee</td>
+                    <td style="text-align: right;">€0,99</td>
+                </tr>
+                <tr style="background: #1e3a8a; color: white; font-weight: bold;">
+                    <td>💰 Totale (base)</td>
+                    <td style="text-align: right;">€33,99</td>
+                </tr>
+                <tr style="background: #dc2626; color: white; font-weight: bold;">
+                    <td>💰 Con Personal Shopper</td>
+                    <td style="text-align: right;">€35,99</td>
+                </tr>
+            </table>
+            <div style="background: #dcfce7; border: 1px solid #86efac; padding: 10px; border-radius: 4px; margin-top: 15px; font-size: 12px;">
+                <p><strong>✅ IL DEALER GUADAGNA:</strong><br/>€0,99 vs Glovo €8,40 = <strong>€7,41 risparmiati (87%)</strong></p>
+                <p style="margin-top: 8px;"><strong>✅ IL RIDER GUADAGNA:</strong><br/>€5-7 vs Glovo €2,50 = <strong>€2,50-4,50 extra (100-180%)</strong></p>
+            </div>
+        </div>
+
+        <!-- SCENARIO 3: WEEKLY BASKET - BEST CASE -->
+        <div style="border: 3px solid #059669; border-radius: 8px; padding: 15px; background: #d1fae5; box-shadow: 0 4px 8px rgba(5,150,105,0.2);">
+            <div style="background: #059669; color: white; padding: 8px 12px; border-radius: 4px; margin: -15px -15px 10px -15px; text-align: center; font-weight: bold; font-size: 12px;">💰 CASO OTTIMALE - SPESA SETTIMANALE MULTI-CANALE</div>
+            <h3 style="color: #047857; margin: 0 0 8px 0; font-size: 15px; font-weight: 600;">🛒 Scenario 3: Spesa Settimanale</h3>
+            <table style="width: 100%; font-size: 13px; border: none;">
+                <tr style="border-bottom: 1px solid #a7f3d0;">
+                    <td><strong>Grocery + Pet + Wellness</strong></td>
+                    <td style="text-align: right;"><strong>€50,00</strong></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #a7f3d0;">
+                    <td style="font-size: 11px; color: #666;">Verdure, pasta, latte, cibo gatto, integratori</td>
+                    <td style="text-align: right; font-size: 11px; color: #666;"></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #a7f3d0;">
+                    <td>🚴 Consegna* (media Italia 2025)</td>
+                    <td style="text-align: right;">€5,00</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #a7f3d0;">
+                    <td>🤝 Personal Shopper (opz.)*</td>
+                    <td style="text-align: right;">€2,00</td>
+                </tr>
+                <tr>
+                    <td>📱 DLOOP Fee</td>
+                    <td style="text-align: right;">€0,99</td>
+                </tr>
+                <tr style="background: #1e3a8a; color: white; font-weight: bold;">
+                    <td>💰 Totale (base)</td>
+                    <td style="text-align: right;">€55,99</td>
+                </tr>
+                <tr style="background: #059669; color: white; font-weight: bold;">
+                    <td>💰 Con Personal Shopper</td>
+                    <td style="text-align: right;">€57,99</td>
+                </tr>
+            </table>
+            <div style="background: #dcfce7; border: 1px solid #86efac; padding: 10px; border-radius: 4px; margin-top: 15px; font-size: 12px;">
+                <p><strong>✅ IL DEALER GUADAGNA:</strong><br/>€0,99 vs Glovo €15,00 = <strong>€14,01 risparmiati (93%!)</strong></p>
+                <p style="margin-top: 8px;"><strong>✅ IL RIDER GUADAGNA:</strong><br/>€5-7 per consegna = <strong>€50-70/settimana extra</strong></p>
+                <p style="margin-top: 8px; color: #10b981;"><strong>= €260K/anno per network di 1000 rider</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <p style="margin-top: 20px; font-size: 12px; color: #666; padding: 10px; background: #f3f4f6; border-radius: 4px;">
+        <strong>* Valori asteriscati - TRASPARENZA TOTALE:</strong> Consegna €5* = MEDIA rider nella zona (ogni rider pubblica i propri costi nella DLOOP Rider App, varia €3-7) | Personal Shopper €2 = servizio opzionale rider | <strong>Fee DLOOP €0,99 = FISSO SEMPRE</strong> per infra/pagamenti/API
+    </p>
+
+    <div class="green">
+        <strong>✅ MODELLO SCALABILE (Funziona da €5 snack a €50 spesa settimanale):</strong><br>
+        <strong>Struttura costi TRASPARENTE:</strong> €5* consegna (MEDIA rider per zona) + €0,99 DLOOP (FISSO)<br>
+        <em>*Ogni rider pubblica i propri costi nella DLOOP Rider App per la sua zona (varia: €3-7)</em><br>
+        <strong>Personal Shopper Opzionale:</strong> €2,00 add-on (utile per ordini complessi: grocery+pet+benessere)<br>
+        <br>
+        <strong>vs GLOVO (30% variabile):</strong><br>
+        • €5 ordine: Rider €2,50 + Commissione €1,50<br>
+        • €28 ordine: Rider €2,50 + Commissione €8,40<br>
+        • €50 ordine: Rider €2,50 + Commissione €15,00<br>
+        <br>
+        <strong>🎯 VANTAGGIO RIDER:</strong> Pubblica i PROPRI prezzi, no algoritmo black-box<br>
+        <strong>🏪 VANTAGGIO DEALER:</strong> €6,51-€15,00 risparmiati per ordine vs Glovo (no 30% fisso)<br>
+        <strong>🔷 VANTAGGIO DLOOP:</strong> Solo €0,99 FISSO per infra/pagamenti/API = pura leva SaaS ∞
+    </div>
+
+    <!-- CONFRONTO GLOVO vs DLOOP -->
+    <h2 style="page-break-before: always;">⚖️ Confronto: DLOOP vs Glovo (Chi paga cosa?)</h2>
+
+    <h3>📊 Dealer View</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Elemento</th>
+                <th>Glovo (30%)</th>
+                <th>DLOOP</th>
+                <th>Vantaggio DLOOP</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Platform Fee per ordine</strong></td>
+                <td style="background: #fee2e2;"><strong>€7,50</strong> (30% su €25)</td>
+                <td style="background: #d1fae5;"><strong>€0,99 FISSO</strong></td>
+                <td style="background: #d1fae5;"><strong>€6,51 risparmio</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Cliente Data</strong></td>
+                <td style="background: #fee2e2;">❌ Proprietà Glovo</td>
+                <td style="background: #d1fae5;">✅ <strong>TUA proprietà</strong></td>
+                <td style="background: #d1fae5;">CRM, repeat, loyalty</td>
+            </tr>
+            <tr>
+                <td><strong>Controllo Prezzo</strong></td>
+                <td style="background: #fee2e2;">❌ Limitato (Glovo decide)</td>
+                <td style="background: #d1fae5;">✅ <strong>Pieno controllo</strong></td>
+                <td style="background: #d1fae5;">Scegli margini, prezzi</td>
+            </tr>
+            <tr style="background: #d1fae5;">
+                <td><strong>Annuale (100 ordini/mese)</strong></td>
+                <td style="background: #fee2e2;"><strong>€9.000 commissioni</strong></td>
+                <td style="background: #d1fae5;"><strong>€1.188 DLOOP fee</strong></td>
+                <td style="background: #d1fae5;"><strong>€7.812 risparmi</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>🚴 Rider View</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Elemento</th>
+                <th>Glovo (2024)</th>
+                <th>DLOOP</th>
+                <th>Vantaggio DLOOP</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Guadagno per consegna</strong></td>
+                <td style="background: #fee2e2;">€2,50</td>
+                <td style="background: #d1fae5;"><strong>€5,00</strong></td>
+                <td style="background: #d1fae5;"><strong>+100% (+€2,50)</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Personal Shopper (extra)</strong></td>
+                <td style="background: #fee2e2;">❌ Non esiste</td>
+                <td style="background: #d1fae5;">✅ <strong>€2,00/ordine</strong></td>
+                <td style="background: #d1fae5;">+40% di guadagno/ordine</td>
+            </tr>
+            <tr>
+                <td><strong>Guadagno MAX per ordine</strong></td>
+                <td style="background: #fee2e2;">€2,50</td>
+                <td style="background: #d1fae5;"><strong>€7,00</strong> (€5 + €2)</td>
+                <td style="background: #d1fae5;"><strong style="font-size: 16px;">+280% (2.8x!)</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Autonomia</strong></td>
+                <td style="background: #fee2e2;">❌ Algoritmo Glovo (black box)</td>
+                <td style="background: #d1fae5;">✅ <strong>Tu scegli i prezzi</strong></td>
+                <td style="background: #d1fae5;">Trasparenza totale</td>
+            </tr>
+            <tr style="background: #d1fae5;">
+                <td><strong>Annuale (300 consegne/mese)</strong></td>
+                <td style="background: #fee2e2;"><strong>€9.000 guadagni</strong></td>
+                <td style="background: #d1fae5;"><strong>€25.200 guadagni</strong></td>
+                <td style="background: #d1fae5;"><strong>€16.200 extra/anno!</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- RIDER EARNINGS -->
+    <h2 style="page-break-before: always;">🏍️ Quanto Guadagna il Rider (DETTAGLI)?</h2>
+
+    <p style="color: #666; margin-bottom: 15px;"><em>Ricerca 2024-2025: Spesa media food delivery Italia €32-33. Rider medio: 300 consegne/mese</em></p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Scenario</th>
+                <th>Consegne/mese</th>
+                <th>Ricavo/consegna</th>
+                <th>Ricavo Mensile</th>
+                <th>Ricavo Annuale</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="background: #d1fae5;">
+                <td><strong>GLOVO (Decreto Milano 2024)</strong></td>
+                <td>300</td>
+                <td>€2,50</td>
+                <td>€750</td>
+                <td><strong>€9.000</strong></td>
+            </tr>
+            <tr style="background: #fef3c7;">
+                <td><strong>DLOOP (Consegna sola €5)</strong></td>
+                <td>300</td>
+                <td>€5,00</td>
+                <td>€1.500</td>
+                <td><strong>€18.000</strong></td>
+            </tr>
+            <tr style="background: #fef3c7;">
+                <td><strong>DLOOP (50% con Personal Shopper €2)</strong></td>
+                <td>300 (150 con PS)</td>
+                <td>€6,00 media</td>
+                <td>€1.800</td>
+                <td><strong>€21.600</strong></td>
+            </tr>
+            <tr style="background: #fee2e2;">
+                <td><strong>DLOOP (80% con Personal Shopper)</strong></td>
+                <td>300 (240 con PS)</td>
+                <td>€6,60 media</td>
+                <td>€1.980</td>
+                <td><strong>€23.760</strong></td>
+            </tr>
+            <tr style="background: #1e3a8a; color: white;">
+                <td colspan="2"><strong>🎯 VANTAGGIO DLOOP vs GLOVO</strong></td>
+                <td colspan="2"><strong>+€1,50-€4,10 per consegna</strong></td>
+                <td><strong>+€9K-€14.7K/anno (+100-163%)</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="section">
+        <h3>📊 Calcolo Dettagliato: Rider con 300 consegne/mese</h3>
+        <p><strong>Scenario A - GLOVO (2024):</strong></p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>300 consegne × €2,50 = <strong>€750/mese</strong> = <strong>€9.000/anno</strong></li>
+            <li>⚠️ Algoritmo Glovo (black box), guadagni in calo (ultimi 4 anni: -22,7%)</li>
+            <li>73% rider guadagna <€1.245/mese</li>
+        </ul>
+
+        <p style="margin-top: 20px;"><strong>Scenario B - DLOOP (Consegna sola):</strong></p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>300 consegne × €5,00 = <strong>€1.500/mese</strong> = <strong>€18.000/anno</strong></li>
+            <li>✅ Transpareance totale, tu pubblichi i prezzi</li>
+            <li>+€9.000 vs Glovo (+100%!)</li>
+        </ul>
+
+        <p style="margin-top: 20px;"><strong>Scenario C - DLOOP (Consegna + Personal Shopper):</strong></p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>200 consegne × €5,00 = €1.000</li>
+            <li>100 consegne × €7,00 (€5 consegna + €2 personal shopper) = €700</li>
+            <li><strong>Total: €1.700/mese = €20.400/anno</strong></li>
+            <li>✅ Possibilità reale di guadagnare €20K+/anno (gig worker eccellente!)</li>
+            <li>+€11.400 vs Glovo (+127%!)</li>
+        </ul>
+
+        <p style="margin-top: 20px; color: #10b981; font-weight: bold; font-size: 16px;">
+            🎯 <strong>Conclusione:</strong> Su DLOOP un rider guadagna €18-20K/anno vs €9K su Glovo<br>
+            Questo è <strong>vero earning power per gig economy</strong> (non la schiavitù di Glovo)
+        </p>
+    </div>
+
+    <!-- TRASPARENZA -->
+    <h2 style="page-break-before: always;">🔍 Trasparenza = Fiducia</h2>
+
+    <div class="comparison">
+        <div class="box">
+            <h3>❌ Glovo/Alfonsino</h3>
+            <p><strong>Cliente non sa:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Quanto guadagna il rider</li>
+                <li>Dove va la commissione</li>
+                <li>Perché è così caro</li>
+            </ul>
+            <p style="margin-top: 15px; color: #666;"><strong>Risultato:</strong> Scarsa fiducia, alto abbandono</p>
+        </div>
+
+        <div class="box" style="border-color: #10b981;">
+            <h3 style="color: #10b981;">✅ DLOOP</h3>
+            <p><strong>Cliente vede chiaramente:</strong></p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>€0,20 → il rider per la consegna</li>
+                <li>€0,99 → piattaforma & pagamenti</li>
+                <li>Resto → dealer & logistica</li>
+            </ul>
+            <p style="margin-top: 15px; color: #10b981;"><strong>Risultato:</strong> Trasparenza, fedeltà, repeat</p>
+        </div>
+    </div>
+
+    <!-- DEALER CHECKLIST -->
+    <h2>✅ Dealer Checklist: Perché Scegliere DLOOP?</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Vantaggi</th>
+                <th>€ Economie/Anno (100 ordini/mese)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="background: #d1fae5;">
+                <td>💰 <strong>Fee fissa €0,99</strong></td>
+                <td>Non crescente. Ordinamento predicibile.</td>
+                <td>vs 30% = <strong>€7.812</strong> risparmiati</td>
+            </tr>
+            <tr style="background: #d1fae5;">
+                <td>👥 <strong>Proprietà dati cliente</strong></td>
+                <td>Tuoi clienti = tuo CRM = repeat orders</td>
+                <td>Valore LTV: <strong>+€4.000+/anno</strong></td>
+            </tr>
+            <tr style="background: #d1fae5;">
+                <td>📊 <strong>Analytics dashboard</strong></td>
+                <td>Vedi ogni ordine, trend, customer behavior</td>
+                <td>Optimize = <strong>+€2.000/anno</strong> margine</td>
+            </tr>
+            <tr style="background: #d1fae5;">
+                <td>🤖 <strong>Bot WhatsApp</strong></td>
+                <td>Zero friction ordering - cliente non esce app</td>
+                <td>Conversione: <strong>+15-20%</strong> = <strong>€3.750+</strong></td>
+            </tr>
+            <tr style="background: #d1fae5;">
+                <td>🚴 <strong>Rider network</strong></td>
+                <td>Non devi trovare rider - già qui</td>
+                <td>Costo logistics: <strong>€0</strong> (noi lo facciamo)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ESEMPIO REALE -->
+    <h2 style="page-break-before: always;">📈 Esempio Reale: Mario Cucciolito (Toelettatura)</h2>
+
+    <div class="green">
+        <h3 style="margin-top: 0;">🎯 Situazione Before DLOOP (Glovo)</h3>
+        <p>📊 150 ordini/mese × €7,50 commissione = <strong>€1.125/mese (€13.500/anno)</strong> di costo</p>
+        <p style="color: #ef4444; font-weight: bold;">Margine squeezato, difficile scalare</p>
+    </div>
+
+    <div class="highlight">
+        <h3 style="margin-top: 0;">🎯 Situazione After DLOOP</h3>
+        <p>📊 150 ordini/mese × €0,99 fee = <strong>€148,50/mese (€1.782/anno)</strong> di costo</p>
+        <p style="color: #10b981; font-weight: bold;">💰 <strong>Risparmio: €11.718/anno</strong> (87% less!)</p>
+        <p style="margin-top: 10px;"><strong>+ Bonus:</strong> Mario sottoscritto al piano BUSINESS (€79/mese) per analytics e supporto</p>
+        <p>👉 <strong>LTV Mario:</strong> 6+ mesi → profittevole per DLOOP</p>
+    </div>
+
+    <!-- RIDER ADOPTION LOOP -->
+    <h2 style="page-break-before: always;">🔄 The Viral Loop: Rider → Dealer Growth</h2>
+
+    <div class="section" style="background: #fef3c7;">
+        <p><strong>Come scalare senza marketing cost:</strong></p>
+        <ol style="margin-left: 20px; margin-top: 10px;">
+            <li>Rider guadagna €0,20-€0,40 per consegna da DLOOP</li>
+            <li>Rider fa referral a 5-10 dealer (amici, famiglia)</li>
+            <li>Dealer iscrive 100+ ordini/mese con rider network</li>
+            <li>Dealer invita altri dealer (è vantaggioso!)</li>
+            <li>Network cresce organicamente (<strong>5-7% referral commission</strong>)</li>
+        </ol>
+        <p style="margin-top: 15px; font-weight: bold;">📈 <strong>Amodio (20 riders)</strong> → Stima 100+ dealer in 6 mesi via referral!</p>
+    </div>
+
+    <!-- PRICING SEMPLICE -->
+    <h2>💵 Pricing Semplice (Per Dealer)</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Piano</th>
+                <th>Costo</th>
+                <th>Per Chi?</th>
+                <th>Features</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="background: #d1fae5;">
+                <td><strong>STARTER</strong></td>
+                <td>€0/mese<br><strong>+ €0,75/ordine</strong></td>
+                <td>Piccoli dealer, test</td>
+                <td>Bot WhatsApp base, no analytics</td>
+            </tr>
+            <tr style="background: #dbeafe;">
+                <td><strong>BUSINESS</strong></td>
+                <td>€79/mese<br><strong>0-120 free, then €0,50-€0,25</strong></td>
+                <td>Scale-up, consolidati</td>
+                <td>Analytics, support, featured listing</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="highlight">
+        <strong>💡 Per 100 ordini/mese:</strong><br>
+        STARTER: €75/mese (pay as you go)<br>
+        BUSINESS: €79/mese (meglio se >120 ordini = progressive scaling)
+    </div>
+
+    <!-- RECAP FINALE -->
+    <h2 style="page-break-before: always;">🎯 Recap: Perché DLOOP Wins</h2>
+
+    <table style="font-size: 18px; margin: 20px 0;">
+        <tbody>
+            <tr style="background: #1e3a8a; color: white;">
+                <td colspan="2" style="padding: 20px;"><strong>✅ Per Dealer</strong></td>
+            </tr>
+            <tr>
+                <td width="50%">💰 €0,99/ordine FISSO (non 30%)</td>
+                <td>➜ <strong>€7.812/anno risparmiati</strong></td>
+            </tr>
+            <tr>
+                <td>👥 Clienti tuoi (data ownership)</td>
+                <td>➜ Repeat + LTV + CRM</td>
+            </tr>
+            <tr>
+                <td>🤖 Bot WhatsApp automated</td>
+                <td>➜ 0 friction, conversion +15-20%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table style="font-size: 18px; margin: 20px 0;">
+        <tbody>
+            <tr style="background: #1e3a8a; color: white;">
+                <td colspan="2" style="padding: 20px;"><strong>✅ Per Rider</strong></td>
+            </tr>
+            <tr>
+                <td width="50%">📈 Pubblica propri listini (consegna + personal shopper)</td>
+                <td>➜ <strong>€7-10K+/anno</strong> (dipende dalla zona)</td>
+            </tr>
+            <tr>
+                <td>⭐ DLOOP bonus + incentivi (5-7% referral)</td>
+                <td>➜ Extra income on top of base services</td>
+            </tr>
+            <tr>
+                <td>👨‍💼 Non employee = zero bureaucracy</td>
+                <td>➜ Partner status, propri listini, autonomia</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table style="font-size: 18px; margin: 20px 0;">
+        <tbody>
+            <tr style="background: #1e3a8a; color: white;">
+                <td colspan="2" style="padding: 20px;"><strong>✅ Per DLOOP</strong></td>
+            </tr>
+            <tr>
+                <td width="50%">🔷 €0,99 service fee per ordine</td>
+                <td>➜ <strong>€509K ARR @ 100 dealers</strong></td>
+            </tr>
+            <tr>
+                <td>🚀 Network effects (viral growth)</td>
+                <td>➜ Rider referral → exponential</td>
+            </tr>
+            <tr>
+                <td>💎 Subscription (BUSINESS €79)</td>
+                <td>➜ Predictable recurring revenue</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="green" style="text-align: center; font-size: 18px; padding: 30px;">
+        <strong style="color: #10b981; font-size: 28px;">🎯 EVERYONE WINS (REAL NUMBERS)</strong><br><br>
+        <div style="text-align: left; margin-top: 20px;">
+            <p><strong>🏪 DEALER:</strong> Saves €7.812/anno vs Glovo (€0,99 fee vs 30%)<br/>
+            Keeps customer data + full price control</p>
+
+            <p><strong>🚴 RIDER:</strong> Earns €18-20K/anno vs €9K on Glovo (+100-120%)<br/>
+            Consegna €5 + Personal Shopper €2 = €7/ordine max<br/>
+            300 consegne/mese = €1.800/mese sustainable income</p>
+
+            <p><strong>🔷 DLOOP:</strong> Scales infinitely (€0,99 × ∞ orders)<br/>
+            Zero employment cost, pure software leverage</p>
+
+            <p><strong>👥 CUSTOMER:</strong> Transparent pricing, knows exactly who gets what<br/>
+            Supports local rider network instead of Glovo algorithm</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
