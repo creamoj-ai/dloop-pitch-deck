@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DLOOP - Budget Civilistico 6 Mesi 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .header p { font-size: 1.1em; opacity: 0.9; }
+        .content { padding: 40px; }
+        .section {
+            margin-bottom: 50px;
+        }
+        .section-title {
+            font-size: 1.8em;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        .subsection-title {
+            font-size: 1.3em;
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        thead {
+            background: #667eea;
+            color: white;
+        }
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #667eea;
+        }
+        td {
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f8f9ff;
+        }
+        tbody tr:hover {
+            background-color: #f0f4ff;
+            transition: 0.2s;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            font-weight: 600;
+            color: #856404;
+        }
+        .positive {
+            color: #28a745;
+            font-weight: 600;
+        }
+        .negative {
+            color: #dc3545;
+            font-weight: 600;
+        }
+        .metric-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .metric-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        .metric-card .value {
+            font-size: 2em;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        .metric-card .label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        .phase-card {
+            background: #f8f9ff;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        .phase-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        .phase-card ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .phase-card li {
+            margin: 8px 0;
+        }
+        .kpi-list {
+            background: #fff3cd;
+            padding: 15px 20px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .kpi-list li {
+            margin: 8px 0;
+            margin-left: 20px;
+        }
+        .footer {
+            background: #f8f9ff;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>📊 DLOOP - Budget Civilistico 6 Mesi 2026</h1>
+            <p>Piano Finanziario Previsionale Completo</p>
+            <p style="margin-top: 20px; font-size: 0.95em;">
+                <strong>Versione:</strong> 1.0 ITA | <strong>Status:</strong> 🟢 Pronto | <strong>Data:</strong> 2026-03-12
+            </p>
+        </div>
+
+        <div class="content">
+            <!-- EXECUTIVE SUMMARY -->
+            <div class="section">
+                <div class="section-title">📋 Riepilogo Esecutivo</div>
+
+                <div class="metric-box">
+                    <div class="metric-card">
+                        <div class="label">Dealer M0 → M6</div>
+                        <div class="value">4 → 50</div>
+                        <div class="label">Crescita 12x</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Revenue M1 → M6</div>
+                        <div class="value">€1.2K → €31.6K</div>
+                        <div class="label">Crescita 26x</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Burn Totale 6 Mesi</div>
+                        <div class="value">-€20.3K</div>
+                        <div class="label">Controllato</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Break-Even</div>
+                        <div class="value">M6</div>
+                        <div class="label">EBITDA Positivo</div>
+                    </div>
+                </div>
+
+                <div class="subsection-title">Numeri Chiave da Memorizzare</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>KPI</th>
+                            <th>M0 (Baseline)</th>
+                            <th>M6 (Target)</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Dealer Attivi</strong></td>
+                            <td>4</td>
+                            <td>50</td>
+                            <td class="positive">✅ Aggressivo</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Revenue Mensile</strong></td>
+                            <td>€1.2K</td>
+                            <td>€31.6K</td>
+                            <td class="positive">✅ In Corso</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ordini/Mese</strong></td>
+                            <td>600</td>
+                            <td>7.500</td>
+                            <td class="positive">✅ Virale</td>
+                        </tr>
+                        <tr>
+                            <td><strong>EBITDA Cumulativo</strong></td>
+                            <td>-€2.8K</td>
+                            <td>+€2.99K</td>
+                            <td class="positive">✅ Positivo!</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Team Size</strong></td>
+                            <td>1 FTE</td>
+                            <td>6 FTE</td>
+                            <td class="positive">✅ Scaling</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="metric-box" style="margin-top: 30px;">
+                    <div class="metric-card" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">
+                        <div class="label">Funding Richiesto</div>
+                        <div class="value">€75K</div>
+                        <div class="label">Conservativo</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LE 6 FASI -->
+            <div class="section">
+                <div class="section-title">🎯 Le 6 Fasi di Sviluppo</div>
+
+                <div class="phase-card">
+                    <h3>FASE 1 (M1 = MARZO): MVP Consolidation + Amodio Signature</h3>
+                    <p><strong>Obiettivo:</strong> Consolidare MVP, firmare Amodio (cooperativa con 20 rider), validare unit economics</p>
+                    <div class="subsection-title">Deliverable</div>
+                    <ul>
+                        <li>✅ WhatsApp bot: ChatGPT + function calling (live)</li>
+                        <li>✅ PWA customer: Catalog + checkout (live)</li>
+                        <li>✅ Dashboard merchant: Analytics + real-time (NUOVO)</li>
+                        <li>✅ Amodio contract firmato + training</li>
+                    </ul>
+                    <div class="subsection-title">Budget</div>
+                    <table style="width: 100%; margin-top: 10px;">
+                        <tr>
+                            <td><strong>OpEx</strong></td>
+                            <td class="negative">-€9.200</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Revenue</strong></td>
+                            <td class="positive">+€1.240</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td><strong>EBITDA M1</strong></td>
+                            <td>-€7.960</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="phase-card">
+                    <h3>FASE 2 (M2 = APRILE): Rider Viral Loop Activation</h3>
+                    <p><strong>Obiettivo:</strong> Amodio live, rider commission attiva, primi referral</p>
+                    <div class="subsection-title">Budget</div>
+                    <table style="width: 100%; margin-top: 10px;">
+                        <tr>
+                            <td><strong>OpEx</strong></td>
+                            <td class="negative">-€11.690</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Revenue</strong></td>
+                            <td class="positive">+€5.740</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td><strong>EBITDA M2</strong></td>
+                            <td>-€5.950</td>
+                        </tr>
+                    </table>
+                    <div class="kpi-list">
+                        <strong>KPI Target M2:</strong>
+                        <ul>
+                            <li>✅ Revenue jump: +362% vs M1 (virale inizia)</li>
+                            <li>✅ Team size: 3.5 FTE</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="phase-card">
+                    <h3>FASE 3 (M3 = MAGGIO): Product Enhancement + 20 Dealers</h3>
+                    <p><strong>Obiettivo:</strong> Analytics + AI, raggiungere 20 dealer</p>
+                    <div class="subsection-title">Budget</div>
+                    <table style="width: 100%; margin-top: 10px;">
+                        <tr>
+                            <td><strong>OpEx</strong></td>
+                            <td class="negative">-€16.310</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Revenue</strong></td>
+                            <td class="positive">+€11.420</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td><strong>EBITDA M3</strong></td>
+                            <td>-€4.890</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="phase-card">
+                    <h3>FASE 4 (M4 = GIUGNO): Espansione Multi-Città (Milano)</h3>
+                    <p><strong>Obiettivo:</strong> Espandere a Milano, 30 dealer</p>
+                    <div class="subsection-title">Budget</div>
+                    <table style="width: 100%; margin-top: 10px;">
+                        <tr>
+                            <td><strong>OpEx</strong></td>
+                            <td class="negative">-€21.930</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Revenue</strong></td>
+                            <td class="positive">+€18.190</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td><strong>EBITDA M4</strong></td>
+                            <td>-€3.740</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="phase-card">
+                    <h3>FASE 5 (M5 = LUGLIO): Scaling Cooperativas + 40 Dealers</h3>
+                    <p><strong>Obiettivo:</strong> Scalare Amodio, firmare 2a cooperativa</p>
+                    <div class="subsection-title">Budget</div>
+                    <table style="width: 100%; margin-top: 10px;">
+                        <tr>
+                            <td><strong>OpEx</strong></td>
+                            <td class="negative">-€23.980</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Revenue</strong></td>
+                            <td class="positive">+€23.230</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td><strong>EBITDA M5</strong></td>
+                            <td>-€750</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="phase-card" style="border-color: #28a745; background: #f0fdf4;">
+                    <h3 style="color: #28a745;">✅ FASE 6 (M6 = AGOSTO): Market Leader + BREAK-EVEN!</h3>
+                    <p><strong>Obiettivo:</strong> 50 dealer, cash-flow POSITIVO mensile</p>
+                    <div class="subsection-title">Budget</div>
+                    <table style="width: 100%; margin-top: 10px;">
+                        <tr>
+                            <td><strong>OpEx</strong></td>
+                            <td class="negative">-€28.660</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Revenue</strong></td>
+                            <td class="positive">+€31.650</td>
+                        </tr>
+                        <tr style="background: #d4edda; font-weight: 700;">
+                            <td><strong>EBITDA M6</strong></td>
+                            <td style="color: #28a745;">+€2.990 ✅ POSITIVO!</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- CONSOLIDATED BUDGET -->
+            <div class="section">
+                <div class="section-title">💰 Budget Consolidato 6 Mesi</div>
+
+                <div class="subsection-title">Proiezione Revenue (6 Mesi)</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mese</th>
+                            <th>Dealer</th>
+                            <th>Ordini/M</th>
+                            <th>Revenue</th>
+                            <th>OpEx</th>
+                            <th>EBITDA</th>
+                            <th>Cum. EBITDA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>M1</strong></td>
+                            <td>4</td>
+                            <td>600</td>
+                            <td class="positive">€1.240</td>
+                            <td class="negative">€9.200</td>
+                            <td class="negative">-€7.960</td>
+                            <td class="negative">-€7.960</td>
+                        </tr>
+                        <tr>
+                            <td><strong>M2</strong></td>
+                            <td>8</td>
+                            <td>1.380</td>
+                            <td class="positive">€5.740</td>
+                            <td class="negative">€11.690</td>
+                            <td class="negative">-€5.950</td>
+                            <td class="negative">-€13.910</td>
+                        </tr>
+                        <tr>
+                            <td><strong>M3</strong></td>
+                            <td>20</td>
+                            <td>3.105</td>
+                            <td class="positive">€11.420</td>
+                            <td class="negative">€16.310</td>
+                            <td class="negative">-€4.890</td>
+                            <td class="negative">-€18.800</td>
+                        </tr>
+                        <tr>
+                            <td><strong>M4</strong></td>
+                            <td>30</td>
+                            <td>4.345</td>
+                            <td class="positive">€18.190</td>
+                            <td class="negative">€21.930</td>
+                            <td class="negative">-€3.740</td>
+                            <td class="negative">-€22.540</td>
+                        </tr>
+                        <tr>
+                            <td><strong>M5</strong></td>
+                            <td>40</td>
+                            <td>5.610</td>
+                            <td class="positive">€23.230</td>
+                            <td class="negative">€23.980</td>
+                            <td class="negative">-€750</td>
+                            <td class="negative">-€23.290</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td><strong>M6</strong></td>
+                            <td>50</td>
+                            <td>7.500</td>
+                            <td class="positive">€31.650</td>
+                            <td class="negative">€28.660</td>
+                            <td class="positive">+€2.990</td>
+                            <td class="positive">-€20.300</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="metric-box" style="margin-top: 30px;">
+                    <div class="metric-card">
+                        <div class="label">Crescita Revenue</div>
+                        <div class="value">26x</div>
+                        <div class="label">€1.2K → €31.6K</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Crescita Dealer</div>
+                        <div class="value">12x</div>
+                        <div class="label">4 → 50</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Burn Totale</div>
+                        <div class="value">€20.3K</div>
+                        <div class="label">6 mesi</div>
+                    </div>
+                    <div class="metric-card" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">
+                        <div class="label">Break-Even</div>
+                        <div class="value">M6</div>
+                        <div class="label">EBITDA Mensile Positivo ✅</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIT ECONOMICS -->
+            <div class="section">
+                <div class="section-title">📈 Unit Economics & Margini</div>
+
+                <div class="subsection-title">Economia Per Ordine (Blended)</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metrica</th>
+                            <th>Valore</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Revenue per ordine</strong></td>
+                            <td class="positive">€2.07</td>
+                            <td>Subscription + transaction fee</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Costo variabile</strong></td>
+                            <td class="negative">€0.45</td>
+                            <td>Stripe €0.24 + WhatsApp €0.06 + infra €0.10 + CS €0.05</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td><strong>Contribution Margin</strong></td>
+                            <td>€1.62</td>
+                            <td><strong>78% margine (ECCELLENTE)</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="subsection-title">Economia Per Dealer (Blended)</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metrica</th>
+                            <th>Valore</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Revenue per dealer/mese</strong></td>
+                            <td class="positive">€310-415</td>
+                            <td>150-200 ordini/mese</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CAC (Customer Acq Cost)</strong></td>
+                            <td class="positive">€0</td>
+                            <td>Organico via referral rider</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td><strong>Payback Period</strong></td>
+                            <td>1.1 mesi</td>
+                            <td>Unit economics molto veloci ✅</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- FUNDING -->
+            <div class="section">
+                <div class="section-title">🏦 Funding Richiesto & Allocazione</div>
+
+                <div class="metric-box">
+                    <div class="metric-card" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">
+                        <div class="label">Seed Ask Totale</div>
+                        <div class="value">€75K</div>
+                        <div class="label">Conservativo</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="label">Runway Coverage</div>
+                        <div class="value">M1-M7</div>
+                        <div class="label">+ buffer</div>
+                    </div>
+                </div>
+
+                <div class="subsection-title">Allocazione Fondi (M1-M6)</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Categoria</th>
+                            <th>Totale</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Salari Team</strong></td>
+                            <td class="negative">€48.5K</td>
+                            <td>1 FTE → 6 FTE hiring plan</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cloud & Infra</strong></td>
+                            <td class="negative">€12.7K</td>
+                            <td>Supabase, Vercel, servers</td>
+                        </tr>
+                        <tr>
+                            <td><strong>APIs & Servizi</strong></td>
+                            <td class="negative">€8.5K</td>
+                            <td>WhatsApp, Stripe, Maps</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Marketing & BD</strong></td>
+                            <td class="negative">€11.0K</td>
+                            <td>Acquisizione cooperativas</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Legal, Admin, Travel</strong></td>
+                            <td class="negative">€15.1K</td>
+                            <td>Setup multi-city</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Contingency (10%)</strong></td>
+                            <td class="negative">€6.0K</td>
+                            <td>Buffer per sorprese</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td><strong>OPEX TOTALE</strong></td>
+                            <td>€111.8K</td>
+                            <td>€75K copre M1-M6 + buffer</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- CONCLUSION -->
+            <div class="section">
+                <div class="section-title">🏁 Conclusione</div>
+
+                <div class="metric-box">
+                    <div class="metric-card" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">
+                        <div class="label">Path to Profitability</div>
+                        <div class="value">M6</div>
+                        <div class="label">Burn controllato, strong unit economics</div>
+                    </div>
+                    <div class="metric-card" style="background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);">
+                        <div class="label">Perché Funziona</div>
+                        <div class="value">73%</div>
+                        <div class="label">Contribution margin</div>
+                    </div>
+                    <div class="metric-card" style="background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);">
+                        <div class="label">Exit Potential</div>
+                        <div class="value">€20-50M</div>
+                        <div class="label">Target acquisizione</div>
+                    </div>
+                </div>
+
+                <h3 style="color: #667eea; margin-top: 30px; margin-bottom: 20px;">Perché gli Investor Dovrebbero Finanziare DLOOP</h3>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>✅ <strong>Pain point provato:</strong> Dealer risparmiano €17.790/anno vs Alfonsino</li>
+                    <li>✅ <strong>Trazione reale:</strong> 4 dealer attivi, Amodio ready, MVP live</li>
+                    <li>✅ <strong>Modello defensibile:</strong> 0% commission + rider loyalty</li>
+                    <li>✅ <strong>Unit economics forti:</strong> 73% margin, 1.1-month payback</li>
+                    <li>✅ <strong>Crescita organica:</strong> CAC €0 via rider referrals</li>
+                    <li>✅ <strong>Exit chiaro:</strong> €20-50M acquisizione (Poste, Amazon, Carrefour)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p><strong>Documento:</strong> DLOOP Budget Civilistico 6 Mesi | <strong>Versione:</strong> 1.0 ITA</p>
+            <p><strong>Status:</strong> 🟢 Pronto per Investor Pitches | <strong>Data:</strong> 2026-03-12</p>
+            <p style="margin-top: 20px;">
+                <strong>Contatti:</strong> Crescenzo | WhatsApp: +39 328 185 4639 |
+                <strong>Email:</strong> crescenzo@dloop.it
+            </p>
+            <p style="margin-top: 15px; color: #999;">
+                🚀 <strong>Costruiamo il leader di mercato nella logistica cooperativa!</strong>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
