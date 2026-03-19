@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dloop — Investor Pitch Deck 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0D1F35;
+  --navy2: #0a1929;
+  --teal: #0B7A75;
+  --teal-lt: #14B8A6;
+  --amber: #F59E0B;
+  --cream: #F8F5EF;
+  --white: #FFFFFF;
+  --muted: rgba(255,255,255,0.55);
+  --border: rgba(255,255,255,0.08);
+  --green: #10B981;
+  --red: #EF4444;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-snap-type:y mandatory}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
+
+/* ── SLIDES ── */
+.slide{
+  min-height:100vh;scroll-snap-align:start;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:56px 80px;position:relative;overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.slide-n{
+  position:absolute;top:24px;right:36px;
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  color:rgba(255,255,255,0.25);letter-spacing:.15em
+}
+.content{position:relative;z-index:1}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+
+/* ── TYPO ── */
+.tag{
+  display:inline-block;font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--teal-lt);border:1px solid rgba(20,184,166,.4);
+  padding:4px 12px;border-radius:2px;margin-bottom:20px
+}
+h1{font-family:'DM Serif Display',serif;font-size:clamp(40px,5.5vw,68px);line-height:1.05;letter-spacing:-.02em}
+h2{font-family:'DM Serif Display',serif;font-size:clamp(30px,3.8vw,50px);line-height:1.1;letter-spacing:-.02em;margin-bottom:6px}
+h3{font-size:12px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--teal-lt);margin-bottom:14px}
+p.lead{font-size:17px;line-height:1.7;color:var(--muted);max-width:640px}
+.accent{color:var(--amber)} .tl{color:var(--teal-lt)} .gn{color:var(--green)}
+
+/* ── LOGO ── */
+.logomark{width:52px;height:52px;background:var(--teal);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:20px;color:#fff;margin-bottom:36px}
+
+/* ── GRID HELPERS ── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+
+/* ── CARDS ── */
+.card{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:24px 20px}
+.card h4{font-size:14px;font-weight:600;margin-bottom:6px;color:#fff}
+.card p{font-size:13px;line-height:1.55;color:var(--muted);max-width:none}
+.card .icon{font-size:26px;margin-bottom:12px}
+
+/* ── KPI ── */
+.kpi-val{font-family:'DM Serif Display',serif;font-size:38px;line-height:1;margin-bottom:4px}
+.kpi-lbl{font-size:11px;color:rgba(255,255,255,.4);line-height:1.4}
+.kpi-note{font-size:10px;color:var(--teal-lt);margin-top:4px;font-family:'JetBrains Mono',monospace}
+
+/* ── COMPETITOR TABLE ── */
+.cmp{width:100%;border-collapse:collapse;margin-top:28px;font-size:13px}
+.cmp th{text-align:left;padding:9px 14px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);border-bottom:1px solid var(--border);font-weight:500}
+.cmp td{padding:13px 14px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--muted);vertical-align:middle}
+.cmp tr.dl td{background:rgba(11,122,117,.12);color:#fff;font-weight:500}
+.cmp tr.dl td:first-child{border-left:3px solid var(--teal-lt)}
+.cmp .name{font-weight:600;color:#fff}
+.cmp .price{font-family:'JetBrains Mono',monospace;font-size:11px}
+.ck{color:var(--green);font-size:15px} .cx{color:rgba(255,255,255,.2);font-size:13px} .cp{color:var(--amber)}
+
+/* ── PRICING ── */
+.tier{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;border-radius:8px;margin-bottom:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06)}
+.tier.pop{background:rgba(11,122,117,.2);border-color:rgba(11,122,117,.5)}
+.tier-nm{font-size:13px;font-weight:500}
+.tier-pr{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--teal-lt)}
+.tier-dt{font-size:10px;color:rgba(255,255,255,.35);margin-top:1px}
+.pbadge{font-size:9px;background:var(--teal);color:#fff;padding:2px 7px;border-radius:20px}
+
+/* ── TRACTION ── */
+.tract{display:flex;gap:14px;align-items:flex-start;padding:18px;background:rgba(255,255,255,.04);border-radius:10px;border:1px solid var(--border)}
+.tract-dot{width:8px;height:8px;min-width:8px;border-radius:50%;background:var(--teal-lt);margin-top:5px}
+.tract h5{font-size:13px;font-weight:600;color:#fff;margin-bottom:3px}
+.tract p{font-size:12px;color:var(--muted);max-width:none}
+
+/* ── FUND BAR ── */
+.fbar-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--border)}
+.fbar-row:last-child{border:none}
+.fbar-lbl{font-size:12px;color:var(--muted);min-width:160px}
+.fbar-wrap{flex:1;height:4px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden}
+.fbar-fill{height:100%;background:var(--teal);border-radius:2px}
+.fbar-pct{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--teal-lt);min-width:32px;text-align:right}
+
+/* ── TEAM ── */
+.team-av{width:44px;height:44px;background:var(--teal);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:17px;color:#fff;margin-bottom:14px}
+.team-role{font-size:11px;color:var(--teal-lt);margin-bottom:8px;letter-spacing:.05em}
+
+/* ── ASK BOX ── */
+.ask{background:rgba(11,122,117,.15);border:1px solid rgba(11,122,117,.5);border-radius:16px;padding:32px 28px;text-align:center}
+.ask-amt{font-family:'DM Serif Display',serif;font-size:52px;color:var(--teal-lt);line-height:1;margin-bottom:6px}
+.ask-lbl{font-size:13px;color:var(--muted);margin-bottom:22px}
+
+/* ── RUNWAY BAR ── */
+.rwy{background:rgba(255,255,255,.06);border-radius:6px;height:8px;margin:28px 0 8px;position:relative}
+.rwy-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--teal-lt));border-radius:6px;width:61%;position:relative}
+.rwy-marker{position:absolute;right:-1px;top:-20px;font-size:9px;color:var(--teal-lt);font-family:'JetBrains Mono',monospace;white-space:nowrap}
+.rwy-labels{display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,.3);font-family:'JetBrains Mono',monospace}
+
+/* ── NAV ── */
+.nav{position:fixed;right:20px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:7px;z-index:100}
+.nd{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.2);cursor:pointer;transition:all .25s}
+.nd:hover,.nd.on{background:var(--teal-lt);transform:scale(1.5)}
+
+/* ── NOTE ── */
+.note{font-size:11px;color:rgba(255,255,255,.3);font-family:'JetBrains Mono',monospace;letter-spacing:.04em}
+
+@media(max-width:768px){
+  .slide{padding:40px 24px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .nav{display:none}
+  .cmp{font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nd on" onclick="go(0)"></div>
+  <div class="nd" onclick="go(1)"></div>
+  <div class="nd" onclick="go(2)"></div>
+  <div class="nd" onclick="go(3)"></div>
+  <div class="nd" onclick="go(4)"></div>
+  <div class="nd" onclick="go(5)"></div>
+  <div class="nd" onclick="go(6)"></div>
+  <div class="nd" onclick="go(7)"></div>
+  <div class="nd" onclick="go(8)"></div>
+  <div class="nd" onclick="go(9)"></div>
+  <div class="nd" onclick="go(10)"></div>
+</nav>
+
+<!-- ════════════════════════════════════════════
+  01 — COVER
+════════════════════════════════════════════ -->
+<section class="slide" id="s1">
+  <div class="orb" style="width:500px;height:500px;background:rgba(11,122,117,.28);top:-120px;right:-80px"></div>
+  <div class="orb" style="width:280px;height:280px;background:rgba(245,158,11,.14);bottom:60px;left:180px"></div>
+  <div class="content">
+    <div class="logomark">Dl</div>
+    <div class="tag">Seed Pitch · 2026 · Riservato</div>
+    <h1>Il sistema operativo<br>del <span class="accent">delivery locale</span><br>italiano.</h1>
+    <p class="lead" style="margin-top:20px">Dloop è la piattaforma SaaS B2B che gestisce ordini, rider e notifiche per operatori di delivery locali — con WhatsApp nativo, modello P.IVA e pricing accessibile alle PMI italiane.</p>
+    <div style="display:flex;gap:36px;flex-wrap:wrap;margin-top:48px">
+      <div><div class="note">Azienda</div><div style="font-size:14px;font-weight:500;margin-top:3px">CAV S.R.L. — Startup Innovativa</div></div>
+      <div><div class="note">Mercato</div><div style="font-size:14px;font-weight:500;margin-top:3px">Italia · Campania first</div></div>
+      <div><div class="note">Fase</div><div style="font-size:14px;font-weight:500;margin-top:3px">Pre-revenue · MVP pronto</div></div>
+      <div><div class="note">Ask</div><div style="font-size:14px;font-weight:500;margin-top:3px;color:var(--teal-lt)">€50.000 – €100.000</div></div>
+    </div>
+  </div>
+  <span class="slide-n">01 / 11</span>
+</section>
+
+<!-- ════════════════════════════════════════════
+  02 — PROBLEMA
+════════════════════════════════════════════ -->
+<section class="slide" id="s2" style="background:#0a1929">
+  <div class="content">
+    <div class="tag">Il problema</div>
+    <h2>3 inefficienze che frenano<br>il delivery locale italiano</h2>
+    <div class="g3" style="margin-top:36px">
+      <div class="card">
+        <div class="icon">📱</div>
+        <h4>Zero strumenti dedicati</h4>
+        <p>I merchant locali gestiscono ordini via WhatsApp personale, telefonate e fogli cartacei. Zero tracciabilità, zero analytics, errori continui.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🏍️</div>
+        <h4>Rider senza sistema</h4>
+        <p>I rider P.IVA ricevono incarichi via messaggi informali. Nessuna app dedicata, nessuna prova di consegna, nessun percorso ottimizzato.</p>
+      </div>
+      <div class="card">
+        <div class="icon">💸</div>
+        <h4>Software globali inaccessibili</h4>
+        <p>Onfleet, Tookan, LogiNext: pricing da $500+/mese in inglese, zero localizzazione italiana, nessun supporto al modello P.IVA.</p>
+      </div>
+    </div>
+    <div style="margin-top:28px;padding:16px 20px;background:rgba(245,158,11,.1);border-left:3px solid var(--amber);border-radius:4px">
+      <p style="font-size:13px;color:rgba(255,255,255,.75);max-width:none">
+        <strong style="color:var(--amber)">Il gap:</strong> In Italia operano oltre 45.000 attività di delivery locale nelle province di Napoli e Caserta. Nessun player offre oggi una soluzione verticale, in italiano, con prezzi da PMI.
+      </p>
+    </div>
+  </div>
+  <span class="slide-n">02 / 11</span>
+</section>
+
+<!-- ════════════════════════════════════════════
+  03 — SOLUZIONE
+════════════════════════════════════════════ -->
+<section class="slide" id="s3" style="background:linear-gradient(135deg,#0D1F35 0%,#0a2a28 100%)">
+  <div class="content">
+    <div class="tag">La soluzione</div>
+    <h2>Dloop — tutto il delivery<br>in un'unica piattaforma</h2>
+    <div class="g2" style="margin-top:36px;align-items:start">
+      <div>
+        <h3>Cosa fa Dloop</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:13px">
+          <li style="display:flex;gap:12px;font-size:15px;color:rgba(255,255,255,.8);line-height:1.5"><span style="color:var(--teal-lt);margin-top:2px">▸</span>Dashboard web per merchant: ricezione ordini, assegnazione rider, tracking live</li>
+          <li style="display:flex;gap:12px;font-size:15px;color:rgba(255,255,255,.8);line-height:1.5"><span style="color:var(--teal-lt);margin-top:2px">▸</span>App Flutter per rider P.IVA: ordini assegnati, navigazione, prova di consegna</li>
+          <li style="display:flex;gap:12px;font-size:15px;color:rgba(255,255,255,.8);line-height:1.5"><span style="color:var(--teal-lt);margin-top:2px">▸</span>WhatsApp Business integrato via Twilio: notifiche ordine in tempo reale</li>
+          <li style="display:flex;gap:12px;font-size:15px;color:rgba(255,255,255,.8);line-height:1.5"><span style="color:var(--teal-lt);margin-top:2px">▸</span>API PostGIS + Supabase per routing geografico e zone di consegna</li>
+          <li style="display:flex;gap:12px;font-size:15px;color:rgba(255,255,255,.8);line-height:1.5"><span style="color:var(--teal-lt);margin-top:2px">▸</span>Bot WhatsApp AI per raccolta ordini senza app dedicata ai clienti finali</li>
+        </ul>
+        <div style="margin-top:24px;padding:14px 18px;background:rgba(20,184,166,.1);border-radius:8px;border:1px solid rgba(20,184,166,.2)">
+          <p style="font-size:12px;color:rgba(255,255,255,.6);max-width:none">
+            <span style="color:var(--teal-lt);font-weight:600">Vantaggio legale unico:</span> Dloop non è un marketplace — è puro SaaS. I rider fatturano direttamente ai merchant (P.IVA → P.IVA). Nessun rischio lavoro subordinato, nessuna INPS, zero liability Dloop.
+          </p>
+        </div>
+      </div>
+      <div>
+        <h3>Notifica WhatsApp (esempio)</h3>
+        <div style="background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:20px;padding:20px 18px;max-width:260px">
+          <div style="font-size:10px;color:var(--teal-lt);font-family:'JetBrains Mono',monospace;margin-bottom:12px;letter-spacing:.08em">DLOOP · NOTIFICA ORDINE</div>
+          <div style="background:rgba(11,122,117,.3);border-radius:8px 8px 8px 2px;padding:10px 13px;font-size:12px;line-height:1.55;color:rgba(255,255,255,.85);border-left:2px solid var(--teal);margin-bottom:8px">
+            🛍️ <strong>Nuovo ordine #1042</strong><br>Pizza Roma — €34,50<br>Via Garibaldi 12, Napoli<br><br>Rider assegnato: Marco R. (⭐4.8)<br>ETA consegna: 22 min
+          </div>
+          <div style="background:rgba(255,255,255,.08);border-radius:8px 8px 2px 8px;padding:10px 13px;font-size:12px;color:rgba(255,255,255,.6);text-align:right;border-right:2px solid rgba(255,255,255,.2)">
+            ✅ Confermato<br><span style="font-size:10px;color:rgba(255,255,255,.35)">Rispondi STOP per disattivare</span>
+          </div>
+          <div style="margin-top:12px;font-size:10px;color:rgba(255,255,255,.3);font-family:'JetBrains Mono',monospace">via Twilio · WhatsApp Business</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="slide-n">03 / 11</span>
+</section>
+
+<!-- ════════════════════════════════════════════
+  04 — MERCATO
+════════════════════════════════════════════ -->
+<section class="slide" id="s4" style="background:#0a1929">
+  <div class="content">
+    <div class="tag">Mercato</div>
+    <h2>Un mercato frammentato,<br>ancora senza un leader verticale</h2>
+    <div class="g3" style="margin-top:36px">
+      <div style="background:rgba(11,122,117,.12);border:1px solid rgba(11,122,117,.3);border-radius:12px;padding:28px 22px;text-align:center">
+        <div class="kpi-val" style="color:var(--teal-lt)">€2,1B</div>
+        <div class="kpi-lbl">Mercato delivery locale Italia<br>stima 2025</div>
+        <div class="kpi-note" style="margin-top:8px">SOM target: €12M/anno</div>
+      </div>
+      <div style="background:rgba(11,122,117,.12);border:1px solid rgba(11,122,117,.3);border-radius:12px;padding:28px 22px;text-align:center">
+        <div class="kpi-val" style="color:var(--teal-lt)">45K+</div>
+        <div class="kpi-lbl">Attività delivery attive<br>Napoli + Caserta (beachhead)</div>
+        <div class="kpi-note" style="margin-top:8px">Solo 3-5% usa software dedicato</div>
+      </div>
+      <div style="background:rgba(11,122,117,.12);border:1px solid rgba(11,122,117,.3);border-radius:12px;padding:28px 22px;text-align:center">
+        <div class="kpi-val" style="color:var(--teal-lt)">€310</div>
+        <div class="kpi-lbl">Revenue media per dealer/mese<br>(canone + fee overage)</div>
+        <div class="kpi-note" style="margin-top:8px">LTV medio: €7.440 (24 mesi)</div>
+      </div>
+    </div>
+    <div class="g2" style="margin-top:24px">
+      <div class="card">
+        <h4>🏆 Vantaggio competitivo Dloop vs Alfonsino</h4>
+        <p>Un dealer Dloop risparmia <strong style="color:var(--green)">+€17.790/anno</strong> rispetto ad Alfonsino (marketplace che trattiene 25-30% sugli ordini). Dloop è puro SaaS — nessuna commissione sugli ordini.</p>
+      </div>
+      <div class="card">
+        <h4>🌍 Espansione geografica</h4>
+        <p>Campania first (Napoli, Caserta, Salerno) → Sud Italia M12 → nazionale M18. Modello replicabile: ogni provincia è un nuovo mercato autonomo.</p>
+      </div>
+    </div>
+  </div>
+  <span class="slide-n">04 / 11</span>
+</section>
+
+<!-- ════════════════════════════════════════════
+  05 — COMPETITOR
+════════════════════════════════════════════ -->
+<section class="slide" id="s5" style="background:#0D1F35">
+  <div class="content">
+    <div class="tag">Analisi competitiva</div>
+    <h2>Nessun competitor ha<br>il posizionamento di Dloop</h2>
+    <table class="cmp">
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th>Pricing</th>
+          <th>WhatsApp nativo</th>
+          <th>Modello P.IVA IT</th>
+          <th>Italiano</th>
+          <th>PMI-ready</th>
+          <th>SaaS puro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="dl">
+          <td class="name">🟢 Dloop</td>
+          <td class="price">€39–€499/mese</td>
+          <td><span class="ck">✓</span></td>
+          <td><span class="ck">✓</span></td>
+          <td><span class="ck">✓</span></td>
+          <td><span class="ck">✓</span></td>
+          <td><span class="ck">✓</span></td>
+        </tr>
+        <tr>
+          <td class="name">Onfleet</td>
+          <td class="price">$500+/mese</td>
+          <td><span class="cx">✗</span></td>
+          <td><span class="cx">✗</span></td>
+          <td><span class="cx">✗</span></td>
+          <td><span class="cx">✗</span></td>
+          <td><span class="ck">✓</span></td>
+        </tr>
+        <tr>
+          <td class="name">Tookan</td>
+          <td class="price">$99–$299/mese</td>
+          <td><span class="cx">✗</span></td>
+          <td><span class="cx">✗</span></td>
+          <td><span class="cx">✗</span></td>
+          <td><span class="cp">~</span></td>
+          <td><span class="ck">✓</span></td>
+        </tr>
+        <tr>
+          <td class="name">LogiNext Mile</td>
+          <td class="price">Enterprise</td>
+          <td><span class="cx">✗</span></td>
+          <td><span class="cx">✗</span></td>
+          <td><span class="cx">✗</span></td>
+          <td><span class="cx">✗</span></td>
+          <td><span class="ck">✓</span></td>
+        </tr>
+        <tr>
+          <td class="name">Alfonsino</td>
+          <td class="price">25–30% commiss.</td>
+          <td><span class="cp">~</span></td>
+          <td><span class="cx">✗</span></td>
+          <td><span class="ck">✓</span></td>
+          <td><span class="cp">~</span></td>
+          <td><span class="cx">✗</span></td>
+        </tr>
+        <tr>
+          <td class="name">Bringg / eLogii</td>
+          <td class="price">Enterprise</td>
+          <td><span class="cx">✗</span></td>
+          <td><span class="cx">✗</span></td>
+          <td><span class="cx">✗</span></td>
+          <td><span class="cx">✗</span></td>
+          <td><span class="ck">✓</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:12px;color:rgba(255,255,255,.3);margin-top:14px;font-family:'JetBrains Mono',monospace">✓ = sì &nbsp;|&nbsp; ✗ = no &nbsp;|&nbsp; ~ = parziale/indiretto</p>
+  </div>
+  <span class="slide-n">05 / 11</span>
+</section>
+
+<!-- ════════════════════════════════════════════
+  06 — BUSINESS MODEL
+════════════════════════════════════════════ -->
+<section class="slide" id="s6" style="background:#0a2a28">
+  <div class="content">
+    <div class="tag">Business model</div>
+    <h2>Canone SaaS + fee per ordine.<br>Ricavi multipli, costi fissi.</h2>
+    <div class="g2" style="margin-top:32px;align-items:start">
+      <div>
+        <h3>SMB — Merchant singoli</h3>
+        <div class="tier"><div><div class="tier-nm">Starter</div><div class="tier-dt">50 ordini inclusi · €0,80/extra</div></div><div class="tier-pr">€39/mese</div></div>
+        <div class="tier pop"><div><div class="tier-nm">Pro &nbsp;<span class="pbadge">Più popolare</span></div><div class="tier-dt">100 ordini inclusi · €0,80/extra</div></div><div class="tier-pr">€79/mese</div></div>
+        <div class="tier"><div><div class="tier-nm">Enterprise</div><div class="tier-dt">250 ordini inclusi · €0,50/extra</div></div><div class="tier-pr">€149/mese</div></div>
+        <div style="margin-top:20px">
+          <h3>B2B Operator — Flotte delivery</h3>
+          <div class="tier"><div><div class="tier-nm">Starter</div><div class="tier-dt">500 ord. inclusi · €0,90/extra</div></div><div class="tier-pr">€99/mese</div></div>
+          <div class="tier pop"><div><div class="tier-nm">Business &nbsp;<span class="pbadge">Target ADV</span></div><div class="tier-dt">1.500 ord. inclusi · €0,60/extra</div></div><div class="tier-pr">€199/mese</div></div>
+          <div class="tier" style="border-color:rgba(16,185,129,.3);background:rgba(16,185,129,.08)"><div><div class="tier-nm" style="color:var(--green)">Business Plus ★</div><div class="tier-dt">3.000 ord. inclusi · €0,45/extra</div></div><div class="tier-pr" style="color:var(--green)">€299/mese</div></div>
+          <div class="tier"><div><div class="tier-nm">Enterprise</div><div class="tier-dt">5.000 ord. inclusi · €0,30/extra</div></div><div class="tier-pr">€499/mese</div></div>
+        </div>
+      </div>
+      <div>
+        <h3>Unit economics per ordine</h3>
+        <div style="background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:22px">
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px"><span style="color:var(--muted)">Revenue blended/ordine</span><span style="font-family:'JetBrains Mono',monospace;color:var(--teal-lt)">€2,07</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px"><span style="color:var(--muted)">Costo variabile/ordine</span><span style="font-family:'JetBrains Mono',monospace;color:var(--red)">–€0,55</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;font-weight:600"><span style="color:#fff">Margine/ordine</span><span style="font-family:'JetBrains Mono',monospace;color:var(--green)">€1,52</span></div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;font-size:13px;font-weight:600"><span style="color:#fff">Gross Margin</span><span style="font-family:'JetBrains Mono',monospace;color:var(--green)">73%</span></div>
+        </div>
+        <div style="margin-top:16px;padding:14px 18px;background:rgba(245,158,11,.1);border-left:3px solid var(--amber);border-radius:4px">
+          <p style="font-size:12px;color:rgba(255,255,255,.75);max-width:none">
+            <strong style="color:var(--amber)">Revenue/dealer media:</strong> €310/mese (canone + overage). Anno 1 target: 61 dealer attivi = break-even operativo.
+          </p>
+        </div>
+        <div style="margin-top:16px;padding:14px 18px;background:rgba(16,185,129,.08);border-left:3px solid var(--green);border-radius:4px">
+          <p style="font-size:12px;color:rgba(255,255,255,.75);max-width:none">
+            <strong style="color:var(--green)">WhatsApp Bot add-on:</strong> +€39–€78/mese per merchant. Ricavo aggiuntivo senza costi di acquisizione extra.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="slide-n">06 / 11</span>
+</section>
+
+<!-- ════════════════════════════════════════════
+  07 — METRICHE FINANZIARIE
+════════════════════════════════════════════ -->
+<section class="slide" id="s7" style="background:#0a1929">
+  <div class="content">
+    <div class="tag">Proiezioni finanziarie</div>
+    <h2>Break-even M11.<br>LTV:CAC 16-18x.</h2>
+    <div class="g4" style="margin-top:36px">
+      <div class="card">
+        <div class="kpi-val tl">M11</div>
+        <div class="kpi-lbl">Break-even operativo</div>
+        <div class="kpi-note">@ 61 dealer attivi</div>
+      </div>
+      <div class="card">
+        <div class="kpi-val" style="color:var(--green)">73%</div>
+        <div class="kpi-lbl">Gross margin</div>
+        <div class="kpi-note">Benchmark SaaS: >70% ✓</div>
+      </div>
+      <div class="card">
+        <div class="kpi-val" style="color:var(--amber)">16-18x</div>
+        <div class="kpi-lbl">LTV:CAC ratio</div>
+        <div class="kpi-note">Benchmark VC: >3x ✓✓✓</div>
+      </div>
+      <div class="card">
+        <div class="kpi-val tl">4 mesi</div>
+        <div class="kpi-lbl">CAC Payback Period</div>
+        <div class="kpi-note">Benchmark: &lt;18 mesi ✓✓</div>
+      </div>
+    </div>
+    <div class="g2" style="margin-top:24px">
+      <div>
+        <h3>Crescita MRR (Guerriglia 18 mesi)</h3>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:8px 14px;background:rgba(255,255,255,.04);border-radius:6px">
+            <span style="color:var(--muted)">M3 — seed ricevuto</span><span style="font-family:'JetBrains Mono',monospace;color:var(--teal-lt)">€744 MRR</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:8px 14px;background:rgba(255,255,255,.04);border-radius:6px">
+            <span style="color:var(--muted)">M6 — scala outreach</span><span style="font-family:'JetBrains Mono',monospace;color:var(--teal-lt)">€3.021 MRR</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:8px 14px;background:rgba(255,255,255,.04);border-radius:6px">
+            <span style="color:var(--muted)">M11 — break-even</span><span style="font-family:'JetBrains Mono',monospace;color:var(--green)">~€13.000 MRR ✓</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:8px 14px;background:rgba(16,185,129,.08);border-radius:6px;border:1px solid rgba(16,185,129,.2)">
+            <span style="color:var(--muted)">M18 — regime</span><span style="font-family:'JetBrains Mono',monospace;color:var(--green)">€25.000+ MRR</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3>Anno 1 — P&L Guerriglia</h3>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:8px 14px;background:rgba(255,255,255,.04);border-radius:6px">
+            <span style="color:var(--muted)">Burn totale Anno 1</span><span style="font-family:'JetBrains Mono',monospace;color:var(--red)">€74.694</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:8px 14px;background:rgba(255,255,255,.04);border-radius:6px">
+            <span style="color:var(--muted)">OpEx mensile (3 FTE)</span><span style="font-family:'JetBrains Mono',monospace;color:var(--muted)">€9.400–€13.800</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:8px 14px;background:rgba(255,255,255,.04);border-radius:6px">
+            <span style="color:var(--muted)">CAC Guerriglia M1-M4</span><span style="font-family:'JetBrains Mono',monospace;color:var(--teal-lt)">€42/dealer</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;padding:8px 14px;background:rgba(11,122,117,.12);border-radius:6px;border:1px solid rgba(11,122,117,.3)">
+            <span style="color:var(--muted)">Saving vs Alfonsino/dealer</span><span style="font-family:'JetBrains Mono',monospace;color:var(--green)">+€17.790/anno</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:20px">
+      <div class="note" style="margin-bottom:8px">Runway seed €75K → cassa positiva M3–M10 · break-even operativo M11 · secondo round o profittabilità da M12</div>
+      <div class="rwy">
+        <div class="rwy-fill"><span class="rwy-marker">▲ M11 break-even</span></div>
+      </div>
+      <div class="rwy-labels"><span>M1</span><span>M3 seed in</span><span>M6</span><span>M9</span><span>M11 ✓</span><span>M18</span></div>
+    </div>
+  </div>
+  <span class="slide-n">07 / 11</span>
+</section>
+
+<!-- ════════════════════════════════════════════
+  08 — TRAZIONE
+════════════════════════════════════════════ -->
+<section class="slide" id="s8" style="background:linear-gradient(160deg,#0D1F35 0%,#0a2a28 100%)">
+  <div class="content">
+    <div class="tag">Trazione e validazione</div>
+    <h2>MVP pronto.<br>Primi merchant già identificati.</h2>
+    <div class="g2" style="margin-top:32px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="tract">
+          <div class="tract-dot"></div>
+          <div><h5>App Rider Flutter — prototipo funzionante</h5><p>Sviluppato da Saba (CTO, P.IVA). Ordini, navigazione, prova di consegna. Pronto per deployment su iOS e Android.</p></div>
+        </div>
+        <div class="tract">
+          <div class="tract-dot"></div>
+          <div><h5>WhatsApp Bot dual-AI (Operai + Haiku)</h5><p>Strategia parallela con fallback integrato. Costo ~€78/anno, 95% accuratezza. Tutti i file di deployment pronti.</p></div>
+        </div>
+        <div class="tract">
+          <div class="tract-dot"></div>
+          <div><h5>Pipeline warm: 3-5 merchant certi a M1</h5><p>CEO fa outreach diretto. Mario Cucciolito (Pet) e rete personale Pomigliano/Napoli. Zero costi paid ads M1-M4.</p></div>
+        </div>
+        <div class="tract">
+          <div class="tract-dot"></div>
+          <div><h5>ADV Advertising Company srl — target B2B</h5><p>Operatore logistico Napoli identificato come primo cliente Business tier (500–1.000 ordini/mese).</p></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="tract">
+          <div class="tract-dot"></div>
+          <div><h5>Stack tecnico production-ready</h5><p>Flutter + Supabase (PostgreSQL + PostGIS) + Firebase + Twilio WhatsApp Business API. Architettura verificata e deployable.</p></div>
+        </div>
+        <div class="tract">
+          <div class="tract-dot"></div>
+          <div><h5>Struttura legale verificata</h5><p>CAV S.R.L. costituita come startup innovativa (D.L. 3/2015). P.IVA 09532291219. Modello BlaBlaCar-style per rider P.IVA validato con consulente legale.</p></div>
+        </div>
+        <div class="tract">
+          <div class="tract-dot"></div>
+          <div><h5>Verifica Twilio in corso</h5><p>Case ID 1380112390587406 — documentazione inviata. Fallback Twilio alternativo pronto. WhatsApp Business API operativa entro 15 gg.</p></div>
+        </div>
+        <div class="tract">
+          <div class="tract-dot"></div>
+          <div><h5>GitHub + documentazione pubblica</h5><p>Pitch deck, financial model e codebase su github.com/creamoj-ai. Due diligence tecnica aperta a investitori.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="slide-n">08 / 11</span>
+</section>
+
+<!-- ════════════════════════════════════════════
+  09 — TEAM
+════════════════════════════════════════════ -->
+<section class="slide" id="s9" style="background:#0a1929">
+  <div class="content">
+    <div class="tag">Il team</div>
+    <h2>Founder-led, asset-light,<br>esecuzione guerriglia.</h2>
+    <div class="g3" style="margin-top:36px">
+      <div class="card">
+        <div class="team-av">CA</div>
+        <h4>Crescenzo Amodio</h4>
+        <div class="team-role">Founder & CEO</div>
+        <p>Imprenditore seriale, Pomigliano d'Arco. Gestisce CAV S.R.L. e il B&B Dloop. Fa sales direttamente M1-M4 (strategia guerriglia). Coordina pitch MoodCapital.</p>
+      </div>
+      <div class="card">
+        <div class="team-av" style="background:#0a5a56">SB</div>
+        <h4>Saba</h4>
+        <div class="team-role">CTO / Lead Dev — P.IVA</div>
+        <p>Sviluppatore Flutter senior. Ha costruito il prototipo Rider App e l'architettura Supabase/PostGIS. Collaborazione continuativa come autonomo.</p>
+      </div>
+      <div class="card" style="border-style:dashed;opacity:0.75">
+        <div class="team-av" style="background:#2d3748">+4</div>
+        <h4>Hiring Plan 2026</h4>
+        <div class="team-role">Con il seed round</div>
+        <p>Customer Success (M4), Marketing Exec (M4), Sales BDR (M5 — 3 mesi prima del Conservative), Dev Junior P.IVA (M7), Back Office (M6).</p>
+      </div>
+    </div>
+    <div style="margin-top:24px;padding:18px 20px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px">
+      <p style="font-size:13px;color:var(--muted);max-width:none">
+        <strong style="color:#fff">Vantaggio Guerriglia:</strong> Il CEO fa outreach diretto M1-M4 — nessun costo sales aggiuntivo. Il Sales BDR entra a M5 (vs M8 del Conservative), anticipando di 3 mesi il picco di acquisizione. CAC medio M1: <span style="color:var(--teal-lt);font-family:'JetBrains Mono',monospace">€42/dealer</span>.
+      </p>
+    </div>
+  </div>
+  <span class="slide-n">09 / 11</span>
+</section>
+
+<!-- ════════════════════════════════════════════
+  10 — FUNDRAISING
+════════════════════════════════════════════ -->
+<section class="slide" id="s10" style="background:#0a2a28">
+  <div class="content">
+    <div class="tag">Fundraising</div>
+    <h2>€50K–€100K seed.<br>Runway 16 mesi verso break-even.</h2>
+    <div class="g2" style="margin-top:36px;align-items:start">
+      <div class="ask">
+        <div class="ask-amt">€75K</div>
+        <div class="ask-lbl">importo target (range €50K–€100K)</div>
+        <div style="font-size:13px;color:var(--muted);text-align:left;line-height:1.7">
+          <strong style="color:#fff">Struttura:</strong><br>
+          Pure equity seed round<br>
+          SAFE note o equity diretta<br>
+          <br>
+          <strong style="color:#fff">Investitori target:</strong><br>
+          MoodCapital (contatto attivo)<br>
+          Mario Cucciolito €10-20K (Tier 1)<br>
+          Micro-VC Sud Italia (Tier 2, aprile)<br>
+          <br>
+          <strong style="color:#fff">Milestone post-seed:</strong><br>
+          M3: primo batch 5 merchant<br>
+          M6: 20+ merchant, MRR €3K<br>
+          M11: break-even, 61 dealer
+        </div>
+      </div>
+      <div>
+        <h3>Uso dei fondi</h3>
+        <div style="display:flex;flex-direction:column;gap:4px;margin-top:8px">
+          <div class="fbar-row"><div class="fbar-lbl">Sviluppo prodotto (Saba)</div><div class="fbar-wrap"><div class="fbar-fill" style="width:35%"></div></div><div class="fbar-pct">35%</div></div>
+          <div class="fbar-row"><div class="fbar-lbl">Sales & Marketing (M1-M6)</div><div class="fbar-wrap"><div class="fbar-fill" style="width:25%"></div></div><div class="fbar-pct">25%</div></div>
+          <div class="fbar-row"><div class="fbar-lbl">CEO + Operations (M1-M6)</div><div class="fbar-wrap"><div class="fbar-fill" style="width:20%"></div></div><div class="fbar-pct">20%</div></div>
+          <div class="fbar-row"><div class="fbar-lbl">Infrastruttura cloud</div><div class="fbar-wrap"><div class="fbar-fill" style="width:12%"></div></div><div class="fbar-pct">12%</div></div>
+          <div class="fbar-row"><div class="fbar-lbl">Legale, GDPR, Iubenda</div><div class="fbar-wrap"><div class="fbar-fill" style="width:8%"></div></div><div class="fbar-pct">8%</div></div>
+        </div>
+        <div style="margin-top:24px;padding:16px 18px;background:rgba(245,158,11,.1);border-left:3px solid var(--amber);border-radius:4px">
+          <p style="font-size:13px;color:rgba(255,255,255,.8);max-width:none;line-height:1.6">
+            <strong style="color:var(--amber)">Perché adesso?</strong><br>
+            MVP pronto, zero capex, team lean. Il seed finanzia 16 mesi fino al break-even senza bisogno di un secondo round. Il modello Guerriglia riduce il burn Anno 1 da €331K (conservative) a <strong>€74.694 (–77%)</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class="slide-n">10 / 11</span>
+</section>
+
+<!-- ════════════════════════════════════════════
+  11 — CHIUSURA
+════════════════════════════════════════════ -->
+<section class="slide" id="s11">
+  <div class="orb" style="width:600px;height:600px;background:rgba(11,122,117,.18);bottom:-200px;right:-150px"></div>
+  <div class="orb" style="width:250px;height:250px;background:rgba(245,158,11,.1);top:40px;left:-30px"></div>
+  <div class="content">
+    <div class="tag">Il prossimo passo</div>
+    <p style="font-size:14px;color:var(--teal-lt);font-family:'JetBrains Mono',monospace;letter-spacing:.08em;margin-bottom:16px">IL DELIVERY LOCALE ITALIANO MERITA UNO STRUMENTO MADE IN ITALY</p>
+    <div class="closing-tagline" style="font-family:'DM Serif Display',serif;font-size:clamp(34px,4.5vw,56px);line-height:1.1;letter-spacing:-.02em;margin-bottom:36px;max-width:680px">
+      Dloop è <span class="accent">pronto</span>.<br>
+      Il mercato è <span class="tl">aperto</span>.<br>
+      Manca solo il <span class="gn">trigger</span>.
+    </div>
+    <p class="lead">Cerchiamo €50K–€100K per portare Dloop ai primi 61 merchant, raggiungere il break-even a M11 e costruire il leader verticale del delivery locale italiano.</p>
+    <div style="display:flex;gap:36px;flex-wrap:wrap;margin-top:48px">
+      <div><div class="note">Founder & CEO</div><div style="font-size:15px;font-weight:500;margin-top:3px">Crescenzo Amodio</div></div>
+      <div><div class="note">Email</div><div style="font-size:15px;font-weight:500;margin-top:3px">info@dloop.it</div></div>
+      <div><div class="note">Sito</div><div style="font-size:15px;font-weight:500;margin-top:3px">www.dloop.it</div></div>
+      <div><div class="note">GitHub</div><div style="font-size:15px;font-weight:500;margin-top:3px">github.com/creamoj-ai</div></div>
+      <div><div class="note">P.IVA</div><div style="font-size:15px;font-weight:500;margin-top:3px">IT 09532291219</div></div>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:28px;left:80px;font-size:10px;color:rgba(255,255,255,.18);font-family:'JetBrains Mono',monospace;letter-spacing:.05em">
+    RISERVATO · CAV S.R.L. · Startup Innovativa ex D.L. 3/2015 · Napoli · 2026
+  </div>
+  <span class="slide-n">11 / 11</span>
+</section>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+const dots=document.querySelectorAll('.nd');
+function go(i){slides[i].scrollIntoView({behavior:'smooth'})}
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const i=[...slides].indexOf(e.target);
+      dots.forEach((d,j)=>d.classList.toggle('on',i===j));
+    }
+  });
+},{threshold:.5});
+slides.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
