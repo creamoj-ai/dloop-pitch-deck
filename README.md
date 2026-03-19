@@ -295,3 +295,19 @@ Main:            master (stable)
 **Start Here**: [START_HERE_GUERRILLA_2026.md](START_HERE_GUERRILLA_2026.md)
 
 🚀 **Let's close €50K in 90 days!**
+
+---
+
+## 🎬 PITCH DECK COMPLETO — v3.0 (Marzo 2026)
+
+| File | Cosa è | Link |
+|------|--------|------|
+| **DLOOP_PITCH_DECK_COMPLETO_2026.html** | ★ Nuovo pitch 11 slide — investor-ready | [02-INVESTOR-PRESENTATIONS/](02-INVESTOR-PRESENTATIONS/DLOOP_PITCH_DECK_COMPLETO_2026.html) |
+| **DLOOP_Budget_Guerriglia_FULL_v2.xlsx** | Budget completo 16 fogli, 1.958 formule | [03-FINANCIAL-MODELS/](03-FINANCIAL-MODELS/DLOOP_Budget_Guerriglia_FULL_v2.xlsx) |
+
+### Novità v3.0
+- Pricing confermato: SMB €39/€79/€149, B2B 4 tier (★ Business Plus €299)
+- Competitor analysis: Onfleet, Tookan, LogiNext, Alfonsino, Bringg, eLogii
+- Unit economics verificati: LTV:CAC 16-18x, CAC Payback 4 mesi, Gross Margin 73%
+- Key numbers dal repo: burn €74.694 Anno 1, saving vs Alfonsino +€17.790/dealer/anno
+- Stack tecnico aggiornato: Flutter + Supabase/PostGIS + Firebase + Twilio WhatsApp
